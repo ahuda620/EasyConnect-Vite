@@ -1,0 +1,116 @@
+{
+  "status": "OK",
+  "request_id": "65097d32-1196-457d-a1de-2b818539420f",
+  "parameters": {
+    "query": "web developer, ca, usa",
+    "page": 1,
+    "num_pages": 1,
+    "date_posted": "all"
+  },
+  "data": [
+    {
+      "job_id": "VMes2-yvRWAujKciAAAAAA==",
+      "employer_name": "Atlas Lift Tech",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPrOr-BJQzJHzmh955KFgBIU7n3S3Oq0A5tb-m&s=0",
+      "employer_website": null,
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "LinkedIn",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Mobile Software Developer",
+      "job_apply_link": "https://www.linkedin.com/jobs/view/mobile-software-developer-at-atlas-lift-tech-4040123903?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.6205,
+      "apply_options": [
+        {
+          "publisher": "LinkedIn",
+          "apply_link": "https://www.linkedin.com/jobs/view/mobile-software-developer-at-atlas-lift-tech-4040123903?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "BeBee",
+          "apply_link": "https://us.bebee.com/job/a3785de2cab58bd5d1622a0d00063e50?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "Job Description\n\nABOUT THE ROLE\n\nThis is a ground-floor opportunity for the right person to be a key player in the tech department. During this journey, you will find opportunities to grow and work on the leading edge of technology. Your work will directly contribute to saving and improving people’s lives.\n\nKEY RESPONSIBILITIES\n• Your work will directly contribute to saving and improving people’s lives.\n• Ability and desire to work in our collaborative environment: open team room, pair programming and fluid interactions with all products and operations teams\n• Focus on building solutions utilizing an agile approach: close relationships with Lead Developer and Business Analyst, communicating and digesting real time feedback\n• Develop complex software systems scaling to thousands of users with production quality deployment, testing, monitoring and reliability\n• Ensure all technology practices are in compliance with regulatory standards such as HIPAA\n• Assist the development team in meeting deployment and release deadlines\n• Carry out safe and downtime-proof software releases\n• Work with the development team to not only develop products but also inform the team how leveraging certain technologies can help the company become more successful\n• Working with the lead developer to enhance and optimize the application architecture\n\nSKILLS & QUALIFICATIONS\n• BS in Computer Science or equivalent experience\n• 4+ years of experience building software in a scaled distributed environment\n• 3+ years of experience building native iOS mobile applications using Apple Development tools\n• 3+ years of experience coding in Swift, Objective-C\n• Have expertise in one or more object-oriented languages, including Python, Go, Java, or C++, and an eagerness to learn more\n• A strong understanding of SOLID design principles, Domain Driven Design, and Contract First Development, Dependency Injection, and Reactive programming\n• Experience with mobile development\n• Have experience with distributed storage and database systems, including SQL or NoSQL, MySQL, or Cassandra\n• Understanding of MQTT, Bluetooth/BLE, WiFi services and protocols, Mesh-networking, TLS/SSL protocol\n• Understanding of CI/CD tools such as Azure DevOps and XCode Server and deploying applications in a DevOps environment\n• Familiar with secure coding standards and practices\n• Code Quality/Coverage Tools (Sonar or equivalent) Test/Automation (Jest, Cypress, Cucumber, or any similar framework)\n• Experience in Agile development practices, added bonus for Agile lead experience\n• Experience working with various wearable sensors: Gyroscope, Moisture sensor, Accelerometer/Motion sensor, Proximity sensor\n• Proven working experience leveraging Apple WatchKit with Core Motion\n• Cloud experience, with a preference on Azure\n• Strong desire to have a career rather than a job, and to grow with the company.\n• Prior experience with health data standards/protocols and integration, including HL7 is highly desirable\n• Experience consuming and implementing REST & GraphQL APIs\n• Excellent interpersonal skills and ability to work well with all levels of engineers/staff\n• Possess the drive to exceed expectations and lead by example\n• Hardware Experience in new technology trends is a definite bonus: IoT, Wearables (Apple Watch)\n• Passion for wellness\n\nAtlas Lift Tech, Inc. is an equal-opportunity employer. All aspects of employment including the decision to hire, promote, discipline, or\n\ndischarge, will be based on merit, competence, performance, and business needs. We do not discriminate on the basis of race, color,\n\nreligion, marital status, age, national origin, ancestry, physical or mental disability, medical condition, pregnancy, genetic information,\n\ngender, sexual orientation, gender identity or expression, veteran status, or any other status protected under federal, state, or local law.\n\nCompany Description\n\nAtlas Lift Tech, Inc. is a total mobility solutions provider. We combine our on-demand data tracking software with on-site Mobility Technicians integrated in the hospital up to 24 hours a day. Mobility Technicians are available on a scheduled or emergency basis through continuous rounding on the units, as well as in-unit and bedside training. Our Mobility Technicians are able to capture leading, lagging and real-time indicators through our Mobility Cloud Software to guide and support hospital leadership through decisions that impact complications due to immobility. Atlas Mobility Technicians become experts on Safe Patient Handling and Mobility (SPHM) policies and procedures, training needs, and SPHM equipment and devices. They are highly trained using best practice standards and protocols. They are a consistently available resource to train and assist your clinical staff at the bedside. The Mobility Technician Program reduces hospital employee injury and patient risks associated with Hospital Acquired Pressure Injuries (HAPI), falls and other negative outcomes of immobility. We are already changing the lives of healthcare professionals and their patients, but we feel we can do so much more. To do this, we need professionals like you who can help advance our systems to the next level. We will stretch your skills and elevate your ability to grow personally and professionally.\n\nCompany Description\n\nAtlas Lift Tech, Inc. is a total mobility solutions provider. We combine our on-demand data tracking software with on-site Mobility Technicians integrated in the hospital up to 24 hours a day. Mobility Technicians are available on a scheduled or emergency basis through continuous rounding on the units, as well as in-unit and bedside training. Our Mobility Technicians are able to capture leading, lagging and real-time indicators through our Mobility Cloud Software to guide and support hospital leadership through decisions that impact complications due to immobility. Atlas Mobility Technicians become experts on Safe Patient Handling and Mobility (SPHM) policies and procedures, training needs, and SPHM equipment and devices. They are highly trained using best practice standards and protocols. They are a consistently available resource to train and assist your clinical staff at the bedside. The Mobility Technician Program reduces hospital employee injury and patient risks associated with Hospital Acquired Pressure Injuries (HAPI), falls and other negative outcomes of immobility. We are already changing the lives of healthcare professionals and their patients, but we feel we can do so much more. To do this, we need professionals like you who can help advance our systems to the next level. We will stretch your skills and elevate your ability to grow personally and professionally.",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1727969521,
+      "job_posted_at_datetime_utc": "2024-10-03T15:32:01.000Z",
+      "job_city": "San Jose",
+      "job_state": "CA",
+      "job_country": "US",
+      "job_latitude": 37.33874,
+      "job_longitude": -121.885254,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer,+ca,+usa&start=0&udm=8#vhid=vt%3D20/docid%3DVMes2-yvRWAujKciAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-02T15:31:58.000Z",
+      "job_offer_expiration_timestamp": 1730561518,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "true",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": "false",
+        "professional_certification": "false",
+        "high_school": "false",
+        "associates_degree": "false",
+        "bachelors_degree": "true",
+        "degree_mentioned": "true",
+        "degree_preferred": "true",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "BS in Computer Science or equivalent experience",
+          "4+ years of experience building software in a scaled distributed environment",
+          "3+ years of experience building native iOS mobile applications using Apple Development tools",
+          "3+ years of experience coding in Swift, Objective-C",
+          "Have expertise in one or more object-oriented languages, including Python, Go, Java, or C++, and an eagerness to learn more",
+          "A strong understanding of SOLID design principles, Domain Driven Design, and Contract First Development, Dependency Injection, and Reactive programming",
+          "Have experience with distributed storage and database systems, including SQL or NoSQL, MySQL, or Cassandra",
+          "Understanding of MQTT, Bluetooth/BLE, WiFi services and protocols, Mesh-networking, TLS/SSL protocol",
+          "Understanding of CI/CD tools such as Azure DevOps and XCode Server and deploying applications in a DevOps environment",
+          "Familiar with secure coding standards and practices",
+          "Code Quality/Coverage Tools (Sonar or equivalent) Test/Automation (Jest, Cypress, Cucumber, or any similar framework)",
+          "Experience in Agile development practices, added bonus for Agile lead experience",
+          "Experience working with various wearable sensors: Gyroscope, Moisture sensor, Accelerometer/Motion sensor, Proximity sensor",
+          "Proven working experience leveraging Apple WatchKit with Core Motion",
+          "Cloud experience, with a preference on Azure",
+          "Strong desire to have a career rather than a job, and to grow with the company",
+          "Experience consuming and implementing REST & GraphQL APIs",
+          "Excellent interpersonal skills and ability to work well with all levels of engineers/staff",
+          "Possess the drive to exceed expectations and lead by example",
+          "Hardware Experience in new technology trends is a definite bonus: IoT, Wearables (Apple Watch)",
+          "Passion for wellness"
+        ],
+        "Responsibilities": [
+          "Your work will directly contribute to saving and improving people’s lives",
+          "Ability and desire to work in our collaborative environment: open team room, pair programming and fluid interactions with all products and operations teams",
+          "Focus on building solutions utilizing an agile approach: close relationships with Lead Developer and Business Analyst, communicating and digesting real time feedback",
+          "Develop complex software systems scaling to thousands of users with production quality deployment, testing, monitoring and reliability",
+          "Ensure all technology practices are in compliance with regulatory standards such as HIPAA",
+          "Assist the development team in meeting deployment and release deadlines",
+          "Carry out safe and downtime-proof software releases",
+          "Work with the development team to not only develop products but also inform the team how leveraging certain technologies can help the company become more successful",
+          "Working with the lead developer to enhance and optimize the application architecture"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113200",
+      "job_onet_job_zone": "4",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    }
+  ]
+}

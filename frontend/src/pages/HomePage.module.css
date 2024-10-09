@@ -1,0 +1,38 @@
+.pageWrapper {
+  min-height: 93svh;
+  background-image: url("../assets/rootBackgroundv2.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroContainer {
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 2vw, 5rem);
+  margin: 0;
+  font-weight: normal;
+}
+
+.heroText {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.searchBarWrapper input[type="search"] {
+  width: 25rem;
+}
+
+@media (max-width: 1092px) {
+  .searchBarWrapper input[type="search"],
+  .searchBarWrapper input[type="submit"] {
+    width: 100%;
+    margin-inline: 0.1rem;
+  }
+}

@@ -1,0 +1,246 @@
+.wrapper {
+  min-height: 7svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  font-size: 1.2rem;
+}
+
+.wrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.companyLogo {
+  height: auto;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.centerNavLinks {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.centerNavLinks li a:hover {
+  color: #f43f7f;
+}
+
+.userLoggedIn {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  max-width: 15rem;
+  width: 100%;
+}
+
+.dropDownMenuTriangle {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5rem solid transparent;
+  border-right: 5rem solid transparent;
+  border-bottom: 5rem solid rgb(0, 0, 0);
+  top: 100%;
+}
+
+.profileDropDownMenu {
+  display: none;
+  position: absolute;
+  top: 127%;
+  width: 90%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 0, 0);
+}
+
+.profileDropDownMenu ul {
+  width: 100%;
+  list-style: none;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0rem;
+}
+
+.profileDropDownMenu li,
+.profileDropDownMenu a {
+  color: white;
+}
+
+.profileDropDownMenu li {
+  margin: 1rem 0rem;
+}
+
+.profileDropDownMenu li svg {
+  margin: 0 1rem;
+  width: 2.5rem;
+}
+
+/*Make anchor tag take entire width/height of li element*/
+.profileDropDownMenu li a {
+  display: block;
+  width: 100%;
+}
+
+.profileDropDownMenu li:hover {
+  color: #f43f7f;
+  border-left: 0.3rem solid #f43f7f;
+}
+
+/*Change color of anchor element text WHILE li element is hovered over */
+.profileDropDownMenu li:hover a {
+  color: #f43f7f;
+}
+
+.userProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 1.5rem;
+  color: white;
+  padding: 0.5rem 0;
+}
+
+.userProfileContainer p {
+  margin: 0;
+}
+
+.userProfileContainer img {
+  width: 15%;
+  border-radius: 50%;
+  margin-left: 0.7rem;
+}
+
+.userProfileContainer:hover {
+  background: linear-gradient(to right, #ff6ec4, #f43f7f);
+}
+
+.userProfileContainer:hover .dropDownMenuTriangle {
+  display: block;
+}
+
+.userProfileContainer:hover .profileDropDownMenu {
+  display: block;
+}
+
+.userNotLoggedIn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 15rem;
+}
+
+.userNotLoggedIn li a {
+  white-space: nowrap;
+}
+
+.userNotLoggedIn li:first-child a {
+  padding: 0.5rem 1.2rem;
+  border: 0.15rem solid rgb(224, 224, 224);
+  border-radius: 1.5rem;
+}
+
+.userNotLoggedIn li:nth-child(2) a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.5rem;
+  background-color: black;
+  color: white;
+}
+
+.userNotLoggedIn li:first-child a:hover {
+  background: linear-gradient(to right, #ff6ec4, #f43f7f);
+  border: none;
+  color: white;
+}
+
+.userNotLoggedIn li:nth-child(2) a:hover {
+  background: linear-gradient(to right, #ff6ec4, #f43f7f);
+}
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mobileMenuToggle svg {
+  width: 1.8rem;
+  height: auto;
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.mobileMenu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  list-style: none;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileMenu ul li {
+  padding: 1rem;
+}
+
+.mobileMenu ul li a {
+  color: white;
+  font-size: 1.3rem;
+  display: block;
+  width: 100%;
+}
+
+.mobileMenu ul li svg {
+  padding-right: 1rem;
+  width: 2.5rem;
+}
+
+.mobileMenu ul li:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileMenu ul li img {
+  border-radius: 50%;
+  width: 3.5rem;
+}
+
+.mobileMenu.visible {
+  display: flex;
+}
+
+@media (max-width: 1092px) {
+  .centerNavLinks,
+  .userNotLoggedIn,
+  .userLoggedIn {
+    display: none;
+  }
+
+  .mobileMenuToggle {
+    display: inline-block;
+  }
+}

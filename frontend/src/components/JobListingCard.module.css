@@ -1,0 +1,77 @@
+.jobListingCardWrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  /* gap: 1rem; */
+  max-width: 30%;
+  height: 20%;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.jobListingCardWrapper img {
+  width: 75px;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+  align-self: start;
+}
+
+.jobDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobDetailsWrapper * {
+  margin: 0;
+}
+
+.jobListingTitle {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #0073b1;
+}
+
+.jobListingEmployerName {
+  font-size: 0.9rem;
+}
+
+.jobListingLocation {
+  font-size: 0.8rem;
+  color: #86888a;
+}
+
+.jobListingKeywords {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.25em 0.5em; /* Adjust padding for size */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 0.75rem; /* Small font */
+  font-weight: 500; /* Medium weight */
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.jobListingKeywords li {
+  background-color: #f3f3f3;
+  display: inline-block;
+}
+
+.jobListingPreviewText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  list-style: circle;
+  padding-left: 15px;
+}
+
+.jobListingPreviewText li {
+  font-size: 0.7rem;
+}
+
+.jobListingPostedDate {
+  align-self: end;
+  font-size: 0.7rem;
+  font-weight: 500;
+}

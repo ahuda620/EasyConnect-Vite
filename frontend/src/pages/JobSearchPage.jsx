@@ -2,8 +2,16 @@ import styles from "./JobSearchPage.module.css";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import JobListingCard from "../components/JobListingCard";
+import JobListingDetail from "../components/JobListingDetail";
+import { useState } from "react";
 
 export default function JobSearchPage() {
+  const [selectedJob, setSelectedJob] = useState(null);
+
+  function handleJobSelect(job) {
+    setSelectedJob(job);
+  }
+
   return (
     <>
       <Header />
@@ -18,14 +26,12 @@ export default function JobSearchPage() {
             <button>Placeholder</button>
             <button>Placeholder</button>
             <button>Placeholder</button>
-            <button>Placeholder</button>
-            <button>Placeholder</button>
-            <button>Placeholder</button>
-            <button>Placeholder</button>
-            <button>Placeholder</button>
           </div>
         </section>
-        <JobListingCard></JobListingCard>
+        <section className={styles.jobSectionWrapper}>
+          <JobListingCard handleJobSelect={handleJobSelect}></JobListingCard>
+          <JobListingDetail selectedJob={selectedJob}></JobListingDetail>
+        </section>
 
         {/* <div className={styles.jobListingDetailPanelWrapper}></div> */}
       </div>

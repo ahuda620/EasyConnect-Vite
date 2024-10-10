@@ -23,7 +23,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
@@ -37,6 +36,15 @@
 
 .sortButtonsWrapper button:hover {
   background-color: rgb(202, 202, 202);
+}
+
+.jobSectionWrapper {
+  margin-inline: auto;
+  border: 1px solid red;
+  max-width: 1200px;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1092px) {

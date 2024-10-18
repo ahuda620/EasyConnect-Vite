@@ -12,32 +12,6 @@
   justify-content: center;
 }
 
-.searchBarWrapper input[type="search"] {
-  border: 0.12rem solid rgb(224, 224, 224);
-  width: 25rem;
-}
-
-.sortButtonsWrapper {
-  max-width: 80%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.sortButtonsWrapper button {
-  padding: 0.5rem 1.2rem;
-  border: none;
-  background-color: rgb(235, 235, 235);
-  border-radius: 1.5rem;
-}
-
-.sortButtonsWrapper button:hover {
-  background-color: rgb(202, 202, 202);
-}
-
 .jobSectionWrapper {
   margin-inline: auto;
   border: 1px solid red;
@@ -45,6 +19,14 @@
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+.jobPageListingCardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50%;
+  overflow-y: scroll;
 }
 
 @media (max-width: 1092px) {

@@ -1,30 +1,8 @@
 import styles from "./JobListingCard.module.css";
-import { useQuery } from "@tanstack/react-query";
-import { getJobListings } from "../util/apis";
 import dateFormatter from "../util/dateFormatter";
-import keywordExtractor from "../util/keywordExtractor";
+// import keywordExtractor from "../util/keywordExtractor";
 
-export default function JobListingCard({ handleJobSelect }) {
-  //Fetch Job Listings
-  const {
-    isLoading: isJobListingsLoading,
-    error: jobListingsError,
-    data: jobListings,
-  } = useQuery({
-    queryKey: ["jobListings"],
-    queryFn: getJobListings,
-  });
-
-  if (isJobListingsLoading) {
-    console.log("Loading job listings");
-    return <span>Loading</span>;
-  }
-
-  if (jobListingsError) {
-    console.log("Error has occurred fetching job listings");
-    return <span>Error fetching job listings</span>;
-  }
-
+export default function JobListingCard({ jobListings, handleJobSelect }) {
   //Change style of select job listing card container on click
   function handleJobCardClick(event) {
     const element = event.currentTarget; // The clicked job card
@@ -42,14 +20,8 @@ export default function JobListingCard({ handleJobSelect }) {
 
   return (
     <>
-      {jobListings.data.map((jobListing) => {
+      {jobListings.map((jobListing) => {
         jobListing.posted_date_formatted = dateFormatter(jobListing);
-        jobListing.job_keywords = keywordExtractor(
-          jobListing.job_highlights.Qualifications
-        );
-
-        //Only display at max 3 job keywords on job listing card to mitigate overflow
-        const limitedJobKeywords = jobListing.job_keywords.slice(0, 3);
 
         return (
           <article
@@ -78,17 +50,27 @@ export default function JobListingCard({ handleJobSelect }) {
               }${jobListing.job_state ? `, ${jobListing.job_state}` : ""}${
                 jobListing.job_country ? `, ${jobListing.job_country}` : ""
               }`}</p>
-              {/* Job description highlights */}
-              <ul className={styles.jobListingKeywords}>
+
+              {/* <ul className={styles.jobListingKeywords}>
                 {limitedJobKeywords.map((keyword, index) => {
                   return <li key={index}>{keyword}</li>;
                 })}
-              </ul>
+              </ul> */}
+
               <ul className={styles.jobListingPreviewText}>
-                {jobListing.job_highlights.Responsibilities.map(
-                  (listItem, index) => (
-                    <li key={index}>{listItem}</li>
+                {jobListing.job_highlights &&
+                jobListing.job_highlights.Responsibilities &&
+                jobListing.job_highlights.Responsibilities.length >= 4 ? (
+                  jobListing.job_highlights.Responsibilities.map(
+                    (listItem, index) => <li key={index}>{listItem}</li>
                   )
+                ) : jobListing.job_highlights.Qualifications &&
+                  jobListing.job_highlights.Qualifications.length >= 4 ? (
+                  jobListing.job_highlights.Qualifications.map(
+                    (listItem, index) => <li key={index}>{listItem}</li>
+                  )
+                ) : (
+                  <li>jobListing.job_description</li>
                 )}
               </ul>
               <p className={styles.jobListingPostedDate}>

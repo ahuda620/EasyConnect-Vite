@@ -1,19 +1,8 @@
 import styles from "./JobListingDetail.module.css";
-import dateFormatter from "../util/dateFormatter";
-import keywordExtractor from "../util/keywordExtractor";
+import parse from "html-react-parser";
 
 export default function JobListingDetail({ selectedJob }) {
   const jobListing = selectedJob;
-  let limitedJobKeywords = [];
-
-  if (jobListing) {
-    jobListing.posted_date_formatted = dateFormatter(jobListing);
-    jobListing.job_keywords = keywordExtractor(
-      jobListing.job_highlights.Qualifications
-    );
-
-    limitedJobKeywords = jobListing.job_keywords.slice(0, 3);
-  }
 
   return jobListing ? (
     <article key={jobListing.job_id} className={styles.jobListingDetailWrapper}>
@@ -27,11 +16,6 @@ export default function JobListingDetail({ selectedJob }) {
           jobListing.job_state ? `, ${jobListing.job_state}` : ""
         }${jobListing.job_country ? `, ${jobListing.job_country}` : ""}`}</p>
 
-        <ul className={styles.jobListingKeywords}>
-          {limitedJobKeywords.map((keyword, index) => {
-            return <li key={index}>{keyword}</li>;
-          })}
-        </ul>
         <hr className={styles.customLineBreak} />
         {jobListing.job_highlights &&
         jobListing.job_highlights.Benefits &&
@@ -88,7 +72,7 @@ export default function JobListingDetail({ selectedJob }) {
               Full Job Description
             </h4>
             <p className={styles.jobListingDescription}>
-              {jobListing.job_description}
+              {parse(jobListing.job_description)}
             </p>
             <hr className={styles.customLineBreak} />
           </>

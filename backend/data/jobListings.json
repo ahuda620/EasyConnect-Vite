@@ -1,56 +1,78 @@
 {
-  "status": "OK",
-  "request_id": "65097d32-1196-457d-a1de-2b818539420f",
-  "parameters": {
-    "query": "web developer, ca, usa",
-    "page": 1,
-    "num_pages": 1,
-    "date_posted": "all"
-  },
   "data": [
     {
-      "job_id": "VMes2-yvRWAujKciAAAAAA==",
-      "employer_name": "Atlas Lift Tech",
-      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPrOr-BJQzJHzmh955KFgBIU7n3S3Oq0A5tb-m&s=0",
+      "job_id": "BgWo5kCBGDW8NN42AAAAAA==",
+      "employer_name": "Apex Systems",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgsBfii5beTM3mpI6cj2jFr85o5B_1Odj3e6vp&s=0",
       "employer_website": null,
       "employer_company_type": null,
       "employer_linkedin": null,
       "job_publisher": "LinkedIn",
       "job_employment_type": "FULLTIME",
-      "job_title": "Mobile Software Developer",
-      "job_apply_link": "https://www.linkedin.com/jobs/view/mobile-software-developer-at-atlas-lift-tech-4040123903?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_title": "Web Developer",
+      "job_apply_link": "https://www.linkedin.com/jobs/view/web-developer-at-apex-systems-4046507192?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
       "job_apply_is_direct": false,
-      "job_apply_quality_score": 0.6205,
+      "job_apply_quality_score": 0.6116,
       "apply_options": [
         {
           "publisher": "LinkedIn",
-          "apply_link": "https://www.linkedin.com/jobs/view/mobile-software-developer-at-atlas-lift-tech-4040123903?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "apply_link": "https://www.linkedin.com/jobs/view/web-developer-at-apex-systems-4046507192?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
           "is_direct": false
         },
         {
-          "publisher": "BeBee",
-          "apply_link": "https://us.bebee.com/job/a3785de2cab58bd5d1622a0d00063e50?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "publisher": "KHON2 Jobs",
+          "apply_link": "https://jobs.khon2.com/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "KSNT Jobs",
+          "apply_link": "https://jobs.ksnt.com/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Openings For Col U Fans",
+          "apply_link": "https://openings.cu-fc.com/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "WDTN Jobs",
+          "apply_link": "https://jobs.wdtn.com/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Talent.com",
+          "apply_link": "https://www.talent.com/view?id=e31d088c3770&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Racing Post Jobs",
+          "apply_link": "https://www.rpjobs.co.uk/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "KXAN Jobs",
+          "apply_link": "https://jobs.kxan.com/jobs/web-developer-fayetteville-north-carolina/1471214924-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
           "is_direct": false
         }
       ],
-      "job_description": "Job Description\n\nABOUT THE ROLE\n\nThis is a ground-floor opportunity for the right person to be a key player in the tech department. During this journey, you will find opportunities to grow and work on the leading edge of technology. Your work will directly contribute to saving and improving people’s lives.\n\nKEY RESPONSIBILITIES\n• Your work will directly contribute to saving and improving people’s lives.\n• Ability and desire to work in our collaborative environment: open team room, pair programming and fluid interactions with all products and operations teams\n• Focus on building solutions utilizing an agile approach: close relationships with Lead Developer and Business Analyst, communicating and digesting real time feedback\n• Develop complex software systems scaling to thousands of users with production quality deployment, testing, monitoring and reliability\n• Ensure all technology practices are in compliance with regulatory standards such as HIPAA\n• Assist the development team in meeting deployment and release deadlines\n• Carry out safe and downtime-proof software releases\n• Work with the development team to not only develop products but also inform the team how leveraging certain technologies can help the company become more successful\n• Working with the lead developer to enhance and optimize the application architecture\n\nSKILLS & QUALIFICATIONS\n• BS in Computer Science or equivalent experience\n• 4+ years of experience building software in a scaled distributed environment\n• 3+ years of experience building native iOS mobile applications using Apple Development tools\n• 3+ years of experience coding in Swift, Objective-C\n• Have expertise in one or more object-oriented languages, including Python, Go, Java, or C++, and an eagerness to learn more\n• A strong understanding of SOLID design principles, Domain Driven Design, and Contract First Development, Dependency Injection, and Reactive programming\n• Experience with mobile development\n• Have experience with distributed storage and database systems, including SQL or NoSQL, MySQL, or Cassandra\n• Understanding of MQTT, Bluetooth/BLE, WiFi services and protocols, Mesh-networking, TLS/SSL protocol\n• Understanding of CI/CD tools such as Azure DevOps and XCode Server and deploying applications in a DevOps environment\n• Familiar with secure coding standards and practices\n• Code Quality/Coverage Tools (Sonar or equivalent) Test/Automation (Jest, Cypress, Cucumber, or any similar framework)\n• Experience in Agile development practices, added bonus for Agile lead experience\n• Experience working with various wearable sensors: Gyroscope, Moisture sensor, Accelerometer/Motion sensor, Proximity sensor\n• Proven working experience leveraging Apple WatchKit with Core Motion\n• Cloud experience, with a preference on Azure\n• Strong desire to have a career rather than a job, and to grow with the company.\n• Prior experience with health data standards/protocols and integration, including HL7 is highly desirable\n• Experience consuming and implementing REST & GraphQL APIs\n• Excellent interpersonal skills and ability to work well with all levels of engineers/staff\n• Possess the drive to exceed expectations and lead by example\n• Hardware Experience in new technology trends is a definite bonus: IoT, Wearables (Apple Watch)\n• Passion for wellness\n\nAtlas Lift Tech, Inc. is an equal-opportunity employer. All aspects of employment including the decision to hire, promote, discipline, or\n\ndischarge, will be based on merit, competence, performance, and business needs. We do not discriminate on the basis of race, color,\n\nreligion, marital status, age, national origin, ancestry, physical or mental disability, medical condition, pregnancy, genetic information,\n\ngender, sexual orientation, gender identity or expression, veteran status, or any other status protected under federal, state, or local law.\n\nCompany Description\n\nAtlas Lift Tech, Inc. is a total mobility solutions provider. We combine our on-demand data tracking software with on-site Mobility Technicians integrated in the hospital up to 24 hours a day. Mobility Technicians are available on a scheduled or emergency basis through continuous rounding on the units, as well as in-unit and bedside training. Our Mobility Technicians are able to capture leading, lagging and real-time indicators through our Mobility Cloud Software to guide and support hospital leadership through decisions that impact complications due to immobility. Atlas Mobility Technicians become experts on Safe Patient Handling and Mobility (SPHM) policies and procedures, training needs, and SPHM equipment and devices. They are highly trained using best practice standards and protocols. They are a consistently available resource to train and assist your clinical staff at the bedside. The Mobility Technician Program reduces hospital employee injury and patient risks associated with Hospital Acquired Pressure Injuries (HAPI), falls and other negative outcomes of immobility. We are already changing the lives of healthcare professionals and their patients, but we feel we can do so much more. To do this, we need professionals like you who can help advance our systems to the next level. We will stretch your skills and elevate your ability to grow personally and professionally.\n\nCompany Description\n\nAtlas Lift Tech, Inc. is a total mobility solutions provider. We combine our on-demand data tracking software with on-site Mobility Technicians integrated in the hospital up to 24 hours a day. Mobility Technicians are available on a scheduled or emergency basis through continuous rounding on the units, as well as in-unit and bedside training. Our Mobility Technicians are able to capture leading, lagging and real-time indicators through our Mobility Cloud Software to guide and support hospital leadership through decisions that impact complications due to immobility. Atlas Mobility Technicians become experts on Safe Patient Handling and Mobility (SPHM) policies and procedures, training needs, and SPHM equipment and devices. They are highly trained using best practice standards and protocols. They are a consistently available resource to train and assist your clinical staff at the bedside. The Mobility Technician Program reduces hospital employee injury and patient risks associated with Hospital Acquired Pressure Injuries (HAPI), falls and other negative outcomes of immobility. We are already changing the lives of healthcare professionals and their patients, but we feel we can do so much more. To do this, we need professionals like you who can help advance our systems to the next level. We will stretch your skills and elevate your ability to grow personally and professionally.",
+      "job_description": "<p><strong>Job Title: Web Developer (TS/SCI Clearance)</strong></p><p><strong>Location:</strong> Fort Liberty, NC</p><p><strong>Salary:</strong> $125,000 - $130,000 per year (Hourly equivalent)</p><p><strong>Employment Type:</strong> 6-month Contract-to-Hire (C2H) or Long-term Contract</p><p><strong>Job Description:</strong></p><p>We are seeking a skilled Web Developer with a strong background in web development technologies to join our team. The ideal candidate will have experience in C#, .NET, SharePoint, and other relevant web development frameworks. While full-stack development experience is a plus, our primary focus is on finding someone with robust web development skills.</p><p><strong>Key Responsibilities:</strong></p><ul><li>Develop, maintain, and enhance web applications using C#, .NET, SharePoint, and other web technologies.</li><li>Collaborate with cross-functional teams to define, design, and ship new features.</li><li>Ensure the performance, quality, and responsiveness of applications.</li><li>Identify and correct bottlenecks and fix bugs.</li><li>Help maintain code quality, organization, and automation.</li></ul><p><strong>Requirements:</strong></p><ul><li>Active TS/SCI Clearance.</li><li>Proven experience in web development, particularly with C#, .NET, and SharePoint.</li><li>Strong understanding of web development principles and best practices.</li><li>Ability to work independently and as part of a team.</li><li>Excellent problem-solving skills and attention to detail.</li><li>Full-stack development experience is a plus but not required.</li></ul><p><strong>Preferred Qualifications:</strong></p><ul><li>Experience with additional web development frameworks and technologies.</li><li>Familiarity with front-end technologies such as HTML, CSS, JavaScript, and related libraries/frameworks.</li><li>Strong communication and collaboration skills.</li></ul>",
       "job_is_remote": false,
-      "job_posted_at_timestamp": 1727969521,
-      "job_posted_at_datetime_utc": "2024-10-03T15:32:01.000Z",
-      "job_city": "San Jose",
-      "job_state": "CA",
+      "job_posted_at_timestamp": 1728656769,
+      "job_posted_at_datetime_utc": "2024-10-11T14:26:09.000Z",
+      "job_city": "Fayetteville",
+      "job_state": "NC",
       "job_country": "US",
-      "job_latitude": 37.33874,
-      "job_longitude": -121.885254,
+      "job_latitude": 35.05237,
+      "job_longitude": -78.87838,
       "job_benefits": null,
-      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer,+ca,+usa&start=0&udm=8#vhid=vt%3D20/docid%3DVMes2-yvRWAujKciAAAAAA%3D%3D&vssid=jobs-detail-viewer",
-      "job_offer_expiration_datetime_utc": "2024-11-02T15:31:58.000Z",
-      "job_offer_expiration_timestamp": 1730561518,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DBgWo5kCBGDW8NN42AAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-10T14:26:09.000Z",
+      "job_offer_expiration_timestamp": 1731248769,
       "job_required_experience": {
         "no_experience_required": "false",
         "required_experience_in_months": null,
         "experience_mentioned": "true",
-        "experience_preferred": "false"
+        "experience_preferred": "true"
       },
       "job_required_skills": null,
       "job_required_education": {
@@ -59,6 +81,352 @@
         "high_school": "false",
         "associates_degree": "false",
         "bachelors_degree": "true",
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "We are seeking a skilled Web Developer with a strong background in web development technologies to join our team",
+          "The ideal candidate will have experience in C#, .NET, SharePoint, and other relevant web development frameworks",
+          "Active TS/SCI Clearance",
+          "Proven experience in web development, particularly with C#, .NET, and SharePoint",
+          "Strong understanding of web development principles and best practices",
+          "Ability to work independently and as part of a team",
+          "Excellent problem-solving skills and attention to detail"
+        ],
+        "Responsibilities": [
+          "Develop, maintain, and enhance web applications using C#, .NET, SharePoint, and other web technologies",
+          "Collaborate with cross-functional teams to define, design, and ship new features",
+          "Ensure the performance, quality, and responsiveness of applications",
+          "Identify and correct bottlenecks and fix bugs",
+          "Help maintain code quality, organization, and automation"
+        ],
+        "Benefits": ["Salary: $125,000 - $130,000 per year (Hourly equivalent)"]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "sE64gc_bX9BgtknxAAAAAA==",
+      "employer_name": "Creative Global Consulting",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK_JbtB5Sagou4KgPGdNXitlPSY_y9NNcgyqDr&s=0",
+      "employer_website": "http://www.creativegc.com",
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Dice",
+      "job_employment_type": "CONTRACTOR",
+      "job_title": "Web Developer",
+      "job_apply_link": "https://www.dice.com/job-detail/0766b73d-9027-4ca8-b75c-1399ccfb0322?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": true,
+      "job_apply_quality_score": 0.5749,
+      "apply_options": [
+        {
+          "publisher": "Dice",
+          "apply_link": "https://www.dice.com/job-detail/0766b73d-9027-4ca8-b75c-1399ccfb0322?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        },
+        {
+          "publisher": "Learn4Good",
+          "apply_link": "https://www.learn4good.com/jobs/washington/info_technology/3650185697/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<p>Senior Internet/Intranet Webmaster</p><p> </p><p>Client: US Army</p><p>POP: 12+ months</p><p>Location: Joint Base Lewis-McChord (JBLM), WA</p><p></p><p> <br /></p><p>SCOPE </p><p>Join our team as a Senior Internet/Intranet Webmaster to manage and design web pages for the DPW at JBLM. This role involves creating, updating, and maintaining websites and web content, ensuring compliance with DoD and Army regulations.</p><p> </p><p>REQUIRED SKILLS</p><ul><li>Must have Secret clearance or be able to obtain one</li><li>Minimum 3 years of experience in web design and web management.</li><li>Experience with content management systems and compliance with Section 508.</li><li>Strong understanding of DoD and Army web regulations.</li></ul><p> </p><p>TASKS</p><ul><li>Design, generate, and revise web pages for DPW s internet, extranet, and intranet.</li><li>Collaborate with content contributors and provide technical support for web applications.</li><li>Ensure web content is compliant with Section 508 and DoD cybersecurity standards.</li><li>Respond to user comments and requests related to the website.</li><li>Work closely with the DPW Information Management Officer for approvals on website changes.</li></ul>",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1728593405,
+      "job_posted_at_datetime_utc": "2024-10-10T20:50:05.000Z",
+      "job_city": "Joint Base Lewis-McChord",
+      "job_state": "WA",
+      "job_country": "US",
+      "job_latitude": 47.109505,
+      "job_longitude": -122.52939,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DsE64gc_bX9BgtknxAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-10T21:50:05.000Z",
+      "job_offer_expiration_timestamp": 1731275405,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": "36",
+        "experience_mentioned": "true",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": [
+        "Section 508",
+        "Information management",
+        "Intranet",
+        "Management",
+        "Regulatory Compliance",
+        "Security clearance",
+        "Collaboration",
+        "Content management systems",
+        "Cyber security",
+        "Design",
+        "DoD",
+        "Website administration",
+        "Internet",
+        "Technical Support",
+        "Web applications",
+        "Web content",
+        "Web design"
+      ],
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": 55,
+      "job_max_salary": 60,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Must have Secret clearance or be able to obtain one",
+          "Minimum 3 years of experience in web design and web management",
+          "Experience with content management systems and compliance with Section 508",
+          "Strong understanding of DoD and Army web regulations"
+        ],
+        "Responsibilities": [
+          "This role involves creating, updating, and maintaining websites and web content, ensuring compliance with DoD and Army regulations",
+          "Design, generate, and revise web pages for DPW s internet, extranet, and intranet",
+          "Collaborate with content contributors and provide technical support for web applications",
+          "Ensure web content is compliant with Section 508 and DoD cybersecurity standards",
+          "Respond to user comments and requests related to the website",
+          "Work closely with the DPW Information Management Officer for approvals on website changes"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "3K6B7V4zQz46rt22AAAAAA==",
+      "employer_name": "Randstad USA",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_ah5pWH3U2cgW0AHYLvgIs-EvJ3FvqMp0Kk0&s=0",
+      "employer_website": "http://www.randstadusa.com",
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Randstad USA",
+      "job_employment_type": "FULLTIME",
+      "job_title": ".NET Web Developer II",
+      "job_apply_link": "https://www.randstadusa.com/jobs/4/1068399/-net-web-developer-ii_madison/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.7817,
+      "apply_options": [
+        {
+          "publisher": "Randstad USA",
+          "apply_link": "https://www.randstadusa.com/jobs/4/1068399/-net-web-developer-ii_madison/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "ZipRecruiter",
+          "apply_link": "https://www.ziprecruiter.com/c/RICEFW-Technologies,-Inc./Job/.NET-Web-Developer-II/-in-Madison,WI?jid=6a9ccb79043bffd5&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "LinkedIn",
+          "apply_link": "https://www.linkedin.com/jobs/view/net-web-developer-iii-at-cloudq-3930172914?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Monster",
+          "apply_link": "https://www.monster.com/job-openings/-net-web-developer-ii-madison-wi--012ce724-ddb4-45ba-86c6-8d11bacd9884?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        },
+        {
+          "publisher": "JavaScript Jobs",
+          "apply_link": "https://javascriptjob.xyz/job/2mqTgc4k1OIMR3650JTrnBDuOyj/.NET%20Web%20Developer%20III?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jooble",
+          "apply_link": "https://jooble.org/jdp/-4593474227179551543?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobg8",
+          "apply_link": "https://jobs.jobg8.com/jobs/dotnet-web-developer-ii-in-madison-wisconsin-united-states/5673-2835317441C1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobted",
+          "apply_link": "https://www.jobted.com/job/87e84e383008cb1a3f0279486fdb7518?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "job summary:<br />  This is a position needed for the development and support of critical priority applications in the Division of Employment and Training and the Division of Vocational Rehabilitation. Candidates will play an integral role on self directed work teams in support of high priority development projects. Project work will include: application design and development, integration with 3rd party software, data conversion, new development and modifications to existing code. Successful candidates will have demonstrated<br /><br />  <br />  location: MADISON, Wisconsin<br />  job type: Contract<br />  salary: $45 - 50  per hour<br />  work hours: 8am to 4pm<br />  education: Bachelors<br />   <br />  responsibilities:<br />    success in designing, creating, and maintaining web services, system integration, web development, and  Agile Scrum development methodology.<br /><br />   <ul>  <li>VB.NET <br /><br /><li>C# <br /><br /><li>Object Oriented Design <br /><br /><li>MVC<br /><br /><li>MVVM <br /><br /><li>Visual Studio.NET <br /><br /><li>MS Team Foundation Server <br /><br /><li>MS Azure DevOps<br /><br /><li>Oracle PL-SQL<br /><br /><li>Googe Cloud <br /><br /><li>Previous work experience in government, insurance, accounting or case management is required.<br /><br /><li>Previous work experience in online transaction processing (OLTP) web application development required.<br /><br /><li>Google Cloud or Microsoft Azure Cloud experience preferred.<br /><br /><li>The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player. All candidates submitted with inconsistencies or falsifications in their credentials will be disqualified and DOA purchasing will be notified.</ul>   <strong>Top Required Skills & Years of Experience:</strong><br /><br />   <ul>  <li>  4 years of experience as a Microsoft full stack developer is required including legacy ASP.NET forms design and newer design patterns such as MVC/MVVM.<br /><br /><li>  4 years of experiences on development teams using Agile Scrum methodology is required<br /><br /><li>  Previous work experience in government, insurance, accounting, case management, or work programs is required.<br /><br /><li>  The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player.</ul>   <strong>Nice to Have Skills:</strong><br /><br />   <ul>  <li> 2 years of developing applications using cloud services, especially with GCP and/or AWS<br /><br /><li> 2 years of experience working with relational databases, such as SQL<br /><br /><li> 1 year of experience working with MVC<br /><br /><li> 1 year of experience working with microservices<br /><br /><li>  Working experience with Blazor framework and MudBlazor component library</ul>       <br />  qualifications:<br />  <ul><li>Experience level: Experienced<li>Minimum 4 years of experience<li>Education: Bachelors</ul> <br />  skills: <li>.NET<li>Agile Methodology<li>Scrum Master<br />    <br /> Equal Opportunity Employer: Race, Color, Religion, Sex, Sexual Orientation, Gender Identity, National Origin, Age, Genetic Information, Disability, Protected Veteran Status, or any other legally protected group status.<br /><br />At Randstad Digital, we welcome people of all abilities and want to ensure that our hiring and interview process meets the needs of all applicants. If you require a reasonable accommodation to make your application or interview experience a great one, please contact HRsupport@randstadusa.com.<br /> <br /> Pay offered to a successful candidate will be based on several factors including the candidate's education, work experience, work location, specific job duties, certifications, etc.  In addition, Randstad Digital offers a comprehensive benefits package, including health, an incentive and recognition program, and 401K contribution (all benefits are based on eligibility). <br /><br />This posting is open for thirty (30) days. <br /><br /> <br /><br /><br /><br />",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1728345600,
+      "job_posted_at_datetime_utc": "2024-10-08T00:00:00.000Z",
+      "job_city": "Madison",
+      "job_state": "WI",
+      "job_country": "US",
+      "job_latitude": 43.072166,
+      "job_longitude": -89.40075,
+      "job_benefits": [
+        "dental_coverage",
+        "health_insurance",
+        "retirement_savings"
+      ],
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3D3K6B7V4zQz46rt22AAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-07T00:00:00.000Z",
+      "job_offer_expiration_timestamp": 1730937600,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": "48",
+        "experience_mentioned": "true",
+        "experience_preferred": "true"
+      },
+      "job_required_skills": [".NETAgile MethodologyScrum Master"],
+      "job_required_education": {
+        "postgraduate_degree": "false",
+        "professional_certification": "false",
+        "high_school": "false",
+        "associates_degree": "false",
+        "bachelors_degree": "true",
+        "degree_mentioned": "true",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "true"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": 45,
+      "job_max_salary": 50,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Visual Studio",
+          "Previous work experience in online transaction processing (OLTP) web application development required",
+          "The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player",
+          "4 years of experience as a Microsoft full stack developer is required including legacy ASP",
+          "NET forms design and newer design patterns such as MVC/MVVM",
+          "4 years of experiences on development teams using Agile Scrum methodology is required",
+          "Previous work experience in government, insurance, accounting, case management, or work programs is required",
+          "2 years of developing applications using cloud services, especially with GCP and/or AWS",
+          "2 years of experience working with relational databases, such as SQL",
+          "1 year of experience working with MVC",
+          "Working experience with Blazor framework and MudBlazor component library",
+          "Experience level: Experienced",
+          "Minimum 4 years of experience",
+          "Education: Bachelors",
+          ".NET",
+          "Scrum Master"
+        ],
+        "Responsibilities": [
+          "Candidates will play an integral role on self directed work teams in support of high priority development projects",
+          "Project work will include: application design and development, integration with 3rd party software, data conversion, new development and modifications to existing code",
+          "work hours: 8am to 4pm",
+          "success in designing, creating, and maintaining web services, system integration, web development, and Agile Scrum development methodology"
+        ],
+        "Benefits": [
+          "salary: $45 - 50 per hour",
+          "In addition, Randstad Digital offers a comprehensive benefits package, including health, an incentive and recognition program, and 401K contribution (all benefits are based on eligibility)"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": ["Computer and Mathematical Occupations"],
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "EUnRwqfvsdh5LNTWAAAAAA==",
+      "employer_name": "Yellow Labs Software",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPQBljhblvMa9pdoV03LnG5RUV55PGSpUCUecM&s=0",
+      "employer_website": "http://www.accountingsuite.com",
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Yellow Labs Software",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Senior Web Developer 5+ years (Remote US and Canada Only)",
+      "job_apply_link": "https://yellow-labs-software-inc.breezy.hr/p/994b1b280baa-senior-web-developer-5-years-remote-us-and-canada-only?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.669,
+      "apply_options": [
+        {
+          "publisher": "Yellow Labs Software",
+          "apply_link": "https://yellow-labs-software-inc.breezy.hr/p/994b1b280baa-senior-web-developer-5-years-remote-us-and-canada-only?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "USA Remote Job Mysmartpros",
+          "apply_link": "https://remote.mysmartpros.com/jobs/senior-web-developer-5-years-remote-us-and-canada-only/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Fast-Page.org",
+          "apply_link": "https://getjob101.fast-page.org/job/senior-web-developer-5-years-remote-us-and-canada-only-3/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Winsomejobs",
+          "apply_link": "https://winsomejobs.online/job/senior-web-developer-5-years-remote-us-and-canada-only/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobs",
+          "apply_link": "https://getjob002.infinityfreeapp.com/job/senior-web-developer-5-years-remote-us-and-canada-only-5/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Remotely USA Jobs",
+          "apply_link": "https://ihire.allboardsolutions.in/job/senior-web-developer-5-years-remote-us-and-canada-only-3/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "USA Remote Jobs",
+          "apply_link": "http://rdj005.my-board.org/job/senior-web-developer-5-years-remote-us-and-canada-only/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<p><strong>“The role is fully remote and restricted to those physically located in the US. While this is a remote position, we cannot consider candidates not based in the US.”</strong></p>\n<p><strong>Requirements:</strong></p>\n<ul><li>Have a Bachelor's Degree in Computer Science or related field.</li><li>5+ years of experience in software development.</li><li>Strong knowledge of the MEAN stack: Node.JS, Angular, Express, and MongoDB</li><li>Familiar with Cloud Technologies (AWS, Azure, Google, Heroku).</li><li>Have strong knowledge of databases, cloud architectures, networking, and basic security.</li><li>Be an expert in architecting REST APIs with JSON responses.</li><li>Construct small microservices with high availability and reliability.</li><li>Familiar with working with Agile/XP methodologies.</li><li>Work with Git and continuous integration systems.</li><li>Must thrive in a fast-paced and dynamic environment</li><li>Be good at breaking down large problems into smaller, solvable chunks.</li><li>Be eager to learn new technologies and contribute to projects outside their core strengths.</li><li>Have excellent communication skills with the ability to explain technical issues to non-technical co-workers.</li><li>Seek out areas for improvement in the codebase and our internal processes and help us develop a plan to achieve those improvements.</li><li>Offer constructive feedback during code reviews and positively receive and execute the feedback others offer.</li></ul>\n<p></p>\n<p><strong>Good to have</strong></p>\n<ul><li>Optional<ul><li>Experience working with financial data or services.</li><li>Experience developing with Zapier.</li><li>Experience working with Jira and TestRail.</li><li>Experience working in operations.</li></ul></li></ul>",
+      "job_is_remote": true,
+      "job_posted_at_timestamp": 1695254400,
+      "job_posted_at_datetime_utc": "2023-09-21T00:00:00.000Z",
+      "job_city": null,
+      "job_state": null,
+      "job_country": "US",
+      "job_latitude": 38.794594,
+      "job_longitude": -106.534836,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DEUnRwqfvsdh5LNTWAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": null,
+      "job_offer_expiration_timestamp": null,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": "60",
+        "experience_mentioned": "true",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
         "degree_mentioned": "true",
         "degree_preferred": "true",
         "professional_certification_mentioned": "false"
@@ -70,44 +438,624 @@
       "job_salary_period": null,
       "job_highlights": {
         "Qualifications": [
-          "BS in Computer Science or equivalent experience",
-          "4+ years of experience building software in a scaled distributed environment",
-          "3+ years of experience building native iOS mobile applications using Apple Development tools",
-          "3+ years of experience coding in Swift, Objective-C",
-          "Have expertise in one or more object-oriented languages, including Python, Go, Java, or C++, and an eagerness to learn more",
-          "A strong understanding of SOLID design principles, Domain Driven Design, and Contract First Development, Dependency Injection, and Reactive programming",
-          "Have experience with distributed storage and database systems, including SQL or NoSQL, MySQL, or Cassandra",
-          "Understanding of MQTT, Bluetooth/BLE, WiFi services and protocols, Mesh-networking, TLS/SSL protocol",
-          "Understanding of CI/CD tools such as Azure DevOps and XCode Server and deploying applications in a DevOps environment",
-          "Familiar with secure coding standards and practices",
-          "Code Quality/Coverage Tools (Sonar or equivalent) Test/Automation (Jest, Cypress, Cucumber, or any similar framework)",
-          "Experience in Agile development practices, added bonus for Agile lead experience",
-          "Experience working with various wearable sensors: Gyroscope, Moisture sensor, Accelerometer/Motion sensor, Proximity sensor",
-          "Proven working experience leveraging Apple WatchKit with Core Motion",
-          "Cloud experience, with a preference on Azure",
-          "Strong desire to have a career rather than a job, and to grow with the company",
-          "Experience consuming and implementing REST & GraphQL APIs",
-          "Excellent interpersonal skills and ability to work well with all levels of engineers/staff",
-          "Possess the drive to exceed expectations and lead by example",
-          "Hardware Experience in new technology trends is a definite bonus: IoT, Wearables (Apple Watch)",
-          "Passion for wellness"
+          "Have a Bachelor's Degree in Computer Science or related field",
+          "5+ years of experience in software development",
+          "Strong knowledge of the MEAN stack: Node.JS, Angular, Express, and MongoDB",
+          "Familiar with Cloud Technologies (AWS, Azure, Google, Heroku)",
+          "Have strong knowledge of databases, cloud architectures, networking, and basic security",
+          "Be an expert in architecting REST APIs with JSON responses",
+          "Construct small microservices with high availability and reliability",
+          "Familiar with working with Agile/XP methodologies",
+          "Work with Git and continuous integration systems",
+          "Must thrive in a fast-paced and dynamic environment",
+          "Be good at breaking down large problems into smaller, solvable chunks",
+          "Be eager to learn new technologies and contribute to projects outside their core strengths",
+          "Have excellent communication skills with the ability to explain technical issues to non-technical co-workers",
+          "Optional",
+          "Experience working with financial data or services",
+          "Experience developing with Zapier",
+          "Experience working with Jira and TestRail",
+          "Experience working in operations"
         ],
         "Responsibilities": [
-          "Your work will directly contribute to saving and improving people’s lives",
-          "Ability and desire to work in our collaborative environment: open team room, pair programming and fluid interactions with all products and operations teams",
-          "Focus on building solutions utilizing an agile approach: close relationships with Lead Developer and Business Analyst, communicating and digesting real time feedback",
-          "Develop complex software systems scaling to thousands of users with production quality deployment, testing, monitoring and reliability",
-          "Ensure all technology practices are in compliance with regulatory standards such as HIPAA",
-          "Assist the development team in meeting deployment and release deadlines",
-          "Carry out safe and downtime-proof software releases",
-          "Work with the development team to not only develop products but also inform the team how leveraging certain technologies can help the company become more successful",
-          "Working with the lead developer to enhance and optimize the application architecture"
+          "Seek out areas for improvement in the codebase and our internal processes and help us develop a plan to achieve those improvements",
+          "Offer constructive feedback during code reviews and positively receive and execute the feedback others offer"
+        ]
+      },
+      "job_job_title": "Senior",
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "uVp2sEssFnjhv4SIAAAAAA==",
+      "employer_name": "ETS Staffing",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4Oj1MNKxIHEqvwK-7ThobdnQYmGH7UiLFYx7&s=0",
+      "employer_website": null,
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "ETS Jobs",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Web Developer",
+      "job_apply_link": "https://www.etsjobs.com/job/140514-web-developer-morrisville-vt/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": true,
+      "job_apply_quality_score": 0.686,
+      "apply_options": [
+        {
+          "publisher": "ETS Jobs",
+          "apply_link": "https://www.etsjobs.com/job/140514-web-developer-morrisville-vt/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        },
+        {
+          "publisher": "Glassdoor",
+          "apply_link": "https://www.glassdoor.com/job-listing/web-developer-concept2-JV_IC1141667_KO0,13_KE14,22.htm?jl=1009380075229&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        }
+      ],
+      "job_description": "<h4 id=\"myCustomID\"><a href=\"https://www.etsjobs.com/job/140514\">To Apply for this Job Click Here</a></h4>\n<h2>Web Developer</h2>\n<p><strong>Job ID:</strong> 140514</p>\n<p dir=\"ltr\"><em><strong>$100K-$130K Annual Salary (Based on Experience), Full-Time</strong></em></p>\n<p dir=\"ltr\">Our client is looking for someone with a passion for web technologies and problem-solving to<strong> join their dedicated team as a Web Developer!</strong></p>\n<p dir=\"ltr\"><strong>Your day to day as a Web Developer:</strong></p>\n<ul dir=\"ltr\">\n<li>Maintain and develop various company websites, including e-commerce and internal sites\n<li>Work across the full stack to deliver high-quality, fully tested code\n<li>Provide technical support to customers and internal users\n<li>Collaborate with team members to solve complex issues and implement new features\n<li>Ensure all projects meet high standards of usability and performance\n</ul>\n<p dir=\"ltr\"><strong>Your skills and experience:</strong></p>\n<ul dir=\"ltr\">\n<li>Previous experience in a similar role is strongly preferred\n<li>Proficiency in PHP, JavaScript, HTML, CSS, and MySQL\n<li>Experience with Git and a solid understanding of MVC frameworks\n<li>Familiarity with testing frameworks and REST APIs\n<li>Strong problem-solving skills and attention to detail\n</ul>\n<p dir=\"ltr\"><strong>For immediate consideration for the Web Developer role, contact Bill (518.324.3119) at ETS today.</strong></p>\n<p dir=\"ltr\"><em>We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status.</em></p>\n<p dir=\"ltr\">#POA</p>\n<p style=\"font-size: 0.5px !important;color: #fff\">140514</p>\n<h4 id=\"otherId\"><a href=\"https://www.etsjobs.com/job/140514\">To Apply for this Job Click Here</a></h4>",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1726804800,
+      "job_posted_at_datetime_utc": "2024-09-20T04:00:00.000Z",
+      "job_city": null,
+      "job_state": "VT",
+      "job_country": "US",
+      "job_latitude": 44.558804,
+      "job_longitude": -72.57784,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DuVp2sEssFnjhv4SIAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-13T04:59:59.000Z",
+      "job_offer_expiration_timestamp": 1731473999,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "true",
+        "experience_preferred": "true"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Proficiency in PHP, JavaScript, HTML, CSS, and MySQL",
+          "Experience with Git and a solid understanding of MVC frameworks",
+          "Familiarity with testing frameworks and REST APIs",
+          "Strong problem-solving skills and attention to detail"
+        ],
+        "Responsibilities": [
+          "Maintain and develop various company websites, including e-commerce and internal sites",
+          "Work across the full stack to deliver high-quality, fully tested code",
+          "Provide technical support to customers and internal users",
+          "Collaborate with team members to solve complex issues and implement new features",
+          "Ensure all projects meet high standards of usability and performance"
+        ],
+        "Benefits": [
+          "$100K-$130K Annual Salary (Based on Experience), Full-Time"
         ]
       },
       "job_job_title": null,
       "job_posting_language": "en",
-      "job_onet_soc": "15113200",
-      "job_onet_job_zone": "4",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "xHGGT8duGOVvyQWPAAAAAA==",
+      "employer_name": "Zocalo Health",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxpdv0roI5piGsHugaDoiFPOwvSXnoUdkK_CQY&s=0",
+      "employer_website": "http://www.zocalo.health",
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Jobzmi.com",
+      "job_employment_type": "FULLTIME",
+      "job_title": "New Remote Junior Web Development Jobs Entry Level Paying Well",
+      "job_apply_link": "https://jobzmi.com/job/new-remote-junior-web-development-jobs-entry-level-paying-well/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": true,
+      "job_apply_quality_score": 0.435,
+      "apply_options": [
+        {
+          "publisher": "Jobzmi.com",
+          "apply_link": "https://jobzmi.com/job/new-remote-junior-web-development-jobs-entry-level-paying-well/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        }
+      ],
+      "job_description": "<p>The tech world is buzzing with opportunities, and none are more exciting than the New Remote Junior Web Development Jobs Entry Level Paying Well at Zocalo Health. With a focus on health tech, Zocalo Health is looking for passionate junior developers to join its team. Here, we’ll be able to provide everything, such as what makes this position stand out, what you’ll need to qualify for, and how to step into this rewarding role.</p>\n<h2>New Remote Junior Web Development Jobs Entry Level Paying Well Key Details</h2>\n<ul>\n<li><strong>Name of Hiring Company: </strong>Zocalo Health</li>\n<li><strong>Type of Role:</strong> Full-Time</li>\n<li><strong>Reporting To:</strong> Senior Developer</li>\n<li><strong>Working Hours:</strong> Flexible</li>\n<li><strong>Application Deadline:</strong> November 13, 2025</li>\n<li><strong>Salary Range: </strong>4500$-5100$</li>\n</ul>\n<h2>Job Opportunity</h2>\n<p>The tech world is buzzing with opportunities, and none are more exciting than the new remote junior web development jobs, entry-level, paying well at Zocalo Health. With a focus on health tech, Zocalo Health is looking for passionate junior developers to join its team.</p>\n<p>What makes this position stand out is its competitive pay, remote working flexibility, and opportunity to contribute to innovative health technology solutions. To qualify for this role, candidates should have a foundational knowledge of web development technologies such as HTML, CSS, and JavaScript and a genuine passion for the healthcare industry.</p>\n<h2>What You Need to Qualify?</h2>\n<ul>\n<li><strong>Basic Knowledge of HTML, CSS, and JavaScript: </strong>You’ll need a solid understanding of these fundamental web technologies. They form the backbone of our web applications. It is essential to know how to structure HTML, style it with CSS, and add interactivity with JavaScript.</li>\n<li><strong>Familiarity with Version Control Systems: </strong>Experience with version control systems like Git is crucial. These systems help us manage changes in our codebase and allow multiple developers to work on the same project simultaneously.</li>\n<li><strong>Problem-Solving Skills: </strong>We value creativity and analytical thinking. A key requirement is the ability to troubleshoot and solve problems efficiently. Your problem-solving skills will be helpful when debugging and optimizing our web applications.</li>\n<li><strong>Good Communication Skills: </strong>Effective communication is vital in a remote work environment. You must convey your ideas clearly and collaborate effectively with team members. Good communication ensures that everyone is on the same page.</li>\n<li><strong>Interest in Healthcare Technology: </strong>A genuine interest in healthcare technology will set you apart. Understanding this field’s unique challenges and opportunities will help you contribute meaningfully to our projects. Your passion for using technology to improve healthcare will be highly valued.</li>\n</ul>\n<h2>What You’ll Be Doing</h2>\n<ul>\n<li><strong>Developing and Maintaining Web Applications: </strong>Your primary responsibility will be developing and maintaining our web applications. This involves writing clean, efficient code and ensuring the applications run smoothly. You will also be responsible for troubleshooting and debugging any issues that may arise.</li>\n<li><strong>Collaborating with Team Members: </strong>As part of a remote team, it is crucial to collaborate effectively with your team members. This includes communicating, actively listening to others’ ideas, and being open to feedback. We can achieve our goals more efficiently and produce high-quality work by working together.</li>\n<li><strong>Collaborating with UX/UI Designers: </strong>You’ll work closely with our UX/UI designers to ensure the web applications are user-friendly. Your input will be valuable in creating interfaces that meet user needs and enhance the user experience. Collaborating with designers can also help you gain valuable insights and improve your coding skills.</li>\n<li><strong>Testing and Debugging: </strong>Testing and debugging are critical aspects of web development. You’ll identify and fix issues to ensure our applications are reliable and performant.</li>\n<li><strong>Participating in Code Reviews: </strong>Code reviews are an integral part of our development process. You’ll participate in reviews to ensure code quality and share knowledge with your peers. This also allows for continuous improvement and learning from others.</li>\n<li><strong>Implementing New Features: </strong>You can implement new features based on user feedback and business requirements. This will involve brainstorming ideas, writing code, and testing new functionalities. It’s a chance to use your creativity and problem-solving skills to improve our products.</li>\n</ul>\n<h2>How to Apply?</h2>\n<p>To apply for these New Remote Junior Web Development Jobs Entry Level Paying Well, please prepare an updated resume and a cover letter detailing your relevant experience and why you are interested in this position. Submit your application through email.</p>\n<h2>Conclusion</h2>\n<p>Joining Zocalo Health as a junior web developer is a fantastic opportunity to kickstart your tech career while positively impacting healthcare. Our new remote junior web development jobs are entry-level and pay well. They offer the perfect blend of challenge and reward. If you have the skills and passion, we encourage you to apply and become part of our mission to revolutionize healthcare through technology.</p>",
+      "job_is_remote": true,
+      "job_posted_at_timestamp": 1728448279,
+      "job_posted_at_datetime_utc": "2024-10-09T04:31:19.000Z",
+      "job_city": null,
+      "job_state": null,
+      "job_country": "US",
+      "job_latitude": 38.794594,
+      "job_longitude": -106.534836,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DxHGGT8duGOVvyQWPAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2025-11-13T23:59:59.000Z",
+      "job_offer_expiration_timestamp": 1763078399,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "true",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": 4500,
+      "job_max_salary": 4500,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "To qualify for this role, candidates should have a foundational knowledge of web development technologies such as HTML, CSS, and JavaScript and a genuine passion for the healthcare industry",
+          "Basic Knowledge of HTML, CSS, and JavaScript: You’ll need a solid understanding of these fundamental web technologies",
+          "It is essential to know how to structure HTML, style it with CSS, and add interactivity with JavaScript",
+          "Familiarity with Version Control Systems: Experience with version control systems like Git is crucial",
+          "These systems help us manage changes in our codebase and allow multiple developers to work on the same project simultaneously",
+          "Problem-Solving Skills: We value creativity and analytical thinking",
+          "A key requirement is the ability to troubleshoot and solve problems efficiently",
+          "Your problem-solving skills will be helpful when debugging and optimizing our web applications",
+          "Good Communication Skills: Effective communication is vital in a remote work environment",
+          "Interest in Healthcare Technology: A genuine interest in healthcare technology will set you apart"
+        ],
+        "Responsibilities": [
+          "They form the backbone of our web applications",
+          "Developing and Maintaining Web Applications: Your primary responsibility will be developing and maintaining our web applications",
+          "This involves writing clean, efficient code and ensuring the applications run smoothly",
+          "You will also be responsible for troubleshooting and debugging any issues that may arise",
+          "Collaborating with Team Members: As part of a remote team, it is crucial to collaborate effectively with your team members",
+          "Collaborating with UX/UI Designers: You’ll work closely with our UX/UI designers to ensure the web applications are user-friendly",
+          "Your input will be valuable in creating interfaces that meet user needs and enhance the user experience",
+          "You’ll identify and fix issues to ensure our applications are reliable and performant",
+          "Participating in Code Reviews: Code reviews are an integral part of our development process",
+          "You’ll participate in reviews to ensure code quality and share knowledge with your peers",
+          "This also allows for continuous improvement and learning from others",
+          "Implementing New Features: You can implement new features based on user feedback and business requirements",
+          "This will involve brainstorming ideas, writing code, and testing new functionalities"
+        ],
+        "Benefits": ["Working Hours: Flexible", "Salary Range: 4500$-5100$"]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "UxFTK1Pm8yuQa9mOAAAAAA==",
+      "employer_name": "Schneider Electric",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUO3e2d-Y4YaXBR8CU2ops9FML0THUqawkFCvd&s=0",
+      "employer_website": "http://www.se.com",
+      "employer_company_type": "Manufacturing",
+      "employer_linkedin": null,
+      "job_publisher": "Schneider Electric",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Front-End Developer, Angular",
+      "job_apply_link": "https://www.se.com/ww/en/about-us/careers/job-details/front-end-developer--angular/76507/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.7893,
+      "apply_options": [
+        {
+          "publisher": "Schneider Electric",
+          "apply_link": "https://www.se.com/ww/en/about-us/careers/job-details/front-end-developer--angular/76507/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Dice",
+          "apply_link": "https://www.dice.com/job-detail/2bebdc89-3a77-4165-9528-b810e569318f?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "LinkedIn",
+          "apply_link": "https://www.linkedin.com/jobs/view/front-end-developer-angular-at-schneider-electric-4014129088?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "SitePoint",
+          "apply_link": "https://www.sitepoint.com/jobs-for-developers/schneider-electric-usa-inc/front-end-developer-angular-333735/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Ladders",
+          "apply_link": "https://www.theladders.com/job/front-end-developer-angular-schneiderelectric-louisville-ky_76002642?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "BeBee",
+          "apply_link": "https://us.bebee.com/job/f221594fdd46a13252dd63f586a42553?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "SimplyHired",
+          "apply_link": "https://www.simplyhired.com/job/pgCoSdee16uJcz4F_GR1-6szwSaiBdxPF67u_ALWeZgcOgiF3FNLpQ?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Talentify",
+          "apply_link": "https://www.talentify.io/job/front-end-developer-angular-louisville-kentucky-schneider-electric-global-76507?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 16.0pt; font-family: 'Arial',sans-serif; color: black;\">Software Engineer – Front-End Development</span></strong></span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Schneider Electric has an opportunity for a Software Engineer specializing in Angular development in our Energy and Sustainability Services group. The preferred location is Louisville, Kentucky. As part of a team of talented architects and developers, the Sustainability Software Developer is responsible for the design and implementation of business-critical applications across the Sustainability business. They work with software architects and stakeholders to understand requirements and constraints, and then develop plans and execution strategies to meet those needs.</span></span></p><p style=\"margin: 0px;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Schneider Electric's Sustainability Architecture Group initiatives involve leveraging the latest technologies to build innovative and sustainable solutions. They use Azure services such as IoT, AI, and machine learning to develop solutions that enable customers to optimize their energy usage, reduce their carbon footprint, and improve operational efficiency. Software Engineers play a key component in the overall success of the team with a focus on the design and development of software solutions in the overall strategic architecture and platform strategies leveraging their expertise in Angular development.</span></span></p><p style=\"margin: 0px;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Schneider Electric is a global leader in energy management and automation solutions. They are committed to sustainability and reducing carbon emissions, and their business focus is on providing solutions that help customers achieve their sustainability goals.</span></span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Great people make Schneider Electric a great company.</span></strong></span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 16.0pt; font-family: 'Arial',sans-serif; color: black;\">What will you do?</span></strong></span></p><ul><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Work on a talented team of experienced architects and developers building SaaS-based energy and sustainability solutions for our business clients and customers.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Develop and enhance core business systems and applications, focusing on front-end development using Angular, and providing integration to other internal and external systems.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Collaborate with cross-functional teams to design and develop software solutions that address sustainability challenges.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Build external and internal facing software solutions for companies to track, report, and reduce their carbon emissions and achieve sustainability goals.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Write clean, efficient, and maintainable code using Angular, HTML5, CSS3, and JavaScript/TypeScript.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Develop APIs and web services for data collection and analysis in collaboration with back-end developers.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Participate in code reviews and ensure adherence to coding standards and best practices.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Troubleshoot and resolve software defects and issues.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Keep up to date with industry trends and emerging technologies relevant to sustainability.</span></span></li></ul><p style=\"margin: 0px;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\"> </span></span></p><p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 16.0pt; font-family: 'Arial',sans-serif; color: black;\">What will you bring?</span></strong></span></p><ul><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Proficiency in Angular development.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Strong understanding of software development principles, design patterns, and best practices.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Experience with front-end development, including Angular, HTML, CSS, and JavaScript/TypeScript.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Knowledge of back-end technologies such as .NET Core and C# is a plus.</span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Excellent problem-solving and analytical skills.</span></span></li></ul> <p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 16.0pt; font-family: 'Arial',sans-serif; color: black;\">Qualifications</span></strong></span></p><p style=\"margin: 0px;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">We know skills and competencies show up in many different ways and can be based on your life experience. If you do not necessarily meet all the requirements that are listed, we still encourage you to apply for the position.</span></span></p><p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Required Skills:</span></strong></span></p><ul><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Angular, HTML5, CSS3, JavaScript, TypeScript</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Experience designing and developing front-end solutions using Angular.</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Knowledge of modern UI frameworks and front-end development best practices</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Familiarity with CI/CD practices and tools</span></span></li></ul><p style=\"margin: 0px;\"><span><strong><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Preferred Skills:</span></strong></span></p><ul><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Degree in Computer Science, Software Engineering, or related field.</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Knowledge of cloud computing; experience building scalable, resilient applications using Azure is a plus.</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Experience working in collaborative teams and in an agile development environment.</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Previous energy or sustainability industry knowledge is a plus.</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Familiarity with back-end development using C#, .NET, ASP.NET MVC, .NET Core</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Experience with Azure services and Kubernetes</span></span></li><li style=\"margin-left: .75in;\"><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">SQL Server, NoSQL Databases</span></span></li></ul><p style=\"margin: 0px;\"><strong><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Please note:</span></strong></p><ul><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">This role is based in Louisville KY but we will consider the right US based Candidates for remote consideration. </span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">Salary will be between $110K and $125K base plus all of our benefits and a consistent bonus. </span></span></li><li><span><span style=\"font-size: 10.0pt; font-family: 'Arial',sans-serif; color: black;\">At this time we are unable to assist with any immigration needs. </span></span></li></ul> <p style=\"margin: 0px;\"> </p><p style=\"margin-top: 5.0pt; margin-bottom: 5.0pt; margin-left: 0in;\"><span style=\"color: #000000;\"><strong><span style=\"font-size: 10pt; font-family: arial, helvetica, sans-serif;\">Looking to make an IMPACT with your career?</span></strong></span></p><p style=\"margin-top: 5.0pt; margin-bottom: 5.0pt; margin-left: 0in;\"><span style=\"font-size: 10pt; font-family: arial, helvetica, sans-serif; color: #000000;\">When you are thinking about joining a new team, culture matters. At Schneider Electric, our values and behaviors are the foundation for creating a great culture to support business success. We believe that our  IMPACT values – Inclusion, Mastery, Purpose, Action, Curiosity, Teamwork – starts with us.</span></p><p style=\"margin-top: 5.0pt; margin-bottom: 5.0pt; margin-left: 0in;\"><span style=\"font-size: 10pt; font-family: arial, helvetica, sans-serif; color: #000000;\">IMPACT is also your invitation to join Schneider Electric where you can contribute to turning sustainability ambition into actions, no matter what role you play. It is a call to connect your career with the ambition of achieving a more resilient, efficient, and sustainable world.</span></p><p style=\"margin-top: 5.0pt; margin-bottom: 5.0pt; margin-left: 0in;\"><span style=\"font-size: 10pt; font-family: arial, helvetica, sans-serif; color: #000000;\">We are looking for IMPACT Makers; exceptional people who turn sustainability ambitions into actions at the intersection of automation, electrification, and digitization. We celebrate IMPACT Makers and believe everyone has the potential to be one.</span></p><p style=\"margin-top: 5.0pt; margin-bottom: 5.0pt; margin-left: 0in;\"><span style=\"font-size: 10pt; font-family: arial, helvetica, sans-serif; color: #000000;\">Become an IMPACT Maker with Schneider Electric – apply today!</span></p><p style=\"margin-top: 5pt; margin-bottom: 5pt; margin-left: 0in; text-align: center;\"><span style=\"font-family: arial, helvetica, sans-serif; font-size: 10pt; color: #000000;\">€36 billion global revenue</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 10pt; color: #000000;\">+13% organic growth</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 10pt; color: #000000;\">150 000+ employees in 100+ countries</span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 10pt; color: #000000;\">#1 on the Global 100 World’s most sustainable corporations</span></p><p style=\"margin: 0px; text-align: center;\"> </p><p style=\"margin: 0px; text-align: center;\"><img src=\"https://se.icims.com/icims2/servlet/icims2?module=AppInert&action=download&id=1608621&hashed=270845518\" alt=\"IMPACT Image_Boilerplate\" width=\"420\" height=\"236\" /></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span style=\"font-family: arial, helvetica, sans-serif; font-size: 10pt;\">You must submit an online application to be considered for any position with us. This position will be posted until filled.</span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span style=\"font-size: 8pt; font-family: arial, helvetica, sans-serif;\"><em>Schneider Electric aspires to be the most inclusive and caring company in the world, by providing equitable opportunities to everyone, everywhere, and ensuring all employees feel uniquely valued and safe to contribute their best. We mirror the diversity of the communities in which we operate, and ‘inclusion’ is one of our core values. We believe our differences make us stronger as a company and as individuals and we are committed to championing inclusivity in everything we do. This extends to our Candidates and is embedded in our Hiring Practices.</em></span><br /><span style=\"font-size: 8pt; font-family: arial, helvetica, sans-serif;\"><em>  </em></span><br /><span style=\"font-family: arial, helvetica, sans-serif; font-size: 8pt;\"><em><span style=\"color: black;\">You can find out more about our commitment to Diversity, Equity and Inclusion </span><u><span style=\"color: #0563c1;\"><a href=\"https://www.se.com/ww/en/about-us/diversity-and-inclusion/\" target=\"_blank\" rel=\"noopener\">here</a></span></u> <span style=\"color: black;\">and our DEI Policy </span><u><span style=\"color: #0563c1;\"><a href=\"https://www.se.com/ww/en/download/document/Diversity_Inclusion_Policy/?searchSource=guided&searchTerm=diversity%20polic\" target=\"_blank\" rel=\"noopener\">here</a></span></u></em></span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"><span style=\"font-size: 8pt; font-family: arial, helvetica, sans-serif;\"><em>At Schneider Electric, we uphold the highest standards of ethics and compliance, and we believe that trust is a foundational value. Our Trust Charter is our Code of Conduct and demonstrates our commitment to ethics, safety, sustainability, quality and cybersecurity, underpinning every aspect of our business and our willingness to behave and respond respectfully and in good faith to all our stakeholders. You can find out more about our Trust Charter <a href=\"https://www.se.com/ww/en/download/document/SchneiderElectric_TrustCharter/?ssr=true\" target=\"_blank\" rel=\"noopener\">here</a></em></span><br /><span style=\"font-size: 8pt; font-family: arial, helvetica, sans-serif;\"><em> </em></span><br /><span style=\"font-size: 8pt; font-family: arial, helvetica, sans-serif;\"><em>Schneider Electric is an Equal Opportunity Employer. It is our policy to provide equal employment and advancement opportunities in the areas of recruiting, hiring, training, transferring, and promoting all qualified individuals regardless of race, religion, color, gender, disability, national origin, ancestry, age, military status, sexual orientation, marital status, or any other legally protected characteristic or conduct.</em></span></p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"> </p><p style=\"margin: 0px;\"> </p>",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1725373500,
+      "job_posted_at_datetime_utc": "2024-09-03T14:25:00.000Z",
+      "job_city": "Louisville",
+      "job_state": "KY",
+      "job_country": "US",
+      "job_latitude": 38.24686,
+      "job_longitude": -85.76637,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DUxFTK1Pm8yuQa9mOAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2026-09-03T14:25:00.000Z",
+      "job_offer_expiration_timestamp": 1788445500,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "true",
+        "experience_preferred": "true"
+      },
+      "job_required_skills": ["UNAVAILABLE"],
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "true",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": 0,
+      "job_max_salary": 0,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Proficiency in Angular development",
+          "Strong understanding of software development principles, design patterns, and best practices",
+          "Experience with front-end development, including Angular, HTML, CSS, and JavaScript/TypeScript",
+          "Excellent problem-solving and analytical skills",
+          "We know skills and competencies show up in many different ways and can be based on your life experience",
+          "Angular, HTML5, CSS3, JavaScript, TypeScript",
+          "Experience designing and developing front-end solutions using Angular",
+          "Knowledge of modern UI frameworks and front-end development best practices",
+          "Familiarity with CI/CD practices and tools",
+          "NET MVC, .NET Core",
+          "Experience with Azure services and Kubernetes"
+        ],
+        "Responsibilities": [
+          "Work on a talented team of experienced architects and developers building SaaS-based energy and sustainability solutions for our business clients and customers",
+          "Develop and enhance core business systems and applications, focusing on front-end development using Angular, and providing integration to other internal and external systems",
+          "Collaborate with cross-functional teams to design and develop software solutions that address sustainability challenges",
+          "Build external and internal facing software solutions for companies to track, report, and reduce their carbon emissions and achieve sustainability goals",
+          "Write clean, efficient, and maintainable code using Angular, HTML5, CSS3, and JavaScript/TypeScript",
+          "Develop APIs and web services for data collection and analysis in collaboration with back-end developers",
+          "Participate in code reviews and ensure adherence to coding standards and best practices",
+          "Troubleshoot and resolve software defects and issues",
+          "Keep up to date with industry trends and emerging technologies relevant to sustainability"
+        ],
+        "Benefits": [
+          "Salary will be between $110K and $125K base plus all of our benefits and a consistent bonus"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": "33429",
+      "job_naics_name": "Other Communications Equipment Manufacturing"
+    },
+    {
+      "job_id": "bzD90HOztrVRn2JVAAAAAA==",
+      "employer_name": "Web Partners",
+      "employer_logo": null,
+      "employer_website": null,
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "ZipRecruiter",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Web Developer",
+      "job_apply_link": "https://www.ziprecruiter.com/c/Web-Partners/Job/Web-Developer/-in-Columbia,MD?jid=07be098ee7a62892&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.7262,
+      "apply_options": [
+        {
+          "publisher": "ZipRecruiter",
+          "apply_link": "https://www.ziprecruiter.com/c/Web-Partners/Job/Web-Developer/-in-Columbia,MD?jid=07be098ee7a62892&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobilize",
+          "apply_link": "https://www.jobilize.com/job/us-md-columbia-web-developer-partners-hiring-now-job-immediately-opening?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<p>We are a healthcare-focused web marketing company located in Columbia, MD looking for a talented developer to join our team. Experience is key but almost as important is someone who is self-driven and has the attitude to constantly want to work with new technology and create the best work they possibly can. Responsibilities: Create responsive websites with industry-standard HTML and CSS driven by the open-source, .NET-based Umbraco CMS Maintain existing websites and applications Research emerging technologies and provide suggestions to continuously improve your work Create web applications using a variety of technologies, including ASP.NET MVC and Node.JS Requirements: Must be local Can write standards-compliant HTML and CSS Has experience with HTML5 and CSS3 Experience with responsive CSS frameworks like Bootstrap 3 or a Sass-based framework like Neat Cross-browser support (we support IE9) Advanced knowledge of Javascript and jQuery Experience with AJAX Intermediate knowledge of ASP.NET and C# (especially with Webforms) Experience with creating CMS-powered sites (our CMS of choice is Umbraco) Advanced knowledge of a relational database like Microsoft SQL Server Experience with RESTful API's Bonuses: Experience with Sass or another CSS preprocessor Experience with Git for version control Experience with Node.JS Experience with a build tool like Gulp About Web Partners, LLC We're a healthcare-focused digital marketing agency based in Columbia, Maryland. </p><p>We re-imagine. We embrace new ideas. We learn. </p><p>We teach what we understand. We set a standard for what great work is and prove our value through quality. Our thesis is simple: do great work. </p><p>Web Partners, LLC and its affiliates are Equal Opportunity/Affirmative Action employers. All qualified applicants will receive consideration for employment without regard to race, color, religion, sexual orientation, gender identity,sex, age, national origin, disability, protected veteran status, and or any other status protected by federal, state, or local law.</p>",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1728207840,
+      "job_posted_at_datetime_utc": "2024-10-06T09:44:00.000Z",
+      "job_city": "Columbia",
+      "job_state": "MD",
+      "job_country": "US",
+      "job_latitude": 39.203716,
+      "job_longitude": -76.861046,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DbzD90HOztrVRn2JVAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-05T00:00:00.000Z",
+      "job_offer_expiration_timestamp": 1730764800,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "true",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Experience is key but almost as important is someone who is self-driven and has the attitude to constantly want to work with new technology and create the best work they possibly can",
+          "Responsibilities: Create responsive websites with industry-standard HTML and CSS driven by the open-source, .NET-based Umbraco CMS Maintain existing websites and applications Research emerging technologies and provide suggestions to continuously improve your work Create web applications using a variety of technologies, including ASP",
+          "NET MVC and Node.JS Requirements: Must be local Can write standards-compliant HTML and CSS Has experience with HTML5 and CSS3 Experience with responsive CSS frameworks like Bootstrap 3 or a Sass-based framework like Neat Cross-browser support (we support IE9) Advanced knowledge of Javascript and jQuery Experience with AJAX Intermediate knowledge of ASP",
+          "NET and C# (especially with Webforms) Experience with creating CMS-powered sites (our CMS of choice is Umbraco) Advanced knowledge of a relational database like Microsoft SQL Server Experience with RESTful API's Bonuses: Experience with Sass or another CSS preprocessor Experience with Git for version control Experience with Node.JS Experience with a build tool like Gulp About Web Partners, LLC We're a healthcare-focused digital marketing agency based in Columbia, Maryland"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": ["15-1134.00: Web Developers"],
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "AiHnYGC6KwDZomvVAAAAAA==",
+      "employer_name": "Randstad USA",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3T9OCRjM5t4L5TY7lSlSTZzegbFa614Ty69kP&s=0",
+      "employer_website": "http://www.randstadusa.com",
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "LinkedIn",
+      "job_employment_type": "FULLTIME",
+      "job_title": ".NET Web Developer II",
+      "job_apply_link": "https://www.linkedin.com/jobs/view/net-web-developer-ii-at-randstad-usa-4044389206?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.62,
+      "apply_options": [
+        {
+          "publisher": "LinkedIn",
+          "apply_link": "https://www.linkedin.com/jobs/view/net-web-developer-ii-at-randstad-usa-4044389206?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Monster",
+          "apply_link": "https://www.monster.com/job-openings/-net-web-developer-ii-madison-wi--a7951faa-0777-4181-9ef5-55a07791e1ea?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": true
+        },
+        {
+          "publisher": "SimplyHired",
+          "apply_link": "https://www.simplyhired.com/job/Y3qtlz3jAzoRYxHUsxnCFsb1414_1ouF9tVFpg8egpOskw_mBPL2Cg?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Salary.com",
+          "apply_link": "https://www.salary.com/job/better-future-solutions/net-web-developer-iii/j202410021003459902946?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobstinger",
+          "apply_link": "https://jobstinger.com/Wisconsin/madison/etc/vacancy-site_52413833.html?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Jobilize",
+          "apply_link": "https://www.jobilize.com/job/us-wi-madison-microsoft-net-web-developer-hexaquest-global-hiring-p8wuaib?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "IT Tech Careers",
+          "apply_link": "https://ittechcareers.com/job/microsoft-net-web-developer-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        },
+        {
+          "publisher": "Job Searchi - JobSearchi.com",
+          "apply_link": "https://www.jobsearchi.com/Wisconsin/madison/etc/net-web-developer-ii-52413833.html?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<strong>Job Summary<br><br></strong>This is a position needed for the development and support of critical priority applications in the Division of Employment and Training and the Division of Vocational Rehabilitation. Candidates will play an integral role on self directed work teams in support of high priority development projects. Project work will include: application design and development, integration with 3rd party software, data conversion, new development and modifications to existing code. Successful candidates will have demonstrated<br><br>location: MADISON, Wisconsin<br><br>job type: Contract<br><br>salary: $45 - 50 per hour<br><br>work hours: 8am to 4pm<br><br>education: Bachelors<br><br><strong>Responsibilities<br><br></strong>success in designing, creating, and maintaining web services, system integration, web development, and Agile Scrum development methodology.<br><br><ul><li>VB.NET</li><li>C#</li><li>Object Oriented Design</li><li>MVC</li><li>MVVM</li><li>Visual Studio.NET</li><li>MS Team Foundation Server</li><li>MS Azure DevOps</li><li>Oracle PL-SQL</li><li>Googe Cloud</li><li>Previous work experience in government, insurance, accounting or case management is required.</li><li>Previous work experience in online transaction processing (OLTP) web application development required.</li><li>Google Cloud or Microsoft Azure Cloud experience preferred.</li><li>The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player. All candidates submitted with inconsistencies or falsifications in their credentials will be disqualified and DOA purchasing will be notified.<br><br></li></ul><strong>Top Required Skills & Years Of Experience<br><br></strong><ul><li> 4 years of experience as a Microsoft full stack developer is required including legacy ASP.NET forms design and newer design patterns such as MVC/MVVM.</li><li> 4 years of experiences on development teams using Agile Scrum methodology is required</li><li> Previous work experience in government, insurance, accounting, case management, or work programs is required.</li><li> The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player.<br><br></li></ul><strong>Nice To Have Skills<br><br></strong><ul><li> 2 years of developing applications using cloud services, especially with GCP and/or AWS</li><li> 2 years of experience working with relational databases, such as SQL</li><li> 1 year of experience working with MVC</li><li> 1 year of experience working with microservices</li><li> Working experience with Blazor framework and MudBlazor component library<br><br></li></ul><strong>Qualifications<br><br></strong><ul><li>Experience level: Experienced</li><li>Minimum 4 years of experience</li><li>Education: Bachelors<br><br></li></ul><strong>Skills<br><br></strong><ul><li>.NET</li><li>Agile Methodology</li><li>Scrum Master<br><br></li></ul>Equal Opportunity Employer: Race, Color, Religion, Sex, Sexual Orientation, Gender Identity, National Origin, Age, Genetic Information, Disability, Protected Veteran Status, or any other legally protected group status.<br><br>At Randstad Digital, we welcome people of all abilities and want to ensure that our hiring and interview process meets the needs of all applicants. If you require a reasonable accommodation to make your application or interview experience a great one, please contact<br><br>Pay offered to a successful candidate will be based on several factors including the candidate's education, work experience, work location, specific job duties, certifications, etc. In addition, Randstad Digital offers a comprehensive benefits package, including health, an incentive and recognition program, and 401K contribution (all benefits are based on eligibility).<br><br>This posting is open for thirty (30) days.",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1728418728,
+      "job_posted_at_datetime_utc": "2024-10-08T20:18:48.000Z",
+      "job_city": "Madison",
+      "job_state": "WI",
+      "job_country": "US",
+      "job_latitude": 43.072166,
+      "job_longitude": -89.40075,
+      "job_benefits": [
+        "dental_coverage",
+        "retirement_savings",
+        "health_insurance"
+      ],
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DAiHnYGC6KwDZomvVAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2024-11-07T20:18:48.000Z",
+      "job_offer_expiration_timestamp": 1731010728,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": "48",
+        "experience_mentioned": "true",
+        "experience_preferred": "true"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": "false",
+        "professional_certification": "false",
+        "high_school": "false",
+        "associates_degree": "false",
+        "bachelors_degree": "true",
+        "degree_mentioned": "true",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "true"
+      },
+      "job_experience_in_place_of_education": false,
+      "job_min_salary": 45,
+      "job_max_salary": 50,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "Visual Studio",
+          "Previous work experience in online transaction processing (OLTP) web application development required",
+          "The successful candidate will be highly technically competent, a consistently high producer, a good communicator, and an overall team player",
+          "Top Required Skills & Years Of Experience",
+          "4 years of experience as a Microsoft full stack developer is required including legacy ASP",
+          "NET forms design and newer design patterns such as MVC/MVVM",
+          "4 years of experiences on development teams using Agile Scrum methodology is required",
+          "Previous work experience in government, insurance, accounting, case management, or work programs is required",
+          "2 years of developing applications using cloud services, especially with GCP and/or AWS",
+          "2 years of experience working with relational databases, such as SQL",
+          "1 year of experience working with MVC",
+          "Working experience with Blazor framework and MudBlazor component library",
+          "Experience level: Experienced",
+          "Minimum 4 years of experience",
+          "Education: Bachelors",
+          ".NET",
+          "Scrum Master"
+        ],
+        "Responsibilities": [
+          "Candidates will play an integral role on self directed work teams in support of high priority development projects",
+          "Project work will include: application design and development, integration with 3rd party software, data conversion, new development and modifications to existing code",
+          "work hours: 8am to 4pm",
+          "success in designing, creating, and maintaining web services, system integration, web development, and Agile Scrum development methodology"
+        ],
+        "Benefits": [
+          "salary: $45 - 50 per hour",
+          "Pay offered to a successful candidate will be based on several factors including the candidate's education, work experience, work location, specific job duties, certifications, etc",
+          "In addition, Randstad Digital offers a comprehensive benefits package, including health, an incentive and recognition program, and 401K contribution (all benefits are based on eligibility)"
+        ]
+      },
+      "job_job_title": null,
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null
+    },
+    {
+      "job_id": "FXnaVjebeBw2NdHMAAAAAA==",
+      "employer_name": "Delmarva Digital",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc_zL3ZHXCkmp0YGficZGq2tMaTWcmWdEr-pMW&s=0",
+      "employer_website": null,
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Glassdoor",
+      "job_employment_type": "FULLTIME",
+      "job_title": "Junior Web Developer & Graphic Designer",
+      "job_apply_link": "https://www.glassdoor.com/job-listing/junior-web-developer-and-graphic-designer-delmarva-digital-JV_IC1156389_KO0,41_KE42,58.htm?jl=1006691120837&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": 0.5611,
+      "apply_options": [
+        {
+          "publisher": "Glassdoor",
+          "apply_link": "https://www.glassdoor.com/job-listing/junior-web-developer-and-graphic-designer-delmarva-digital-JV_IC1156389_KO0,41_KE42,58.htm?jl=1006691120837&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "<div><div>Delmarva Digital is looking for the right web developer/designer to complete our creative team and work in our Laurel, Delaware (USA) location. The candidate will work with our creative director and others to produce distinctive, latest-technology websites and web-based platforms. A general proficiency in front end web graphic design and basic HTML web development is needed.\n<br>\n<br>\nApplicant must be within daily driving distance to our facility.</div>\n<div></div>\n<div>Requirements:</div>\n<div><ul><li>Ability to achieve desired results by accurately performing assigned tasks</li>\n<li>Excellent interpersonal, presentation and communication skills</li>\n<li>Adaptable and flexible to changing work environment</li>\n<li>Ability to work well within a team environment and independently, with minimal direction</li>\n<li>Good analytical & computer skills</li>\n<li>Ability to meet deadlines & perform well under stress</li>\n<li>Ability to follow process and provide consistent quality work</li></ul></div></div>\n<br><b>Interested? Send in your resume to employment@ddmg.net</b>",
+      "job_is_remote": false,
+      "job_posted_at_timestamp": 1726358400,
+      "job_posted_at_datetime_utc": "2024-09-15T00:00:00.000Z",
+      "job_city": "Laurel",
+      "job_state": "DE",
+      "job_country": "US",
+      "job_latitude": 38.556503,
+      "job_longitude": -75.57131,
+      "job_benefits": null,
+      "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=web+developer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DFXnaVjebeBw2NdHMAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+      "job_offer_expiration_datetime_utc": "2025-02-05T00:00:00.000Z",
+      "job_offer_expiration_timestamp": 1738713600,
+      "job_required_experience": {
+        "no_experience_required": "false",
+        "required_experience_in_months": null,
+        "experience_mentioned": "false",
+        "experience_preferred": "false"
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": "false",
+        "degree_preferred": "false",
+        "professional_certification_mentioned": "false"
+      },
+      "job_experience_in_place_of_education": "false",
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {
+        "Qualifications": [
+          "A general proficiency in front end web graphic design and basic HTML web development is needed",
+          "Excellent interpersonal, presentation and communication skills",
+          "Adaptable and flexible to changing work environment",
+          "Ability to work well within a team environment and independently, with minimal direction",
+          "Good analytical & computer skills",
+          "Ability to meet deadlines & perform well under stress",
+          "Ability to follow process and provide consistent quality work"
+        ]
+      },
+      "job_job_title": "Designer",
+      "job_posting_language": "en",
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
       "job_occupational_categories": null,
       "job_naics_code": null,
       "job_naics_name": null

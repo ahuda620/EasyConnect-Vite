@@ -392,6 +392,15 @@ export default function SearchBar({
             <input
               type="radio"
               name="radius"
+              id="radius0"
+              value="0"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "0"}
+            />
+            <label htmlFor="radius0">Exact Location</label>
+            <input
+              type="radio"
+              name="radius"
               id="radius1"
               value="8.04672"
               onChange={handleRadioBtnChange}

@@ -4,7 +4,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  /* flex-grow: 1; */
+  height: fit-content;
   max-width: 50%;
   overflow-y: auto;
   overflow-x: hidden;

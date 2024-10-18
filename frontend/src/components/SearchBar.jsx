@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function SearchBar({
   handleSearchParamObject,
@@ -45,6 +45,16 @@ export default function SearchBar({
     }
   }, [fetchJobs, handleFetchJobs, handleSearchParamObject, searchParamObject]);
 
+  //effect that tracks if the user click outside the searchParamButtonsWrapper, if so then close all dropdown menus
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    //cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   //function that handles the visibility of the search param button drop down menus
   //set visibility of all menus to false initially so that only one menu is visible at a time
   function handleMenuVisibility(menuName) {
@@ -57,6 +67,25 @@ export default function SearchBar({
       [menuName]: !prevState[menuName],
     }));
   }
+
+  //Close all drop down menus if a click happens outside of searchParamButtonsWrapper
+  const searchParamButtonsWrapperRef = useRef(null); //getting a reference to searchParamButtonsWrapper
+  const handleClickOutside = (e) => {
+    if (
+      searchParamButtonsWrapperRef.current &&
+      !searchParamButtonsWrapperRef.current.contains(e.target)
+    ) {
+      //if ref exists, and is outside searchParamButtonsWrapper, close all drop down menues
+
+      setMenuVisibility({
+        datePostedMenu: false,
+        remoteMenu: false,
+        employmentTypesMenu: false,
+        experienceMenu: false,
+        distanceMenu: false,
+      });
+    }
+  };
 
   //function that handles radio button menu changes to the searchParamObject state
   function handleRadioBtnChange(e) {
@@ -84,7 +113,7 @@ export default function SearchBar({
       );
     }
 
-    //update state of paramObject
+    //update state of searchParamObject
     if (employmentTypesArray.length > 0) {
       //if array length is greater than 0, join new array values with preexisting searchParamObject employment_types property values
       setSearchParamObject((prevState) => ({
@@ -132,7 +161,10 @@ export default function SearchBar({
         </button>
       </div>
 
-      <div className={styles.searchParamButtonsWrapper}>
+      <div
+        ref={searchParamButtonsWrapperRef}
+        className={styles.searchParamButtonsWrapper}
+      >
         <div className={styles.datePostedBtn}>
           <button onClick={() => handleMenuVisibility("datePostedMenu")}>
             Date Posted

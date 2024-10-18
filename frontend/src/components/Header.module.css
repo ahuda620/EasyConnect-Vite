@@ -71,34 +71,70 @@
   padding: 0rem;
 }
 
-.profileDropDownMenu li,
-.profileDropDownMenu a {
+/* .profileDropDownMenu li,
+.profileDropDownMenu a{
   color: white;
-}
+} */
 
+/* .profileDropDownMenu li {
+  margin: 1rem 0rem;
+} */
+
+/* .profileDropDownMenu li svg {
+  margin: 0 1rem;
+  width: 2.5rem;
+} */
+
+/* Make anchor tag take entire width/height of li element */
+/* .profileDropDownMenu li a {
+  display: block;
+  width: 100%;
+} */
+
+/* .profileDropDownMenu li:hover {
+  color: #f43f7f;
+  border-left: 0.3rem solid #f43f7f;
+} */
+
+/*Change color of anchor element text WHILE li element is hovered over */
+/* .profileDropDownMenu li:hover a {
+  color: #f43f7f;
+} */
+
+/*Chatgpt*/
 .profileDropDownMenu li {
   margin: 1rem 0rem;
 }
 
-.profileDropDownMenu li svg {
-  margin: 0 1rem;
-  width: 2.5rem;
-}
-
-/*Make anchor tag take entire width/height of li element*/
-.profileDropDownMenu li a {
+/* Target both anchor tags and Link components (which render as anchor tags) */
+.profileDropDownMenu li a,
+.profileDropDownMenu li button {
+  color: white;
   display: block;
-  width: 100%;
+  width: 100%; /* Ensure both a and button take up the full width of the li */
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit; /* Inherit the font size from the parent element */
 }
 
+/* Handle hover styles for li elements */
 .profileDropDownMenu li:hover {
   color: #f43f7f;
   border-left: 0.3rem solid #f43f7f;
 }
 
-/*Change color of anchor element text WHILE li element is hovered over */
-.profileDropDownMenu li:hover a {
+/* Change color of both Link and button text when li is hovered */
+.profileDropDownMenu li:hover a,
+.profileDropDownMenu li:hover button {
   color: #f43f7f;
+}
+
+.profileDropDownMenu li svg {
+  margin: 0 1rem;
+  width: 2.5rem;
 }
 
 .userProfileContainer {
@@ -144,30 +180,35 @@
   max-width: 15rem;
 }
 
-.userNotLoggedIn li a {
+.userNotLoggedIn li button {
   white-space: nowrap;
 }
 
-.userNotLoggedIn li:first-child a {
+.userNotLoggedIn li:first-child button {
   padding: 0.5rem 1.2rem;
   border: 0.15rem solid rgb(224, 224, 224);
   border-radius: 1.5rem;
+  font-size: inherit;
+  background-color: white;
+  outline: none;
 }
 
-.userNotLoggedIn li:nth-child(2) a {
-  padding: 0.6rem 1.2rem;
+.userNotLoggedIn li:nth-child(2) button {
+  padding: 0.5rem 1.2rem;
   border-radius: 1.5rem;
   background-color: black;
   color: white;
+  font-size: inherit;
+  outline: none;
+  border: none;
 }
 
-.userNotLoggedIn li:first-child a:hover {
+.userNotLoggedIn li:first-child button:hover {
   background: linear-gradient(to right, #ff6ec4, #f43f7f);
-  border: none;
   color: white;
 }
 
-.userNotLoggedIn li:nth-child(2) a:hover {
+.userNotLoggedIn li:nth-child(2) button:hover {
   background: linear-gradient(to right, #ff6ec4, #f43f7f);
 }
 

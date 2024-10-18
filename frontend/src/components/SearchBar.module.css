@@ -1,28 +1,52 @@
-.container {
+.wrapper {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
-.container input[type="search"] {
+.searchBarWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.jobSearchBar {
   font-size: 1.2rem;
-  border-radius: 1.5rem;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
+  border-radius: 24px;
+  border: 1.92px solid rgb(224, 224, 224);
+  width: 60%;
+  padding: 8px 16px;
 }
 
-.container input[type="search"]::placeholder {
+.jobSearchBar::placeholder {
   color: rgb(133, 133, 133);
 }
 
-.container input[type="search"]:focus {
-  outline: 0.15rem solid #ff82a1;
+.jobSearchBar:focus {
+  border-right: 1.92px solid rgb(224, 224, 224);
+  outline: 2px solid #ff82a1;
 }
 
-.container input[type="submit"] {
+.locationSearchBar {
+  font-size: 1.2rem;
+  border-radius: 24px;
+  border: 1.92px solid rgb(224, 224, 224);
+
+  width: 40%;
+  padding: 8px 16px;
+}
+
+.locationSearchBar::placeholder {
+  color: rgb(133, 133, 133);
+}
+
+.locationSearchBar:focus {
+  outline: 2px solid #ff82a1;
+}
+
+.jobSearchBtn {
   font-size: 1.2rem;
   border-radius: 1.5rem;
   background-color: black;
@@ -31,12 +55,72 @@
   padding: 0.5rem 1rem;
 }
 
-.container input[type="submit"]:hover {
+.jobSearchBtn:hover {
   background: linear-gradient(to right, #ff6ec4, #f43f7f);
 }
 
+.searchParamButtonsWrapper {
+  /* max-width: 80%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.searchParamButtonsWrapper button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background-color: rgb(235, 235, 235);
+  border-radius: 1.5rem;
+  white-space: nowrap;
+}
+
+.searchParamButtonsWrapper button:hover {
+  background-color: rgb(202, 202, 202);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid red;
+  display: none;
+  flex-direction: column;
+}
+
+.menu.visible {
+  display: flex;
+}
+
+.menu label {
+  white-space: nowrap;
+}
+
+.datePostedBtn {
+  position: relative;
+}
+
+.remoteBtn {
+  position: relative;
+}
+
+.employmentTypesBtn {
+  position: relative;
+}
+
+.experienceBtn {
+  position: relative;
+}
+
+.distanceBtn {
+  position: relative;
+}
+
 @media (max-width: 1092px) {
-  .container {
+  .wrapper {
     flex-wrap: wrap;
   }
 }

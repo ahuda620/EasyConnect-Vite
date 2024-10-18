@@ -174,56 +174,51 @@ export default function SearchBar({
               menuVisibility.datePostedMenu ? styles.visible : ""
             }`}
           >
-            <label>
-              <input
-                type="radio"
-                name="date_posted"
-                value="today"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.date_posted === "today"}
-              />
-              Today
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="date_posted"
-                value="3days"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.date_posted === "3days"}
-              />
-              Last 3 days
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="date_posted"
-                value="week"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.date_posted === "week"}
-              />
-              Last 7 days
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="date_posted"
-                value="month"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.date_posted === "month"}
-              />
-              Last month
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="date_posted"
-                value="all"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.date_posted === "all"}
-              />
-              Any time
-            </label>
+            <input
+              type="radio"
+              name="date_posted"
+              id="date_posted1"
+              value="today"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.date_posted === "today"}
+            />
+            <label htmlFor="date_posted1">Today</label>
+            <input
+              type="radio"
+              name="date_posted"
+              id="date_posted2"
+              value="3days"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.date_posted === "3days"}
+            />
+            <label htmlFor="date_posted2">Last 3 days</label>
+            <input
+              type="radio"
+              name="date_posted"
+              id="date_posted3"
+              value="week"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.date_posted === "week"}
+            />
+            <label htmlFor="date_posted3">Last 7 days</label>
+            <input
+              type="radio"
+              name="date_posted"
+              id="date_posted4"
+              value="month"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.date_posted === "month"}
+            />
+            <label htmlFor="date_posted4">Last month</label>
+            <input
+              type="radio"
+              name="date_posted"
+              id="date_posted5"
+              value="all"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.date_posted === "all"}
+            />
+            <label htmlFor="date_posted5">Any time</label>
           </div>
         </div>
         <div className={styles.remoteBtn}>
@@ -235,26 +230,24 @@ export default function SearchBar({
               menuVisibility.remoteMenu ? styles.visible : ""
             }`}
           >
-            <label>
-              <input
-                type="radio"
-                name="remote_jobs_only"
-                value="true"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.remote_jobs_only === "true"}
-              />
-              Remote Only
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="remote_jobs_only"
-                value="false"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.remote_jobs_only === "false"}
-              />
-              All
-            </label>
+            <input
+              type="radio"
+              name="remote_jobs_only"
+              id="remote_jobs_only1"
+              value="true"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.remote_jobs_only === "true"}
+            />
+            <label htmlFor="remote_jobs_only1">Remote Only</label>
+            <input
+              type="radio"
+              name="remote_jobs_only"
+              id="remote_jobs_only2"
+              value="false"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.remote_jobs_only === "false"}
+            />
+            <label htmlFor="remote_jobs_only2">All</label>
           </div>
         </div>
         <div className={styles.employmentTypesBtn}>
@@ -396,56 +389,51 @@ export default function SearchBar({
               menuVisibility.distanceMenu ? styles.visible : ""
             }`}
           >
-            <label>
-              <input
-                type="radio"
-                name="radius"
-                value="8.04672"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.radius === "8.04672"}
-              />
-              Within 5 miles
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radius"
-                value="16.0934"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.radius === "16.0934"}
-              />
-              With 10 miles
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radius"
-                value="40.2336"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.radius === "40.2336"}
-              />
-              With 25 miles
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radius"
-                value="80.4672"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.radius === "80.4672"}
-              />
-              With 50 miles
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="radius"
-                value="160.934"
-                onChange={handleRadioBtnChange}
-                checked={searchParamObject.radius === "160.934"}
-              />
-              With 100 miles
-            </label>
+            <input
+              type="radio"
+              name="radius"
+              id="radius1"
+              value="8.04672"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "8.04672"}
+            />
+            <label htmlFor="radius1">Within 5 miles</label>
+            <input
+              type="radio"
+              name="radius"
+              id="radius2"
+              value="16.0934"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "16.0934"}
+            />
+            <label htmlFor="radius2">With 10 miles</label>
+            <input
+              type="radio"
+              name="radius"
+              id="radius3"
+              value="40.2336"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "40.2336"}
+            />
+            <label htmlFor="radius3">With 25 miles</label>
+            <input
+              type="radio"
+              name="radius"
+              id="radius4"
+              value="80.4672"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "80.4672"}
+            />
+            <label htmlFor="radius4">With 50 miles</label>
+            <input
+              type="radio"
+              name="radius"
+              id="radius5"
+              value="160.934"
+              onChange={handleRadioBtnChange}
+              checked={searchParamObject.radius === "160.934"}
+            />
+            <label htmlFor="radius5">With 100 miles</label>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import { useState } from "react";
-// import { useUser } from "@auth0/nextjs-auth0/client";
+import { Link } from "react-router-dom";
 import { useIsMobile } from "../context/MobileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,15 +14,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import companyLogo from "../assets/companyLogo.png";
 
+//Import Clerk Hooks
+import { useUser, useClerk } from "@clerk/clerk-react";
+
 export default function Header() {
-  //   const { user, error, isLoading } = useUser();
-  const user = false;
+  const { user } = useUser(); //Use Clerk hook to get current user
+  const { openSignIn, openSignUp, signOut, openUserProfile } = useClerk(); //Clerk methods for login, signup and signout
   const isMobile = useIsMobile();
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleMenuVisible = () => {
     setMenuVisible(!menuVisible);
   };
+
+  console.log(user);
 
   return (
     <nav className={styles.wrapper}>
@@ -34,51 +39,57 @@ export default function Header() {
 
       <ul className={styles.centerNavLinks}>
         <li>
-          <a href="#">Placeholder</a>
+          <Link to="/#">Placeholder</Link>
         </li>
         <li>
-          <a href="#">Placeholder</a>
+          <Link to="/#">Placeholder</Link>
         </li>
         <li>
-          <a href="#">Placeholder</a>
+          <Link to="/#">Placeholder</Link>
         </li>
         <li>
-          <a href="#">Placeholder</a>
+          <Link to="/#">Placeholder</Link>
         </li>
       </ul>
 
       {user ? (
         <div className={styles.userLoggedIn}>
           <div className={styles.userProfileContainer}>
-            <p>Welcome, {user.given_name}!</p>
-            <img src={user.picture}></img>
+            {user.username || user.firstName || user.fullName ? (
+              <p>
+                Welcome, {user.username || user.firstName || user.fullName}!
+              </p>
+            ) : (
+              <p>{user.primaryEmailAddress}</p>
+            )}
+            <img src={user.imageUrl}></img>
             <div className={styles.dropDownMenuTriangle}></div>
             <div className={styles.profileDropDownMenu}>
               <nav>
                 <ul>
                   <li>
-                    <a href="#">
+                    <button onClick={() => openUserProfile()}>
                       <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                       Profile
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/#">
                       <FontAwesomeIcon icon={faFileLines} />
                       Applications
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/#">
                       <FontAwesomeIcon icon={faBookmark} />
                       Saved Jobs
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/api/auth/logout">
+                    <button onClick={() => signOut()}>
                       <FontAwesomeIcon icon={faRightFromBracket} />
                       Logout
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </nav>
@@ -88,14 +99,14 @@ export default function Header() {
       ) : (
         <ul className={styles.userNotLoggedIn}>
           <li>
-            <a href="/api/auth/login">Login</a>
+            <button onClick={() => openSignIn()}>Login</button>
           </li>
           <li>
-            <a href="#">Sign Up</a>
+            <button onClick={() => openSignUp()}>Sign Up</button>
           </li>
         </ul>
       )}
-
+      {/* Mobile UI */}
       {isMobile && (
         <button className={styles.mobileMenuToggle} onClick={handleMenuVisible}>
           <FontAwesomeIcon icon={faBars} />
@@ -114,10 +125,10 @@ export default function Header() {
                   <img src={user.picture}></img>
                 </li>
                 <li>
-                  <a href="/api/auth/logout">
+                  <button onClick={() => signOut()}>
                     <FontAwesomeIcon icon={faRightFromBracket} />
                     Logout
-                  </a>
+                  </button>
                 </li>
               </>
             ) : (

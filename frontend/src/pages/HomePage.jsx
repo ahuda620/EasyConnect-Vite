@@ -1,11 +1,9 @@
 import styles from "./HomePage.module.css";
-import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 
 export default function HomePage() {
   return (
     <>
-      <Header></Header>
       <div className={styles.pageWrapper}>
         <div className={styles.heroContainer}>
           <h1 className={styles.heroTitle}>

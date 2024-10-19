@@ -60,7 +60,6 @@
 }
 
 .searchParamButtonsWrapper {
-  /* max-width: 80%; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -86,9 +85,24 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid red;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   display: none;
   flex-direction: column;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #f43f7f;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #f43f7f;
+  color: white;
 }
 
 .menu.visible {
@@ -97,6 +111,11 @@
 
 .menu label {
   white-space: nowrap;
+  padding: 5px 10px;
+}
+
+.menu label:hover {
+  background-color: #ffc1d7;
 }
 
 .datePostedBtn {

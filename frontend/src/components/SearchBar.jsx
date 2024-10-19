@@ -98,7 +98,7 @@ export default function SearchBar({
   }
 
   //function that handles checkbox menu changes to the searchParamObject state
-  function handleCheckboxChange(e) {
+  function handleCheckBoxChange(e) {
     let checkBoxArray = searchParamObject[e.target.name]?.split(",") || [];
 
     if (e.target.checked) {
@@ -260,7 +260,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="employment_types"
                 value="FULLTIME"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.employment_types?.includes("FULLTIME") ||
                   false
@@ -273,7 +273,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="employment_types"
                 value="CONTRACTOR"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.employment_types?.includes("CONTRACTOR") ||
                   false
@@ -286,7 +286,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="employment_types"
                 value="PARTTIME"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.employment_types?.includes("PARTTIME") ||
                   false
@@ -299,7 +299,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="employment_types"
                 value="INTERN"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.employment_types?.includes("INTERN") ||
                   false
@@ -323,7 +323,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="job_requirements"
                 value="no_experience"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.job_requirements?.includes(
                     "no_experience"
@@ -337,7 +337,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="job_requirements"
                 value="no_degree"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.job_requirements?.includes("no_degree") ||
                   false
@@ -350,7 +350,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="job_requirements"
                 value="under_3_years_experience"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.job_requirements?.includes(
                     "under_3_years_experience"
@@ -364,7 +364,7 @@ export default function SearchBar({
                 type="checkbox"
                 name="job_requirements"
                 value="more_than_3_years_experience"
-                onChange={handleCheckboxChange}
+                onChange={handleCheckBoxChange}
                 checked={
                   searchParamObject.job_requirements?.includes(
                     "more_than_3_years_experience"

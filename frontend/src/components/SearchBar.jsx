@@ -1,5 +1,7 @@
 import styles from "./SearchBar.module.css";
 import { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({
   handleSearchParamObject,
@@ -89,10 +91,19 @@ export default function SearchBar({
 
   //function that handles radio button menu changes to the searchParamObject state
   function handleRadioBtnChange(e) {
-    setSearchParamObject((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === "radius" && e.target.value === "Any") {
+      //If user selected "Any" option for the radius drop down menu, delete the radius property from searchParamObject, since JSearch API only takes numbers as input
+      setSearchParamObject((prevState) => {
+        const newState = { ...prevState };
+        delete newState[e.target.name];
+        return newState;
+      });
+    } else {
+      setSearchParamObject((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+    }
 
     setFetchJobs(true); //trigger fetch call in parent component
   }
@@ -161,9 +172,18 @@ export default function SearchBar({
         ref={searchParamButtonsWrapperRef}
         className={styles.searchParamButtonsWrapper}
       >
-        <div className={styles.datePostedBtn}>
-          <button onClick={() => handleMenuVisibility("datePostedMenu")}>
+        <div className={styles.searchParamBtn}>
+          <button
+            className={
+              searchParamObject.date_posted !== "" &&
+              searchParamObject.date_posted !== "all"
+                ? `${styles.searchParamBtn} ${styles.active}`
+                : ""
+            }
+            onClick={() => handleMenuVisibility("datePostedMenu")}
+          >
             Date Posted
+            <FontAwesomeIcon icon={faSortDown} />
           </button>
           <div
             className={`${styles.menu} ${
@@ -217,9 +237,18 @@ export default function SearchBar({
             <label htmlFor="date_posted5">Any time</label>
           </div>
         </div>
-        <div className={styles.remoteBtn}>
-          <button onClick={() => handleMenuVisibility("remoteMenu")}>
+        <div className={styles.searchParamBtn}>
+          <button
+            className={
+              searchParamObject.remote_jobs_only &&
+              searchParamObject.remote_jobs_only !== "false"
+                ? `${styles.searchParamBtn} ${styles.active}`
+                : ""
+            }
+            onClick={() => handleMenuVisibility("remoteMenu")}
+          >
             Remote
+            <FontAwesomeIcon icon={faSortDown} />
           </button>
           <div
             className={`${styles.menu} ${
@@ -246,9 +275,18 @@ export default function SearchBar({
             <label htmlFor="remote_jobs_only2">All</label>
           </div>
         </div>
-        <div className={styles.employmentTypesBtn}>
-          <button onClick={() => handleMenuVisibility("employmentTypesMenu")}>
+        <div className={styles.searchParamBtn}>
+          <button
+            className={
+              searchParamObject.employment_types &&
+              searchParamObject.employment_types.length > 0
+                ? `${styles.searchParamBtn} ${styles.active}`
+                : ""
+            }
+            onClick={() => handleMenuVisibility("employmentTypesMenu")}
+          >
             Job Type
+            <FontAwesomeIcon icon={faSortDown} />
           </button>
           <div
             className={`${styles.menu} ${
@@ -309,9 +347,18 @@ export default function SearchBar({
             </label>
           </div>
         </div>
-        <div className={styles.experienceBtn}>
-          <button onClick={() => handleMenuVisibility("experienceMenu")}>
-            Experience level
+        <div className={styles.searchParamBtn}>
+          <button
+            className={
+              searchParamObject.job_requirements &&
+              searchParamObject.job_requirements.length > 0
+                ? `${styles.searchParamBtn} ${styles.active}`
+                : ""
+            }
+            onClick={() => handleMenuVisibility("experienceMenu")}
+          >
+            Experience Level
+            <FontAwesomeIcon icon={faSortDown} />
           </button>
           <div
             className={`${styles.menu} ${
@@ -376,9 +423,17 @@ export default function SearchBar({
           </div>
         </div>
         {/* UI says distance in miles but convert it to KM for API call */}
-        <div className={styles.distanceBtn}>
-          <button onClick={() => handleMenuVisibility("distanceMenu")}>
+        <div className={styles.searchParamBtn}>
+          <button
+            className={
+              searchParamObject.radius
+                ? `${styles.searchParamBtn} ${styles.active}`
+                : ""
+            }
+            onClick={() => handleMenuVisibility("distanceMenu")}
+          >
             Distance
+            <FontAwesomeIcon icon={faSortDown} />
           </button>
           <div
             className={`${styles.menu} ${
@@ -439,6 +494,14 @@ export default function SearchBar({
               checked={searchParamObject.radius === "160.934"}
             />
             <label htmlFor="radius5">With 100 miles</label>
+            <input
+              type="radio"
+              name="radius"
+              id="radiusAny"
+              value="Any"
+              onChange={handleRadioBtnChange}
+            />
+            <label htmlFor="radiusAny">Any</label>
           </div>
         </div>
       </div>

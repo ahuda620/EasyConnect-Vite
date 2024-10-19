@@ -74,6 +74,9 @@
   background-color: rgb(235, 235, 235);
   border-radius: 1.5rem;
   white-space: nowrap;
+  display: flex;
+  gap: 8px;
+  font-size: 0.85rem;
 }
 
 .searchParamButtonsWrapper button:hover {
@@ -91,6 +94,20 @@
   flex-direction: column;
 }
 
+.menu.visible {
+  display: flex;
+}
+
+.menu label {
+  white-space: nowrap;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.menu label:hover {
+  background-color: #ffc1d7;
+}
+
 input[type="radio"] {
   display: none;
 }
@@ -105,37 +122,18 @@ input[type="radio"]:checked + label {
   color: white;
 }
 
-.menu.visible {
-  display: flex;
+/* specific style for the dummy "Any" option in the Distance dropdown menu */
+input#radiusAny:checked + label {
+  background-color: #f43f7f;
+  color: white;
 }
 
-.menu label {
-  white-space: nowrap;
-  padding: 5px 10px;
-}
-
-.menu label:hover {
-  background-color: #ffc1d7;
-}
-
-.datePostedBtn {
+.searchParamBtn {
   position: relative;
 }
 
-.remoteBtn {
-  position: relative;
-}
-
-.employmentTypesBtn {
-  position: relative;
-}
-
-.experienceBtn {
-  position: relative;
-}
-
-.distanceBtn {
-  position: relative;
+.searchParamBtn.active {
+  background-color: rgb(202, 202, 202);
 }
 
 @media (max-width: 1092px) {

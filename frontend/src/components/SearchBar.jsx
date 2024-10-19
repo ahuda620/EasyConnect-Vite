@@ -99,32 +99,28 @@ export default function SearchBar({
 
   //function that handles checkbox menu changes to the searchParamObject state
   function handleCheckboxChange(e) {
-    //copy employment_types property values from searchParamObject if it exists
-    let employmentTypesArray =
-      searchParamObject.employment_types?.split(",") || [];
+    let checkBoxArray = searchParamObject[e.target.name]?.split(",") || [];
 
     if (e.target.checked) {
       //if checkbox is checked, push value into array
-      employmentTypesArray.push(e.target.value);
+      checkBoxArray.push(e.target.value);
     } else {
       //if checkbox is uncheck, remove value from array
-      employmentTypesArray = employmentTypesArray.filter(
-        (type) => type !== e.target.value
-      );
+      checkBoxArray = checkBoxArray.filter((type) => type !== e.target.value);
     }
 
     //update state of searchParamObject
-    if (employmentTypesArray.length > 0) {
-      //if array length is greater than 0, join new array values with preexisting searchParamObject employment_types property values
+    if (checkBoxArray.length > 0) {
+      //if array length is greater than 0, join new array values with preexisting values in searchParamObject
       setSearchParamObject((prevState) => ({
         ...prevState,
-        employment_types: employmentTypesArray.join(","),
+        [e.target.name]: checkBoxArray.join(","),
       }));
     } else {
-      //if array is empty, remove employement_type property from paramObject
+      //if array is empty, remove property from paramObject
       setSearchParamObject((prevState) => {
         const newState = { ...prevState };
-        delete newState.employment_types;
+        delete newState[e.target.name];
         return newState;
       });
     }

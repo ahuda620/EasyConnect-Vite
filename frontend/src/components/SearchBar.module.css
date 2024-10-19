@@ -96,6 +96,7 @@
 
 .menu.visible {
   display: flex;
+  background-color: white;
 }
 
 .menu label {

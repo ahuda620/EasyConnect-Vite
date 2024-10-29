@@ -2,5 +2,5 @@
   "id": 1,
   "firstname": "Test",
   "lastname": "Mcgee",
-  "skills": ["javascript", "html", "css", "node", "react"]
+  "skills": ["javascript", "html", "css", "node", "react", "MVC", "AWS"]
 }

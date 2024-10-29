@@ -12,7 +12,7 @@ import {
   faBars,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import companyLogo from "../assets/companyLogo.png";
+import companyLogo from "../assets/pinkLogo.png";
 
 //Import Clerk Hooks
 import { useUser, useClerk } from "@clerk/clerk-react";
@@ -26,8 +26,6 @@ export default function Header() {
   const handleMenuVisible = () => {
     setMenuVisible(!menuVisible);
   };
-
-  console.log(user);
 
   return (
     <nav className={styles.wrapper}>

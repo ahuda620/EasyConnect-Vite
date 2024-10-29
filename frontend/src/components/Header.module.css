@@ -1,11 +1,12 @@
 .wrapper {
-  min-height: 7svh;
+  height: 7svh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-inline: 1rem;
   font-size: 1.2rem;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .wrapper a {

@@ -1,5 +1,5 @@
 .pageWrapper {
-  min-height: 93svh;
+  height: 93svh; /*change for mobile*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,26 +10,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.178);
+  padding: 16px 0;
 }
 
 .jobSectionWrapper {
+  max-width: 55%;
   margin-inline: auto;
-  border: 1px solid red;
-  max-width: 1200px;
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.jobPageListingCardWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 50%;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 @media (max-width: 1092px) {
+  .pageWrapper {
+  }
+
   .searchBarWrapper input[type="search"],
   .searchBarWrapper input[type="submit"] {
     width: 100%;

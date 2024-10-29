@@ -1,58 +1,49 @@
-.jobListingDetailWrapper {
-  border: 1px solid rgb(175, 175, 175);
-  border-radius: 10px;
-  padding: 1rem;
+.wrapper {
+  max-width: 55%;
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  max-width: 50%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  border: 1px solid #dbdbdb;
+  border-left: none;
 }
 
-.jobListingDetailWrapper img {
-  width: 75px;
+.jobDetailsHeader {
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.226);
+  padding: 20px;
+}
+
+.jobDetailsHeader * {
+  margin: 0;
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.companyInfo img {
+  width: 50px;
   height: auto;
-  object-fit: contain;
-  /* justify-self: center;
-  align-self: start; */
 }
 
-.jobListingHeaderText {
-}
-
-.employerLogo {
-  width: 90px;
-  height: auto;
-  object-fit: contain;
-  justify-self: center;
-  align-self: center;
+.companyInfo span {
+  font-size: 0.9rem;
+  margin-left: 5px;
 }
 
 .employerLogoPlaceholder {
   width: 90px;
   height: auto;
-  object-fit: contain;
-  justify-self: center;
-  align-self: center;
-}
-
-.jobDetailsWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.jobDetailsWrapper * {
-  margin: 0;
 }
 
 .jobListingTitle {
   font-weight: 550;
-  font-size: 1.2rem;
-  /* color: #0073b1; */
+  font-size: 1.3rem;
 }
 
 .jobListingEmployerName {
+  padding: 0;
+  margin: 0;
   font-size: 1rem;
 }
 
@@ -61,13 +52,24 @@
   color: #5f5f5f;
 }
 
+.jobListingType {
+  font-size: 0.9rem;
+  color: #5f5f5f;
+}
+
+.jobListingPostedDate {
+  font-size: 1rem;
+  color: #5f5f5f;
+  font-weight: 450;
+}
+
 .jobListingKeywords {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
   gap: 8px 8px;
   list-style: none;
-  margin: 10px 0;
+  margin: 5px 0 15px 0;
 }
 
 .jobListingKeywords li {
@@ -76,28 +78,84 @@
   display: inline-block;
   padding: 0px 6px;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 450;
 }
 
-.jobListingPreviewText {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-  list-style: circle;
-  padding-left: 15px;
+.jobListingLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.jobListingPreviewText li {
-  font-size: 0.9rem;
-  color: #5f5f5f;
+.jobListingApplyLink {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 16px;
 }
 
-.jobListingPostedDate {
-  align-self: end;
-  margin-top: 10px;
+.faApplyIcon {
+  margin-left: 8px;
+}
+
+.faSaveIcon {
+  font-size: 2.5rem;
+}
+
+.jobListingApplyLink:hover {
+  background-color: #f43f7f;
+}
+
+.faSaveIcon:hover {
+  color: #f43f7f;
+}
+
+.jobDetailsBody {
+  overflow-y: scroll;
+}
+
+.lineBreak {
+  border: none;
+  height: 2px;
+  background-color: #dbdbdb;
+}
+
+.sectionHeaderText {
+  margin: 20px 0 5px 20px;
+  color: #363636;
+}
+
+.list {
+  margin: 0;
+  padding-left: 40px;
+}
+
+.jobListingDescription ul {
+  padding-left: 20px;
+}
+
+.list li,
+.jobListingDescription,
+.jobListingDescription * {
   font-size: 0.9rem;
-  font-weight: 450;
-  color: #5f5f5f;
+  color: #424242;
+}
+
+.list li::marker,
+.jobListingDescription ul li::marker {
+  color: rgb(109, 108, 108);
+}
+
+.jobListingDescription {
+  padding-left: 20px;
+}
+
+.jobListingDescription strong {
+  color: #5e5a5a;
 }

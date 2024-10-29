@@ -18,7 +18,6 @@
 }
 
 .jobListingCard {
-  /* height: 220px; */
   display: grid;
   grid-template-columns: 1fr 3fr;
   overflow: hidden;
@@ -99,6 +98,16 @@
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 450;
+}
+
+.jobListingKeywords li.matchedSkills,
+li.additionalSkills {
+  background-color: #e6f4e6;
+  color: #1c7c1b;
+}
+
+.faCheck {
+  margin-left: 4px;
 }
 
 .jobListingPreviewText {

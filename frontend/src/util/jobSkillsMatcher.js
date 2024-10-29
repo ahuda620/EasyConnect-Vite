@@ -13,7 +13,5 @@ export default function jobSkillsMatcher(userSkills, jobDescription) {
     (skill) => fuse.search(skill.toLowerCase()).length > 0
   );
 
-  console.log(matchingSkills);
-
   return matchingSkills;
 }

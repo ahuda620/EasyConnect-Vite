@@ -2,37 +2,85 @@ import styles from "./JobSearchPage.module.css";
 import SearchBar from "../components/SearchBar";
 import JobListingCard from "../components/JobListingCard";
 import JobListingDetail from "../components/JobListingDetail";
+import { useUser } from "@clerk/clerk-react";
 import { useState, useEffect, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchJobListings from "../util/fetchJobListings";
+import fetchUserSkills from "../util/fetchUserSkills";
 
 export default function JobSearchPage() {
   const [searchParamObject, setSearchParamObject] = useState(null);
   const [fetchJobs, setFetchJobs] = useState(false); //determines whether or not make an api request
   const [jobListings, setJobListings] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [userSkills, setUserSkills] = useState(null);
 
-  const { isPending, isError, error, isSuccess, data } = useQuery({
-    queryKey: ["jobListings".searchParamObject],
+  const { user } = useUser(); //Use Clerk hook to get current user
+
+  //fetch job listings
+  const {
+    isPending: isJobListingPending,
+    isError: isJobListingError,
+    error: jobListingError,
+    isSuccess: isJobListingSuccess,
+    data: jobListingData,
+  } = useQuery({
+    queryKey: ["jobListings", searchParamObject],
     queryFn: () => fetchJobListings(searchParamObject),
     enabled: fetchJobs,
   });
 
+  //handle job listing query states
   useEffect(() => {
     //have to use useEffect for TanStack Query states (expect isPending since it doesn't triger side effects) since theyre ascynchronus
-    if (isSuccess) {
-      handleJobListings(data);
+    if (isJobListingSuccess) {
+      handleJobListings(jobListingData);
       setFetchJobs(false);
     }
 
-    if (isError) {
-      console.log(error);
+    if (isJobListingError) {
+      console.log(jobListingError);
       setFetchJobs(false);
     }
-  }, [data, error, isError, isSuccess]);
+  }, [isJobListingError, isJobListingSuccess, jobListingData, jobListingError]);
 
-  if (isPending) {
-    console.log("Loading...");
+  if (isJobListingPending) {
+    console.log("Loading job listings...");
+  }
+
+  //fetch user skills
+  const {
+    isPending: isUserSkillsPending,
+    isError: isUserSkillsError,
+    error: userSkillsError,
+    isSuccess: isUserSkillsSuccess,
+    data: userSkillsData,
+  } = useQuery({
+    queryKey: ["userSkills", user?.id],
+    queryFn: () => fetchUserSkills(user?.id),
+    enabled: Boolean(user),
+  });
+
+  //handle user skills query states
+  useEffect(() => {
+    if (isUserSkillsSuccess) {
+      setUserSkills(userSkillsData.data);
+      console.log(userSkills);
+    }
+
+    if (isUserSkillsError) {
+      console.log(userSkillsError);
+    }
+  }, [
+    isUserSkillsError,
+    isUserSkillsSuccess,
+    userSkills,
+    userSkillsData,
+    userSkillsError,
+  ]);
+
+  if (isUserSkillsPending) {
+    console.log("Loading user skills...");
   }
 
   const handleSearchParamObject = useCallback((searchParamObject) => {
@@ -45,7 +93,6 @@ export default function JobSearchPage() {
 
   function handleJobListings(jobListings) {
     setJobListings(jobListings);
-    console.log(jobListings);
   }
 
   function handleJobSelect(job) {
@@ -63,13 +110,16 @@ export default function JobSearchPage() {
         </section>
         {jobListings && (
           <section className={styles.jobSectionWrapper}>
-            <div className={styles.jobPageListingCardWrapper}>
-              <JobListingCard
-                jobListings={jobListings}
-                handleJobSelect={handleJobSelect}
-              ></JobListingCard>
-            </div>
-            <JobListingDetail selectedJob={selectedJob}></JobListingDetail>
+            <JobListingCard
+              userSkills={userSkills}
+              searchParamObject={searchParamObject}
+              jobListings={jobListings}
+              handleJobSelect={handleJobSelect}
+            ></JobListingCard>
+            <JobListingDetail
+              userSkills={userSkills}
+              selectedJob={selectedJob}
+            ></JobListingDetail>
           </section>
         )}
       </div>

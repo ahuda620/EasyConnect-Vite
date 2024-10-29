@@ -1,4 +1,4 @@
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
 import Header from "../components/Header";
 
@@ -11,9 +11,6 @@ if (!PUBLISHABLE_KEY) {
 
 export default function RootLayout() {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const isHomePage = location.pathname === "/";
 
   return (
     <ClerkProvider
@@ -21,10 +18,8 @@ export default function RootLayout() {
       routerReplace={(to) => navigate(to, { replace: true })}
       publishableKey={PUBLISHABLE_KEY}
     >
-      <main className={isHomePage ? "preventOverflow" : ""}>
-        <Header />
-        <Outlet />
-      </main>
+      <Header />
+      <Outlet />
     </ClerkProvider>
   );
 }

@@ -82,6 +82,15 @@
   font-weight: 450;
 }
 
+.jobListingKeywords li.matchedSkills {
+  background-color: #e6f4e6;
+  color: #1c7c1b;
+}
+
+.faCheck {
+  margin-left: 4px;
+}
+
 .jobListingLinks {
   display: flex;
   flex-direction: row;

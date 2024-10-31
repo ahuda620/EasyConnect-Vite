@@ -184,6 +184,7 @@ export default function SearchBar({
                   setFetchJobs(true); //trigger fetch call in parent component
                 }
               : () => {
+                  //transfer user search input to JobSearchPage, from the HomePgge
                   const params = new URLSearchParams();
                   if (jobSearchTerm) {
                     params.set("query", jobSearchTerm);

@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({
+  initialJobSearchTerm,
+  initialLocationSearchTerm,
   handleSearchParamObject,
   handleFetchJobs,
 }) {
@@ -29,11 +31,17 @@ export default function SearchBar({
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setJobSearchTerm(initialJobSearchTerm || "");
+    setLocationSearchTerm(initialLocationSearchTerm || "");
+  }, [initialJobSearchTerm, initialLocationSearchTerm]);
+
   //update searchQuery
   useEffect(() => {
     if (fetchJobs) {
       const query =
         [jobSearchTerm, locationSearchTerm].filter(Boolean).join(" in ") || ""; //make searchQuery empty if there is no strings to join
+
       setSearchParamObject((prevState) => ({
         ...prevState,
         query: query,
@@ -154,6 +162,7 @@ export default function SearchBar({
           type="search"
           placeholder="Search for a Job..."
           className={styles.jobSearchBar}
+          value={jobSearchTerm || ""}
           onChange={(e) => {
             setJobSearchTerm(e.target.value);
           }}
@@ -162,6 +171,7 @@ export default function SearchBar({
           type="search"
           placeholder="Location..."
           className={styles.locationSearchBar}
+          value={locationSearchTerm || ""}
           onChange={(e) => {
             setLocationSearchTerm(e.target.value);
           }}
@@ -173,7 +183,16 @@ export default function SearchBar({
               ? () => {
                   setFetchJobs(true); //trigger fetch call in parent component
                 }
-              : navigate("/jobs")
+              : () => {
+                  const params = new URLSearchParams();
+                  if (jobSearchTerm) {
+                    params.set("query", jobSearchTerm);
+                  }
+                  if (locationSearchTerm) {
+                    params.set("location", locationSearchTerm);
+                  }
+                  navigate(`/jobs?${params.toString()}`, { replace: true });
+                }
           }
         >
           Search

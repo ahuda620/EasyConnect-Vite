@@ -7,8 +7,13 @@ import { useState, useEffect, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchJobListings from "../util/fetchJobListings";
 import fetchUserSkills from "../util/fetchUserSkills";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function JobSearchPage() {
+  const [isInitialSearch, setIsInitialSearch] = useState(true);
+  const [initialJobSearchTerm, setInitialJobSearchTerm] = useState("");
+  const [initialLocationSearchTerm, setInitialLocationSearchTerm] =
+    useState("");
   const [searchParamObject, setSearchParamObject] = useState(null);
   const [fetchJobs, setFetchJobs] = useState(false); //determines whether or not make an api request
   const [jobListings, setJobListings] = useState(null);
@@ -16,6 +21,44 @@ export default function JobSearchPage() {
   const [userSkills, setUserSkills] = useState(null);
 
   const { user } = useUser(); //Use Clerk hook to get current user
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  //effect to determine if its the initial search for the page, if so use search params to fetch jobs on page load
+  useEffect(() => {
+    if (isInitialSearch) {
+      const params = new URLSearchParams(location.search);
+
+      const jobSearchTerm = params.get("query");
+      const locationSearchTerm = params.get("location");
+
+      setInitialJobSearchTerm(jobSearchTerm);
+      setInitialLocationSearchTerm(locationSearchTerm);
+
+      if (jobSearchTerm || locationSearchTerm) {
+        setSearchParamObject({
+          query: [jobSearchTerm, locationSearchTerm]
+            .filter(Boolean)
+            .join(" in "),
+          jobSearchTerm,
+          locationSearchTerm,
+          page: "1",
+          num_pages: "1",
+          date_posted: "all",
+          markup_job_description: "true",
+        });
+
+        setFetchJobs(true);
+      }
+
+      setIsInitialSearch(false); //ensure this effect only runs once
+    }
+  }, [
+    location.search,
+    isInitialSearch,
+    initialJobSearchTerm,
+    initialLocationSearchTerm,
+  ]);
 
   //fetch job listings
   const {
@@ -65,7 +108,6 @@ export default function JobSearchPage() {
   useEffect(() => {
     if (isUserSkillsSuccess) {
       setUserSkills(userSkillsData.data);
-      console.log(userSkills);
     }
 
     if (isUserSkillsError) {
@@ -83,9 +125,22 @@ export default function JobSearchPage() {
     console.log("Loading user skills...");
   }
 
-  const handleSearchParamObject = useCallback((searchParamObject) => {
-    setSearchParamObject(searchParamObject);
-  }, []);
+  const handleSearchParamObject = useCallback(
+    (searchParamObject) => {
+      setSearchParamObject(searchParamObject);
+
+      const params = new URLSearchParams();
+      if (searchParamObject.jobSearchTerm) {
+        params.set("query", searchParamObject.jobSearchTerm);
+      }
+      if (searchParamObject.locationSearchTerm) {
+        params.set("location", searchParamObject.locationSearchTerm);
+      }
+
+      navigate(`/jobs?${params.toString()}`, { replace: true });
+    },
+    [navigate]
+  );
 
   const handleFetchJobs = useCallback((fetchJobs) => {
     setFetchJobs(fetchJobs);
@@ -104,6 +159,8 @@ export default function JobSearchPage() {
       <div className={styles.pageWrapper}>
         <section className={styles.searchSectionWrapper}>
           <SearchBar
+            initialJobSearchTerm={initialJobSearchTerm || ""}
+            initialLocationSearchTerm={initialLocationSearchTerm || ""}
             handleSearchParamObject={handleSearchParamObject}
             handleFetchJobs={handleFetchJobs}
           ></SearchBar>

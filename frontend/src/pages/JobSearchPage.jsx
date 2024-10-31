@@ -91,6 +91,13 @@ export default function JobSearchPage() {
     console.log("Loading job listings...");
   }
 
+  //display the first job listing in jobListingDetails component on initial page load
+  useEffect(() => {
+    if (isJobListingSuccess && jobListingData.length > 0) {
+      setSelectedJob(jobListingData[0]);
+    }
+  }, [isJobListingSuccess, jobListingData]);
+
   //fetch user skills
   const {
     isPending: isUserSkillsPending,
@@ -125,6 +132,7 @@ export default function JobSearchPage() {
     console.log("Loading user skills...");
   }
 
+  //update searchParamObject and url query params
   const handleSearchParamObject = useCallback(
     (searchParamObject) => {
       setSearchParamObject(searchParamObject);

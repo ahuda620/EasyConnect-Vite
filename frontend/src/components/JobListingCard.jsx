@@ -1,4 +1,5 @@
 import styles from "./JobListingCard.module.css";
+import { useUser } from "@clerk/clerk-react";
 import dateFormatter from "../util/dateFormatter";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,8 @@ export default function JobListingCard({
   jobListings,
   handleJobSelect,
 }) {
+  const { isSignedIn } = useUser(); //Use Clerk hook to determine if a user is signed on
+
   //Change style of select job listing card container on click
   function handleJobCardClick(event) {
     const element = event.currentTarget; // The clicked job card
@@ -47,7 +50,7 @@ export default function JobListingCard({
           //display if theres any user skills matching with the job description
           let matchedSkills;
 
-          if (userSkills) {
+          if (isSignedIn && userSkills) {
             matchedSkills = jobSkillsMatcher(
               userSkills,
               jobListing.job_description
@@ -104,22 +107,24 @@ export default function JobListingCard({
                       : ""}
                   </li>
                   {jobListing.job_is_remote && <li>Remote</li>}
-                  {matchedSkills.slice(0, 4).map((skill) => (
-                    <li key={skill} className={styles.matchedSkills}>
-                      {/* Captilize first letter of each word of matched skill */}
-                      {skill
-                        .split(" ")
-                        .map(
-                          (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                        )
-                        .join(" ")}
-                      <FontAwesomeIcon
-                        icon={faCheck}
-                        className={styles.faCheck}
-                      />
-                    </li>
-                  ))}
-                  {matchedSkills.length > 4 && (
+                  {matchedSkills &&
+                    matchedSkills.slice(0, 4).map((skill) => (
+                      <li key={skill} className={styles.matchedSkills}>
+                        {/* Captilize first letter of each word of matched skill */}
+                        {skill
+                          .split(" ")
+                          .map(
+                            (word) =>
+                              word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join(" ")}
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          className={styles.faCheck}
+                        />
+                      </li>
+                    ))}
+                  {matchedSkills && matchedSkills.length > 4 && (
                     <li className={styles.additionalSkills}>
                       +{matchedSkills.length - 4}
                     </li>

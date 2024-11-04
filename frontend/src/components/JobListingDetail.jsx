@@ -1,5 +1,6 @@
 import sanitizeJobDescription from "../util/sanitizeJobDescription";
 import styles from "./JobListingDetail.module.css";
+import { useUser } from "@clerk/clerk-react";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,12 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingDetail({ userSkills, selectedJob }) {
+  const { isSignedIn } = useUser(); //Use Clerk hook to determine if a user is signed on
+
   const jobListing = selectedJob;
 
   //display if theres any user skills matching with the job description
   let matchedSkills;
 
-  if (userSkills && jobListing) {
+  if (isSignedIn && userSkills && jobListing) {
     matchedSkills = jobSkillsMatcher(userSkills, jobListing.job_description);
   }
 
@@ -58,16 +61,17 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
               : ""}
           </li>
           {jobListing.job_is_remote && <li>Remote</li>}
-          {matchedSkills.map((skill) => (
-            <li key={skill} className={styles.matchedSkills}>
-              {/* Captilize first letter of each word of matched skill */}
-              {skill
-                .split(" ")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
-              <FontAwesomeIcon icon={faCheck} className={styles.faCheck} />
-            </li>
-          ))}
+          {matchedSkills &&
+            matchedSkills.map((skill) => (
+              <li key={skill} className={styles.matchedSkills}>
+                {/* Captilize first letter of each word of matched skill */}
+                {skill
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
+                <FontAwesomeIcon icon={faCheck} className={styles.faCheck} />
+              </li>
+            ))}
         </ul>
 
         <div className={styles.jobListingLinks}>
@@ -78,7 +82,9 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
               className={styles.faApplyIcon}
             />
           </a>
-          <FontAwesomeIcon icon={faBookmark} className={styles.faSaveIcon} />
+          {isSignedIn && (
+            <FontAwesomeIcon icon={faBookmark} className={styles.faSaveIcon} />
+          )}
         </div>
       </div>
 

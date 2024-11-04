@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { clerkMiddleware } from "@clerk/express";
 import { router as jobRoutes } from "./routes/jobRoutes.js";
 import { router as userRoutes } from "./routes/userRoutes.js";
 import { router as clerkRoutes } from "./routes/clerkRoutes.js";
@@ -13,7 +12,6 @@ app.use(cors());
 app.use("/webhook", clerkRoutes);
 
 //Middleware
-app.use(clerkMiddleware());
 app.use(express.json()); //parse incoming JSON requests to use req.body
 
 //Routes

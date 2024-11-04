@@ -18,7 +18,7 @@ import companyLogo from "../assets/pinkLogo.png";
 import { useUser, useClerk } from "@clerk/clerk-react";
 
 export default function Header() {
-  const { user } = useUser(); //Use Clerk hook to get current user
+  const { isSignedIn, user } = useUser(); //Use Clerk hook to get current user
   const { openSignIn, openSignUp, signOut, openUserProfile } = useClerk(); //Clerk methods for login, signup and signout
   const isMobile = useIsMobile();
   const [menuVisible, setMenuVisible] = useState(false);
@@ -50,7 +50,7 @@ export default function Header() {
         </li>
       </ul>
 
-      {user ? (
+      {isSignedIn ? (
         <div className={styles.userLoggedIn}>
           <div className={styles.userProfileContainer}>
             {user.username || user.firstName || user.fullName ? (
@@ -117,7 +117,7 @@ export default function Header() {
         ${menuVisible ? styles.visible : ""}`}
         >
           <ul>
-            {user ? (
+            {isSignedIn ? (
               <>
                 <li>
                   <img src={user.picture}></img>

@@ -1,12 +1,20 @@
 import express from "express";
 import cors from "cors";
+import { clerkMiddleware } from "@clerk/express";
 import { router as jobRoutes } from "./routes/jobRoutes.js";
 import { router as userRoutes } from "./routes/userRoutes.js";
+import { router as clerkRoutes } from "./routes/clerkRoutes.js";
 
 export const app = express();
 
 app.use(cors());
-app.use(express.json()); //Parse incoming JSON requests to use req.body
+
+//Webhook route placed before express.json() for raw body to send to Svix for verification
+app.use("/webhook", clerkRoutes);
+
+//Middleware
+app.use(clerkMiddleware());
+app.use(express.json()); //parse incoming JSON requests to use req.body
 
 //Routes
 app.use("/api/jobs", jobRoutes);

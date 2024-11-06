@@ -120,8 +120,6 @@ export default function SearchBar({
         [e.target.name]: e.target.value,
       }));
     }
-
-    setFetchJobs(true); //trigger fetch call in parent component
   }
 
   //function that handles checkbox menu changes to the searchParamObject state
@@ -151,8 +149,6 @@ export default function SearchBar({
         return newState;
       });
     }
-
-    setFetchJobs(true); //trigger fetch call in parent component
   }
 
   return (
@@ -538,6 +534,16 @@ export default function SearchBar({
               />
               <label htmlFor="radiusAny">Any</label>
             </div>
+          </div>
+          <div className={styles.searchParamBtn}>
+            <button
+              className={styles.applyFilterBtn}
+              onClick={() => {
+                setFetchJobs(true);
+              }}
+            >
+              Apply Filter
+            </button>
           </div>
         </div>
       )}

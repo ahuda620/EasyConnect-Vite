@@ -139,6 +139,15 @@ input#radiusAny:checked + label {
   background-color: rgb(202, 202, 202);
 }
 
+.searchParamButtonsWrapper .applyFilterBtn {
+  background-color: black;
+  color: white;
+}
+
+.searchParamButtonsWrapper .applyFilterBtn:hover {
+  background: linear-gradient(to right, #ff6ec4, #f43f7f);
+}
+
 @media (max-width: 1092px) {
   .wrapper {
     flex-wrap: wrap;

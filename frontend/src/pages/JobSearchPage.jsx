@@ -20,7 +20,7 @@ export default function JobSearchPage() {
   const [selectedJob, setSelectedJob] = useState(null);
   const [userSkills, setUserSkills] = useState(null);
 
-  const { isSignedIn, user } = useUser(); //Use Clerk hook to get current user
+  const { user } = useUser(); //Use Clerk hook to get current user
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -108,13 +108,13 @@ export default function JobSearchPage() {
   } = useQuery({
     queryKey: ["userSkills", user?.id],
     queryFn: () => fetchUserSkills(user?.id),
-    enabled: isSignedIn,
+    enabled: !!user?.id,
   });
 
   //handle user skills query states
   useEffect(() => {
     if (isUserSkillsSuccess) {
-      setUserSkills(userSkillsData.data);
+      setUserSkills(userSkillsData);
     }
 
     if (isUserSkillsError) {

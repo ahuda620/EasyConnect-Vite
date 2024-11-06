@@ -72,37 +72,6 @@
   padding: 0rem;
 }
 
-/* .profileDropDownMenu li,
-.profileDropDownMenu a{
-  color: white;
-} */
-
-/* .profileDropDownMenu li {
-  margin: 1rem 0rem;
-} */
-
-/* .profileDropDownMenu li svg {
-  margin: 0 1rem;
-  width: 2.5rem;
-} */
-
-/* Make anchor tag take entire width/height of li element */
-/* .profileDropDownMenu li a {
-  display: block;
-  width: 100%;
-} */
-
-/* .profileDropDownMenu li:hover {
-  color: #f43f7f;
-  border-left: 0.3rem solid #f43f7f;
-} */
-
-/*Change color of anchor element text WHILE li element is hovered over */
-/* .profileDropDownMenu li:hover a {
-  color: #f43f7f;
-} */
-
-/*Chatgpt*/
 .profileDropDownMenu li {
   margin: 1rem 0rem;
 }

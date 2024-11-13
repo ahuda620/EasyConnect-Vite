@@ -23,6 +23,29 @@
   overflow: hidden;
 }
 
+.initialSearchText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ec568a;
+  margin-top: 30px;
+}
+
+.initialSearchText svg {
+  margin-right: 12px;
+}
+
+.loadingAnimation {
+  margin-top: 3%;
+}
+
+.noJobsFoundText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ec568a;
+  margin-top: 30px;
+  text-align: center;
+}
+
 @media (max-width: 1092px) {
   .pageWrapper {
   }

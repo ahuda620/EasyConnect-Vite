@@ -1,39 +1,94 @@
 import styles from "./JobListingCard.module.css";
 import { useUser } from "@clerk/clerk-react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import dateFormatter from "../util/dateFormatter";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
+import BounceLoader from "react-spinners/BounceLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faXmark, faCity } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingCard({
   userSkills,
   searchParamObject,
   jobListings,
   handleJobSelect,
+  handleDeleteJobId,
+  handleSearchParamObject,
+  handleFetchJobs,
+  loading,
+  noMoreJobListings,
 }) {
-  const { isSignedIn } = useUser(); //Use Clerk hook to determine if a user is signed on
+  const [selectedJobId, setSelectedJobId] = useState(null);
 
-  //Change style of select job listing card container on click
-  function handleJobCardClick(event) {
-    const element = event.currentTarget; // The clicked job card
+  const { user } = useUser(); //Use Clerk hook to determine if a user is signed on
+  const location = useLocation();
 
-    // Remove the 'clicked' class from all job cards
-    document.querySelectorAll(`.${styles.jobListingCard}`).forEach((card) => {
-      card.classList.remove(styles.clicked);
-    });
+  //Effect to set selectedJobId state variable to the job_id of the first job listing fetched
+  useEffect(() => {
+    if (jobListings.length > 0) {
+      setSelectedJobId(jobListings[0].job_id);
+    }
+  }, [jobListings]);
 
-    // Add the 'clicked' class to the clicked job card
-    element.classList.add(styles.clicked);
+  //Function that handles a job card click by applying styles and sending the corresponding job listing info back to the parent component
+  function handleJobCardClick(jobListing) {
+    setSelectedJobId(jobListing.job_id); //update state
+    handleJobSelect(jobListing); //send joblisting info back to parent component
   }
+
+  //Effect to track if the user has scrolled to the bottom of jobListingCardWrapper element for lazyloading
+  useEffect(() => {
+    if (location.pathname === "/jobs" && searchParamObject) {
+      const jobListingCardWrapper = document.querySelector(
+        `.${styles.jobListingCardWrapper}`
+      );
+
+      if (jobListingCardWrapper && !noMoreJobListings) {
+        const handleScroll = () => {
+          if (
+            jobListingCardWrapper.scrollHeight -
+              jobListingCardWrapper.scrollTop ===
+            jobListingCardWrapper.clientHeight
+          ) {
+            console.log("Bottom hit!");
+            //Increment the page property of searchParamObject and trigger a new fectch in parent component
+            const newPage = parseInt(searchParamObject.page) + 1;
+
+            handleSearchParamObject({
+              ...searchParamObject,
+              page: newPage.toString(),
+            });
+
+            handleFetchJobs(true, true);
+          }
+        };
+
+        jobListingCardWrapper.addEventListener("scroll", handleScroll);
+
+        //Clean up scroll event listener on unmount
+        return () =>
+          jobListingCardWrapper.removeEventListener("scroll", handleScroll);
+      }
+    }
+  }, [
+    handleFetchJobs,
+    handleSearchParamObject,
+    location.pathname,
+    noMoreJobListings,
+    searchParamObject,
+  ]);
 
   return (
     <div className={styles.jobListingsWrapper}>
       <div className={styles.jobSearchQueryHeader}>
         <h4>
-          {/* Conditionally render text in jobSearchQueryHeader element depending on 
-          if jobSearchTerm and locationSearchTerm are provided by the user */}
-          {searchParamObject.jobSearchTerm &&
-          searchParamObject.locationSearchTerm
+          {location.pathname === "/saved-jobs"
+            ? "Saved jobs"
+            : /* Conditionally render text in jobSearchQueryHeader element depending on 
+          if jobSearchTerm and locationSearchTerm are provided by the user */
+            searchParamObject.jobSearchTerm &&
+              searchParamObject.locationSearchTerm
             ? `${searchParamObject.jobSearchTerm} jobs in ${searchParamObject.locationSearchTerm}`
             : searchParamObject.jobSearchTerm
             ? `${searchParamObject.query} jobs`
@@ -43,14 +98,11 @@ export default function JobListingCard({
         </h4>
       </div>
       <div className={styles.jobListingCardWrapper}>
-        {jobListings.map((jobListing) => {
-          //format the job posted date
-          jobListing.posted_date_formatted = dateFormatter(jobListing);
+        {jobListings.map((jobListing, index) => {
+          jobListing.posted_date_formatted = dateFormatter(jobListing); //format the job posted date
+          let matchedSkills; //display if theres any user skills matching with the job description
 
-          //display if theres any user skills matching with the job description
-          let matchedSkills;
-
-          if (isSignedIn && userSkills) {
+          if (user && userSkills) {
             matchedSkills = jobSkillsMatcher(
               userSkills,
               jobListing.job_description
@@ -59,12 +111,14 @@ export default function JobListingCard({
 
           return (
             <article
-              key={jobListing.job_id}
-              onClick={(event) => {
-                handleJobSelect(jobListing);
-                handleJobCardClick(event);
+              // key={jobListing.job_id}
+              key={`${jobListing.job_id}-${index}`} //for lazy loading testing
+              onClick={() => {
+                handleJobCardClick(jobListing);
               }}
-              className={styles.jobListingCard}
+              className={`${styles.jobListingCard} ${
+                selectedJobId === jobListing.job_id ? styles.clicked : ""
+              }`}
             >
               {jobListing.employer_logo ? (
                 <img
@@ -72,9 +126,26 @@ export default function JobListingCard({
                   className={styles.employerLogo}
                 ></img>
               ) : (
-                <div className={styles.employerLogoPlaceholder}></div>
+                <FontAwesomeIcon
+                  icon={faCity}
+                  className={styles.employerLogoPlaceholder}
+                />
               )}
               <div className={styles.jobDetailsWrapper}>
+                {location.pathname === "/saved-jobs" && (
+                  <span className={styles.faXmarkWrapper}>
+                    <button
+                      onClick={() => {
+                        handleDeleteJobId(jobListing.job_id);
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faXmark}
+                        className={styles.faXmark}
+                      />
+                    </button>
+                  </span>
+                )}
                 <h3 className={styles.jobListingTitle}>
                   {jobListing.job_title}
                 </h3>
@@ -144,7 +215,7 @@ export default function JobListingCard({
                       (listItem, index) => <li key={index}>{listItem}</li>
                     )
                   ) : (
-                    <li>jobListing.job_description</li>
+                    <li>{jobListing.job_description}</li>
                   )}
                 </ul>
                 <p className={styles.jobListingPostedDate}>
@@ -154,6 +225,15 @@ export default function JobListingCard({
             </article>
           );
         })}
+        {loading && jobListings.length > 0 && (
+          <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
+        )}
+        {noMoreJobListings && !loading && (
+          <h2 className={styles.noJobsFoundText}>
+            No job listings found. <br />
+            Please try different search criteria
+          </h2>
+        )}
       </div>
     </div>
   );

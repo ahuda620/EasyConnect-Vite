@@ -1,0 +1,52 @@
+.pageWrapper {
+  height: 93svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobSectionWrapper {
+  max-width: 55%;
+  margin-inline: auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.notFoundWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.notFoundHeaderText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+}
+
+.notFoundSubText {
+  font-size: 1rem;
+  color: #777;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.loadingAnimation {
+  margin-top: 2%;
+}

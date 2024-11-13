@@ -8,7 +8,8 @@ import RootLayout from "./layouts/RootLayout";
 import MobileProvider from "./context/MobileContext";
 import HomePage from "./pages/HomePage";
 import JobSearchPage from "./pages/JobSearchPage";
-import ProfilePage from "./pages/ProfilePage";
+import SkillsPage from "./pages/SkillsPage";
+import SavedJobsPage from "./pages/SavedJobsPage";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/jobs", element: <JobSearchPage /> },
-      { path: "/profile", element: <ProfilePage /> },
+      { path: "/skills", element: <SkillsPage /> },
+      { path: "/saved-jobs", element: <SavedJobsPage /> },
     ],
   },
 ]);

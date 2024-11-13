@@ -1,7 +1,11 @@
-import sanitizeJobDescription from "../util/sanitizeJobDescription";
 import styles from "./JobListingDetail.module.css";
 import { useUser } from "@clerk/clerk-react";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
+import sanitizeJobDescription from "../util/sanitizeJobDescription";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
+import saveJobListing from "../util/saveJobListing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
@@ -10,14 +14,40 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingDetail({ userSkills, selectedJob }) {
-  const { isSignedIn } = useUser(); //Use Clerk hook to determine if a user is signed on
+  const [savedJob, setSavedJob] = useState(false);
+
+  const { user } = useUser();
+  const location = useLocation();
+
+  const mutation = useMutation({
+    mutationFn: (jobId) => saveJobListing(user?.id, jobId),
+    onSuccess: (data) => {
+      if (data === "Job listing is already saved") {
+        //TODO Add UI feedback on error
+        setSavedJob("alreadySaved");
+      } else {
+        setSavedJob("saved");
+      }
+
+      const timer = setTimeout(() => setSavedJob(false), 1500); //Hide alert after 1.5 seconds
+      return () => clearTimeout(timer); //Clean up timer
+    },
+  });
+
+  const handleSaveJob = async (jobId) => {
+    try {
+      await mutation.mutateAsync(jobId);
+    } catch (error) {
+      console.error("Error saving job listing:", error);
+    }
+  };
 
   const jobListing = selectedJob;
 
   //display if theres any user skills matching with the job description
   let matchedSkills;
 
-  if (isSignedIn && userSkills && jobListing) {
+  if (user && userSkills && jobListing) {
     matchedSkills = jobSkillsMatcher(userSkills, jobListing.job_description);
   }
 
@@ -25,7 +55,9 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
     <article key={jobListing.job_id} className={styles.wrapper}>
       <div className={styles.jobDetailsHeader}>
         <div className={styles.companyInfo}>
-          <img src={jobListing.employer_logo}></img>
+          {jobListing.employer_logo && (
+            <img src={jobListing.employer_logo}></img>
+          )}
           <span className={styles.jobListingEmployerName}>
             {jobListing.employer_name}
           </span>
@@ -82,8 +114,24 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
               className={styles.faApplyIcon}
             />
           </a>
-          {isSignedIn && (
-            <FontAwesomeIcon icon={faBookmark} className={styles.faSaveIcon} />
+          {user && location.pathname !== "/saved-jobs" && (
+            <>
+              <button
+                className={styles.saveBtn}
+                onClick={() => handleSaveJob(jobListing.job_id)}
+              >
+                <FontAwesomeIcon
+                  icon={faBookmark}
+                  className={styles.faSaveIcon}
+                />
+              </button>
+              {savedJob === "saved" && (
+                <span className={styles.alert}>Job saved</span>
+              )}
+              {savedJob === "alreadySaved" && (
+                <span className={styles.alert}>Job already saved</span>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -141,9 +189,9 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
         {jobListing.job_description ? (
           <>
             <h4 className={styles.sectionHeaderText}>About the job</h4>
-            <p className={styles.jobListingDescription}>
+            <article className={styles.jobListingDescription}>
               {sanitizeJobDescription(jobListing.job_description)}
-            </p>
+            </article>
           </>
         ) : (
           <></>

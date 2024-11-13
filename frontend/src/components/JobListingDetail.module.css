@@ -2,8 +2,8 @@
   max-width: 55%;
   display: flex;
   flex-direction: column;
-  border: 1px solid #dbdbdb;
-  border-left: none;
+  border-left: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
 }
 
 .jobDetailsHeader {
@@ -24,16 +24,11 @@
 .companyInfo img {
   width: 50px;
   height: auto;
+  margin-right: 5px;
 }
 
 .companyInfo span {
   font-size: 0.9rem;
-  margin-left: 5px;
-}
-
-.employerLogoPlaceholder {
-  width: 90px;
-  height: auto;
 }
 
 .jobListingTitle {
@@ -121,12 +116,49 @@
   background-color: #f43f7f;
 }
 
-.faSaveIcon:hover {
+.saveBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saveBtn:hover {
   color: #f43f7f;
 }
 
+.alert {
+  margin-left: 10px;
+  background-color: rgba(60, 60, 60, 0.9);
+  color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .jobDetailsBody {
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding-inline: 9px;
 }
 
 .lineBreak {

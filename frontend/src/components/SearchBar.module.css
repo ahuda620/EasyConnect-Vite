@@ -10,6 +10,7 @@
 .searchBarWrapper {
   display: flex;
   gap: 16px;
+  position: relative;
 }
 
 .jobSearchBar {
@@ -146,6 +147,36 @@ input#radiusAny:checked + label {
 
 .searchParamButtonsWrapper .applyFilterBtn:hover {
   background: linear-gradient(to right, #ff6ec4, #f43f7f);
+}
+
+.alert {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  position: absolute;
+  background-color: rgba(60, 60, 60, 0.9);
+  color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1092px) {

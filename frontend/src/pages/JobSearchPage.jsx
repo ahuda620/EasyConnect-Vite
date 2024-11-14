@@ -176,55 +176,53 @@ export default function JobSearchPage() {
   }
 
   return (
-    <>
-      <div className={styles.pageWrapper}>
-        <section className={styles.searchSectionWrapper}>
-          <SearchBar
-            isInitialSearch={isInitialSearch}
-            initialSearchParamObject={initialSearchParamObject}
+    <div className={styles.pageWrapper}>
+      <section className={styles.searchSectionWrapper}>
+        <SearchBar
+          isInitialSearch={isInitialSearch}
+          initialSearchParamObject={initialSearchParamObject}
+          handleSearchParamObject={handleSearchParamObject}
+          handleFetchJobs={handleFetchJobs}
+        ></SearchBar>
+      </section>
+      {searchParamObject && jobListings?.length > 0 ? (
+        <section className={styles.jobSectionWrapper}>
+          <JobListingCard
+            userSkills={userSkills}
+            searchParamObject={searchParamObject}
+            jobListings={jobListings}
+            handleJobSelect={handleJobSelect}
             handleSearchParamObject={handleSearchParamObject}
             handleFetchJobs={handleFetchJobs}
-          ></SearchBar>
+            loading={loading}
+            noMoreJobListings={noMoreJobListings}
+          ></JobListingCard>
+          <JobListingDetail
+            userSkills={userSkills}
+            selectedJob={selectedJob}
+          ></JobListingDetail>
         </section>
-        {searchParamObject && jobListings?.length > 0 ? (
-          <section className={styles.jobSectionWrapper}>
-            <JobListingCard
-              userSkills={userSkills}
-              searchParamObject={searchParamObject}
-              jobListings={jobListings}
-              handleJobSelect={handleJobSelect}
-              handleSearchParamObject={handleSearchParamObject}
-              handleFetchJobs={handleFetchJobs}
-              loading={loading}
-              noMoreJobListings={noMoreJobListings}
-            ></JobListingCard>
-            <JobListingDetail
-              userSkills={userSkills}
-              selectedJob={selectedJob}
-            ></JobListingDetail>
-          </section>
-        ) : searchParamObject &&
-          !isJobListingFetching &&
-          jobListings?.length === 0 &&
-          jobListingData?.length === 0 ? (
-          <h2 className={styles.noJobsFoundText}>
-            No job listings found. <br />
-            Please try different search criteria
+      ) : searchParamObject &&
+        !isJobListingFetching &&
+        jobListings?.length === 0 &&
+        jobListingData?.length === 0 ? (
+        <h2 className={styles.noJobsFoundText}>
+          No job listings found. <br />
+          Please try different search criteria
+        </h2>
+      ) : (
+        !isJobListingFetching && (
+          <h2 className={styles.initialSearchText}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            Begin your search here
           </h2>
-        ) : (
-          !isJobListingFetching && (
-            <h2 className={styles.initialSearchText}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-              Begin your search here
-            </h2>
-          )
+        )
+      )}
+      {isJobListingLoading &&
+        isJobListingFetching &&
+        jobListings.length === 0 && (
+          <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
         )}
-        {isJobListingLoading &&
-          isJobListingFetching &&
-          jobListings.length === 0 && (
-            <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
-          )}
-      </div>
-    </>
+    </div>
   );
 }

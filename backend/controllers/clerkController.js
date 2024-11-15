@@ -21,8 +21,7 @@ export const handleClerkWebHook = async (req, res) => {
       //Fetch user data from Clerk API
       user = await clerkClient.users.getUser(userId);
     } catch (error) {
-      console.error("Error getting user data from Clerk API");
-      return res.status(400).json({ error: error.message });
+      return res.status(400).send("Invalid webhook signature");
     }
 
     //Check if user is in database

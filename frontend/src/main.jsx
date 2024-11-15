@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import RootLayout from "./layouts/RootLayout";
 import MobileProvider from "./context/MobileContext";
@@ -30,6 +32,12 @@ createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <MobileProvider>
         <RouterProvider router={router} />
+        <ToastContainer
+          position="top-right"
+          autoClose={1500}
+          theme="dark"
+          style={{ marginTop: "3%" }}
+        />
         <ReactQueryDevtools initialIsOpen={false} />
       </MobileProvider>
     </QueryClientProvider>

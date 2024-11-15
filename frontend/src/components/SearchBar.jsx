@@ -260,7 +260,9 @@ export default function SearchBar({
           </div>
         )}
         {showOnlyLettersAlert && (
-          <div className={styles.alert}>Numbers are not allowed</div>
+          <div className={styles.alert}>
+            Numbers and symbols are not allowed
+          </div>
         )}
       </div>
       <div

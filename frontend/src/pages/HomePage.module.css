@@ -26,10 +26,6 @@
   font-weight: normal;
 }
 
-.searchBarWrapper input[type="search"] {
-  width: 25rem;
-}
-
 @media (max-width: 1092px) {
   .searchBarWrapper input[type="search"],
   .searchBarWrapper input[type="submit"] {

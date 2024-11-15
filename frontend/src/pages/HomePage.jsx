@@ -7,12 +7,12 @@ export default function HomePage() {
       <div className={styles.pageWrapper}>
         <div className={styles.heroContainer}>
           <h1 className={styles.heroTitle}>
-            Lorem ipsum dolor
-            <br /> sit amet.
+            Easy Connect
+            <br /> Your Next Job, Simplified.
           </h1>
           <h2 className={styles.heroText}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            <br /> Nisi mollitia error eum itaque voluptatem ea!
+            Find jobs that match your skills.
+            <br /> Connect with top employers and grow your career.
           </h2>
         </div>
         <div className={styles.searchBarWrapper}>

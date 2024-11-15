@@ -2,7 +2,11 @@ import styles from "./SearchBar.module.css";
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSortDown,
+  faSearch,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({
   isInitialSearch,
@@ -218,6 +222,7 @@ export default function SearchBar({
   return (
     <>
       <div className={styles.searchBarWrapper}>
+        <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
         <input
           type="search"
           placeholder="Search for a Job..."
@@ -230,6 +235,7 @@ export default function SearchBar({
             }));
           }}
         ></input>
+        <FontAwesomeIcon icon={faLocationDot} className={styles.locationIcon} />
         <input
           type="search"
           placeholder="Location..."

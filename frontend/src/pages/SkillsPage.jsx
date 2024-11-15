@@ -13,6 +13,7 @@ import {
 import fetchUserSkills from "../util/fetchUserSkills";
 import updateUserSkills from "../util/updateUserSkills";
 import { toast } from "react-toastify";
+import DOMPurify from "dompurify";
 
 export default function ProfilePage() {
   const [userSkills, setUserSkills] = useState([]); //State that holds the fetched userSkills
@@ -141,8 +142,13 @@ export default function ProfilePage() {
     );
   };
 
-  function validateSearchInput(searchInput) {
-    return /^[a-zA-Z\s]*$/.test(searchInput);
+  function validateSearchInput(userInput) {
+    const isValid = /^[a-zA-Z\s]*$/.test(userInput);
+    if (!isValid) {
+      return false;
+    }
+
+    return DOMPurify.sanitize(userInput);
   }
 
   return (
@@ -235,7 +241,9 @@ export default function ProfilePage() {
           <span className={styles.alert}>Search input cannot be empty</span>
         )}
         {showOnlyLettersAlert && (
-          <span className={styles.alert}>Numbers are not allowed</span>
+          <span className={styles.alert}>
+            Numbers and symbols are not allowed
+          </span>
         )}
         {isUserSkillsLoading ||
           (isUserSkillsFetching && (

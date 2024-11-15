@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import fetchUserSkills from "../util/fetchUserSkills";
 import updateUserSkills from "../util/updateUserSkills";
+import { toast } from "react-toastify";
 
 export default function ProfilePage() {
   const [userSkills, setUserSkills] = useState([]); //State that holds the fetched userSkills
@@ -26,34 +27,32 @@ export default function ProfilePage() {
 
   //Fetch user skills using Tan Stack Query
   const {
-    isLoading: isFetchUserSkillsLoading,
-    isFetching: isFetchUserSkillsFetching,
-    isError: isFetchUserSkillsError,
-    error: fetchUserSkillsError,
-    isSuccess: isFetchUserSkillsSuccess,
-    data: fetchUserSkillsData,
+    isLoading: isUserSkillsLoading,
+    isFetching: isUserSkillsFetching,
+    isError: isUserSkillsError,
+    error: userSkillsError,
+    isSuccess: isUserSkillsSuccess,
+    data: userSkillsData,
   } = useQuery({
     queryKey: ["userSkills", user?.id],
     queryFn: () => fetchUserSkills(user?.id),
     enabled: !!user?.id,
   });
 
-  //handle user skills query states
+  //Effect to handle userSkills success state
   useEffect(() => {
-    if (isFetchUserSkillsSuccess) {
-      const formattedSkills = handleFormatSkills(fetchUserSkillsData);
+    if (isUserSkillsSuccess) {
+      const formattedSkills = handleFormatSkills(userSkillsData);
       setUserSkills(formattedSkills);
     }
+  }, [isUserSkillsSuccess, userSkillsData]);
 
-    if (isFetchUserSkillsError) {
-      console.log(fetchUserSkillsError);
+  useEffect(() => {
+    if (isUserSkillsError) {
+      console.error("Error while fetching user skills:", userSkillsError);
+      toast.error("An error occured while fetching user skills.");
     }
-  }, [
-    isFetchUserSkillsError,
-    isFetchUserSkillsSuccess,
-    fetchUserSkillsData,
-    fetchUserSkillsError,
-  ]);
+  }, [userSkillsError, isUserSkillsError]);
 
   //Tan Stack Query Mutation to update userskills in database and refetch them
   const mutation = useMutation({
@@ -85,9 +84,10 @@ export default function ProfilePage() {
 
     try {
       await mutation.mutateAsync(userSkills);
-      console.log("Edited skill saved successfully");
+      toast.success("Skill edited successfully.");
     } catch (error) {
-      console.error("Error saving editted skills:", error);
+      toast.error("An error occurred while editing the skill.");
+      console.error("An error occurred while editing the skill:", error);
     }
   };
 
@@ -100,8 +100,10 @@ export default function ProfilePage() {
 
         try {
           await mutation.mutateAsync(updatedSkills);
+          toast.success("Skill added successfully.");
         } catch (error) {
-          console.error("Error adding skill:", error);
+          toast.error("An error occurred while adding the skill.");
+          console.error("An error occurred while adding the skill:", error);
         }
       } else {
         //handle input with numbers
@@ -122,9 +124,10 @@ export default function ProfilePage() {
 
     try {
       await mutation.mutateAsync(updatedSkills);
-      console.log("User skill deleted successfully");
+      toast.success("Skill deleted successfully.");
     } catch (error) {
-      console.error("Error updating skills:", error);
+      toast.error("An error occurred while deleting the skill.");
+      console.error("An error occurred while deleting the skill:", error);
     }
   };
 
@@ -146,7 +149,7 @@ export default function ProfilePage() {
     <>
       <div className={styles.wrapper}>
         <h1 className={styles.pageTitle}>Skills</h1>
-        <p className={styles.subText}>Enter your skills below</p>
+        <p className={styles.subText}>Enter your job related skills below!</p>
         <ul className={styles.skillsList}>
           {userSkills?.length > 0 ? (
             userSkills.map((skill, index) => (
@@ -234,9 +237,10 @@ export default function ProfilePage() {
         {showOnlyLettersAlert && (
           <span className={styles.alert}>Numbers are not allowed</span>
         )}
-        {isFetchUserSkillsLoading && isFetchUserSkillsFetching && (
-          <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
-        )}
+        {isUserSkillsLoading ||
+          (isUserSkillsFetching && (
+            <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
+          ))}
       </div>
     </>
   );

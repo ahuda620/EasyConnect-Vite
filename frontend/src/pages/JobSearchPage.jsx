@@ -9,6 +9,7 @@ import fetchJobListings from "../util/fetchJobListings";
 import fetchUserSkills from "../util/fetchUserSkills";
 import { useLocation, useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
+import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -74,41 +75,46 @@ export default function JobSearchPage() {
     [appending]
   );
 
-  //Effect to handle userSkills query states
+  //Effect to handle userSkills success state
   useEffect(() => {
     if (isUserSkillsSuccess) {
       setUserSkills(userSkillsData);
     }
+  }, [isUserSkillsSuccess, userSkillsData]);
 
+  //Effect to handle userSkills query error state
+  useEffect(() => {
     if (isUserSkillsError) {
-      console.log(userSkillsError); //TODO: Add UI feedback
+      console.error("Error while fetching user skills:", userSkillsError);
+      toast.error("An error occured while fetching user skills.");
     }
-  }, [isUserSkillsError, isUserSkillsSuccess, userSkillsData, userSkillsError]);
+  }, [isUserSkillsError, userSkillsError]);
 
-  //Effect to handle jobListings query states
+  //Effect to handle jobListings success state
   useEffect(() => {
     if (isJobListingSuccess) {
       handleJobListings(jobListingData);
       setFetchJobs(false);
       setLoading(false);
     }
+  }, [isJobListingSuccess, jobListingData]);
 
+  //Effect to handle jobListings loading state
+  useEffect(() => {
     if (isJobListingLoading) {
-      setLoading(true);
+      setLoading(true); //state that is passed down to JobListingCard component
     }
+  }, [isJobListingLoading]);
 
+  //Effect to handle jobListings error state
+  useEffect(() => {
     if (isJobListingError) {
-      console.log(jobListingError); //TODO: Add UI feedback
+      console.log(jobListingError);
+      toast.error("An error occured while fetching jobs.");
       setFetchJobs(false);
       setLoading(false);
     }
-  }, [
-    isJobListingError,
-    isJobListingLoading,
-    isJobListingSuccess,
-    jobListingData,
-    jobListingError,
-  ]);
+  }, [isJobListingError, jobListingError]);
 
   //Effect to determine if its the initial search for the page, if so use search params to fetch jobs on page load
   //i.e. when the user initiates a search from the HomePage and is navigated here

@@ -27,7 +27,14 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
       }
     },
     onError: (error) => {
-      toast.error("Failed to save job.");
+      if (
+        error.response &&
+        error.response.data === "You can only save up to 5 job listings"
+      ) {
+        toast.error("You can only save up to 5 job listings.");
+      } else {
+        toast.error("Failed to save job.");
+      }
       console.error("Failed to save job.", error);
     },
   });

@@ -11,6 +11,8 @@ import {
   faMagnifyingGlass,
   faBars,
   faPenToSquare,
+  faCircleCheck,
+  faSortDown,
 } from "@fortawesome/free-solid-svg-icons";
 import companyLogo from "../assets/pinkLogo.png";
 
@@ -37,61 +39,58 @@ export default function Header() {
 
       <ul className={styles.centerNavLinks}>
         <li>
-          <Link to="/#">Placeholder</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/#">Placeholder</Link>
-        </li>
-        <li>
-          <Link to="/#">Placeholder</Link>
-        </li>
-        <li>
-          <Link to="/#">Placeholder</Link>
+          <Link to="/jobs">Search</Link>
         </li>
       </ul>
 
       {user ? (
-        <div className={styles.userLoggedIn}>
-          <div className={styles.userProfileContainer}>
-            {user.username || user.firstName || user.fullName ? (
+        <div className={styles.userProfileContainer}>
+          {user.username || user.firstName || user.fullName ? (
+            <>
+              <FontAwesomeIcon
+                icon={faSortDown}
+                className={styles.faSortDown}
+              />
               <p>
                 Welcome, {user.username || user.firstName || user.fullName}!
               </p>
-            ) : (
-              <p>{user.primaryEmailAddress}</p>
-            )}
-            <img src={user.imageUrl}></img>
-            <div className={styles.dropDownMenuTriangle}></div>
-            <div className={styles.profileDropDownMenu}>
-              <nav>
-                <ul>
-                  <li>
-                    <button onClick={() => openUserProfile()}>
-                      <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                      Profile
-                    </button>
-                  </li>
-                  <li>
-                    <Link to="/#">
-                      <FontAwesomeIcon icon={faFileLines} />
-                      Applications
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/#">
-                      <FontAwesomeIcon icon={faBookmark} />
-                      Saved Jobs
-                    </Link>
-                  </li>
-                  <li>
-                    <button onClick={() => signOut()}>
-                      <FontAwesomeIcon icon={faRightFromBracket} />
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            </>
+          ) : (
+            <p>{user.primaryEmailAddress}</p>
+          )}
+          <img src={user.imageUrl}></img>
+          <div className={styles.profileDropDownMenu}>
+            <nav>
+              <ul>
+                <li>
+                  <button onClick={() => openUserProfile()}>
+                    <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                    Profile
+                  </button>
+                </li>
+                <li>
+                  <Link to="/saved-jobs">
+                    <FontAwesomeIcon icon={faBookmark} />
+                    Saved Jobs
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/skills">
+                    <FontAwesomeIcon icon={faCircleCheck} />
+                    Skills
+                  </Link>
+                </li>
+                <li>
+                  <button onClick={() => signOut()}>
+                    <FontAwesomeIcon icon={faRightFromBracket} />
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       ) : (

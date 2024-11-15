@@ -53,8 +53,13 @@ export default function JobSearchPage() {
   } = useQuery({
     queryKey: ["jobListings", searchParamObject],
     queryFn: () => fetchJobListings(searchParamObject),
-    refetchOnWindowFocus: false,
     enabled: fetchJobs && searchParamObject !== null,
+    staleTime: 60 * 60 * 1000, //1 hour
+    cacheTime: 60 * 60 * 1000, //1 hour
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false,
+    retry: false,
   });
 
   const handleJobListings = useCallback(

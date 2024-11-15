@@ -57,6 +57,12 @@ export default function SavedJobsPage() {
     queryKey: ["jobs", user?.id, savedJobIdsData],
     queryFn: () => fetchJobDetails(savedJobIdsData),
     enabled: false,
+    staleTime: Infinity, //1 hour
+    cacheTime: 60 * 60 * 1000, //1 hour
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false,
+    retry: false,
   });
 
   //Delete user's saved job id in database

@@ -1,8 +1,8 @@
 import styles from "./JobListingDetail.module.css";
 import { useUser } from "@clerk/clerk-react";
-import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import sanitizeJobDescription from "../util/sanitizeJobDescription";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
 import saveJobListing from "../util/saveJobListing";
@@ -14,8 +14,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingDetail({ userSkills, selectedJob }) {
-  const [savedJob, setSavedJob] = useState(false);
-
   const { user } = useUser();
   const location = useLocation();
 
@@ -23,14 +21,14 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
     mutationFn: (jobId) => saveJobListing(user?.id, jobId),
     onSuccess: (data) => {
       if (data === "Job listing is already saved") {
-        //TODO Add UI feedback on error
-        setSavedJob("alreadySaved");
+        toast.info("Job already saved.");
       } else {
-        setSavedJob("saved");
+        toast.success("Job successfuly saved.");
       }
-
-      const timer = setTimeout(() => setSavedJob(false), 1500); //Hide alert after 1.5 seconds
-      return () => clearTimeout(timer); //Clean up timer
+    },
+    onError: (error) => {
+      toast.error("Failed to save job.");
+      console.error("Failed to save job.", error);
     },
   });
 
@@ -125,12 +123,6 @@ export default function JobListingDetail({ userSkills, selectedJob }) {
                   className={styles.faSaveIcon}
                 />
               </button>
-              {savedJob === "saved" && (
-                <span className={styles.alert}>Job saved</span>
-              )}
-              {savedJob === "alreadySaved" && (
-                <span className={styles.alert}>Job already saved</span>
-              )}
             </>
           )}
         </div>

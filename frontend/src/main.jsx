@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import RootLayout from "./layouts/RootLayout";
+import ProtectRoute from "./components/ProtectRoute";
 import MobileProvider from "./context/MobileContext";
 import HomePage from "./pages/HomePage";
 import JobSearchPage from "./pages/JobSearchPage";
@@ -21,8 +22,22 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/jobs", element: <JobSearchPage /> },
-      { path: "/skills", element: <SkillsPage /> },
-      { path: "/saved-jobs", element: <SavedJobsPage /> },
+      {
+        path: "/skills",
+        element: (
+          <ProtectRoute>
+            <SkillsPage />
+          </ProtectRoute>
+        ),
+      },
+      {
+        path: "/saved-jobs",
+        element: (
+          <ProtectRoute>
+            <SavedJobsPage />
+          </ProtectRoute>
+        ),
+      },
     ],
   },
 ]);

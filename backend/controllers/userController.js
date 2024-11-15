@@ -5,6 +5,10 @@ export const updateUserSkills = async(req,res) => {
     const {userId} = req.params;
     const { skills } = req.body;
 
+    if(!userId){
+        return res.status(400).send("No userId supplied");
+    }
+
     //Validate skills array
     if(!Array.isArray(skills) || skills === undefined || !userId){
         return res.status(400).send({error:"Invalid skills format"});
@@ -31,6 +35,10 @@ export const updateUserSkills = async(req,res) => {
 export const getUserSkills = async(req, res) => {
     const userId = req.params.userId;
 
+    if(!userId){
+        return res.status(400).send("No userId supplied");
+    }
+
     try {
         const [rows] = await db.query("SELECT skills FROM users WHERE id = ?", [userId]);
 
@@ -46,6 +54,10 @@ export const getUserSkills = async(req, res) => {
 export const saveJobListing = async(req, res) => {
     const userId = req.params.userId;
     const { jobId } = req.body;
+
+    if(!userId){
+        return res.status(400).send("No userId supplied");
+    }
 
     //validate job id
     if(typeof jobId !== "string"){
@@ -74,6 +86,10 @@ export const saveJobListing = async(req, res) => {
 export const getSavedJobIds = async(req, res) => {
     const userId = req.params.userId;
 
+    if(!userId){
+        return res.status(400).send("No userId supplied");
+    }
+
     try {
         const [rows] = await db.query("SELECT * FROM saved_jobs WHERE user_id = ?", [userId]);
         const jobIds = rows.map(row => row.job_id);
@@ -88,6 +104,10 @@ export const getSavedJobIds = async(req, res) => {
 export const deleteSavedJobId = async(req, res) => {
     const userId = req.params.userId;
     const { jobId } = req.body;
+
+    if(!userId){
+        return res.status(400).send("No userId supplied");
+    }
 
     try {
         const [result] = await db.query("DELETE FROM saved_jobs WHERE user_id = ? AND job_id = ?", [userId, jobId]);

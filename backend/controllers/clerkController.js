@@ -2,6 +2,23 @@ import { Webhook } from "svix";
 import { clerkClient } from "@clerk/express";
 import db from "../database/db.js";
 
+async function deleteUser(req, res, userId) {
+  try {
+    const [result] = await db.query("DELETE FROM users WHERE id = ?", [userId]);
+
+    if (result.affectedRows > 0) {
+      console.log(`User with ID ${userId} deleted from database`);
+      return res.sendStatus(200);
+    } else {
+      console.error(`User with ID ${userId} not found in database`);
+      return res.status(404).send("User not found in database");
+    }
+  } catch (error) {
+    console.error("Error deleting user from database:", error);
+    return res.status(500).json({ error: error.message });
+  }
+}
+
 export const handleClerkWebHook = async (req, res) => {
   const payload = req.body;
   const headers = req.headers;
@@ -10,49 +27,63 @@ export const handleClerkWebHook = async (req, res) => {
   let msg;
   try {
     //Verify webhook using Svix
-    //Webhook is triggered by Clerk user.created and session.created events
+    //Webhook is triggered by Clerk user.created, session.created, user.deleted events
     msg = wh.verify(payload, headers); //var that stores verified request body message
 
-    //Extract user_id from webhook
-    const userId = msg.data.user_id;
+    //Extract eventType from webhook
+    const eventType = msg.type;
+    const userId = msg.data.id;
 
-    let user; //var that stores fetched user data from Clerk API
-    try {
-      //Fetch user data from Clerk API
-      user = await clerkClient.users.getUser(userId);
-    } catch (error) {
-      return res.status(400).send("Invalid webhook signature");
-    }
-
-    //Check if user is in database
-    try {
-      const [rows] = await db.query("SELECT * FROM users WHERE id = ?", [
-        userId,
-      ]);
-
-      if (rows.length === 0) {
-        //If user is not in database, insert them in
-        try {
-          await db.query("INSERT INTO users (id, first_name) VALUES (?, ?)", [
-            userId,
-            user.firstName,
-          ]);
-          return res.sendStatus(201);
-        } catch (error) {
-          console.error("Error inserting new user into database");
-          return res.status(500).json({ error: error.message });
+    if (eventType === "user.created") {
+      //Check if user is in database
+      try {
+        const [rows] = await db.query("SELECT * FROM users WHERE id = ?", [
+          userId,
+        ]);
+        if (rows.length !== 0) {
+          console.log(`User ${userId} is already in database.`);
+          return res.sendStatus(200); // User already exists
         }
-      } else {
-        //User is already in database
-        return res.sendStatus(200);
+        //Insert user into database
+        const firstName = msg.data.first_name || msg.data.username || "Unknown";
+
+        await db.query("INSERT INTO users (id, first_name) VALUES (?, ?)", [
+          userId,
+          firstName,
+        ]);
+        console.log(`Inserted ${userId} into database.`);
+        return res.sendStatus(201);
+      } catch (error) {
+        console.error(
+          `Error inserting user with ID ${userId} into database: ${error}`
+        );
+        return res.status(500).send({ error: error.message });
       }
-    } catch (error) {
-      console.error("Error checking database:", error);
-      return res.status(500).json({ error: error.message });
+    } else if (eventType === "user.deleted") {
+      try {
+        const [result] = await db.query("DELETE FROM users WHERE id = ?", [
+          userId,
+        ]);
+
+        if (result.affectedRows > 0) {
+          console.log(`User with ID ${userId} deleted from database`);
+          return res.sendStatus(200);
+        } else {
+          console.error(`User with ID ${userId} not found in database`);
+          return res.status(404).send("User not found in database");
+        }
+      } catch (error) {
+        console.error("Error deleting user from database:", error);
+        return res.status(500).json({ error: error.message });
+      }
+    } else {
+      console.log(`Unhandled event type: ${eventType}`);
+      return res.sendStatus(204);
     }
   } catch (error) {
+    console.error(`Webhook verification failed: ${error}`);
     return res
       .status(400)
-      .json({ message: `Webhook verfication failed: ${error}` });
+      .json({ message: `Webhook verfication failed: ${error.message}` });
   }
 };

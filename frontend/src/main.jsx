@@ -13,15 +13,18 @@ import HomePage from "./pages/HomePage";
 import JobSearchPage from "./pages/JobSearchPage";
 import SkillsPage from "./pages/SkillsPage";
 import SavedJobsPage from "./pages/SavedJobsPage";
+import ErrorPage from "./pages/ErrorPage";
+import JobListingDetail from "./components/JobListingDetail";
 
 const queryClient = new QueryClient();
-
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/jobs", element: <JobSearchPage /> },
+      { path: "/jobs/details", element: <JobListingDetail /> },
       {
         path: "/skills",
         element: (

@@ -1059,6 +1059,75 @@
       "job_occupational_categories": null,
       "job_naics_code": null,
       "job_naics_name": null
+    },
+    {
+      "job_id": "6LJpqpeyubOV7ECxAAAAAA==",
+      "employer_name": "VirtualVocations",
+      "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYpvo73b_jwJT1H_9agLsMzWD5zxqKA1nAo10o&s=0",
+      "employer_website": null,
+      "employer_company_type": null,
+      "employer_linkedin": null,
+      "job_publisher": "Talent.com",
+      "job_employment_type": "FULLTIME",
+      "job_employment_types": ["FULLTIME"],
+      "job_title": "Frontend developer",
+      "job_apply_link": "https://www.talent.com/view?id=be5b3d80c514&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "job_apply_is_direct": false,
+      "job_apply_quality_score": null,
+      "apply_options": [
+        {
+          "publisher": "Talent.com",
+          "apply_link": "https://www.talent.com/view?id=be5b3d80c514&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+          "is_direct": false
+        }
+      ],
+      "job_description": "Last updated : 2024-11-17",
+      "job_is_remote": false,
+      "job_posted_human_readable": "3 days ago",
+      "job_posted_at_timestamp": 1731801600,
+      "job_posted_at_datetime_utc": "2024-11-17T00:00:00.000Z",
+      "job_location": "Oakland, CA",
+      "job_city": null,
+      "job_state": null,
+      "job_country": null,
+      "job_latitude": null,
+      "job_longitude": null,
+      "job_benefits": null,
+      "job_google_link": null,
+      "job_offer_expiration_datetime_utc": null,
+      "job_offer_expiration_timestamp": null,
+      "job_required_experience": {
+        "no_experience_required": false,
+        "required_experience_in_months": null,
+        "experience_mentioned": false,
+        "experience_preferred": false
+      },
+      "job_required_skills": null,
+      "job_required_education": {
+        "postgraduate_degree": false,
+        "professional_certification": false,
+        "high_school": false,
+        "associates_degree": false,
+        "bachelors_degree": false,
+        "degree_mentioned": false,
+        "degree_preferred": false,
+        "professional_certification_mentioned": false
+      },
+      "job_experience_in_place_of_education": false,
+      "job_salary": null,
+      "job_min_salary": null,
+      "job_max_salary": null,
+      "job_salary_currency": null,
+      "job_salary_period": null,
+      "job_highlights": {},
+      "job_job_title": null,
+      "job_posting_language": null,
+      "job_onet_soc": "15113400",
+      "job_onet_job_zone": "3",
+      "job_occupational_categories": null,
+      "job_naics_code": null,
+      "job_naics_name": null,
+      "posted_date_formatted": "3 days ago"
     }
   ]
 }

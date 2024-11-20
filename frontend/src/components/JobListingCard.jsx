@@ -104,7 +104,7 @@ export default function JobListingCard({
       >
         <h4>
           {location.pathname === "/saved-jobs"
-            ? "Saved jobs"
+            ? "Saved Jobs"
             : /* Conditionally render text in jobSearchQueryHeader element depending on 
           if jobSearchTerm and locationSearchTerm are provided by the user */
               capitalizeFirstLetter(

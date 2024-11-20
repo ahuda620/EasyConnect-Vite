@@ -130,6 +130,24 @@
   color: #f43f7f;
 }
 
+.backBtn {
+  all: unset;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0 5px 0;
+  background-color: black;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.backBtn svg {
+  font-size: 2rem;
+  color: white;
+}
+
 .alert {
   margin-left: 10px;
   background-color: rgba(60, 60, 60, 0.9);
@@ -199,4 +217,11 @@
 
 .jobListingDescription strong {
   color: #5e5a5a;
+}
+
+@media (max-width: 1092px) {
+  .wrapper {
+    max-width: 100%;
+    border: none;
+  }
 }

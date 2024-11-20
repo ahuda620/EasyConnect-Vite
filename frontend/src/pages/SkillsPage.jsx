@@ -31,7 +31,6 @@ export default function ProfilePage() {
     isLoading: isUserSkillsLoading,
     isFetching: isUserSkillsFetching,
     isError: isUserSkillsError,
-    error: userSkillsError,
     isSuccess: isUserSkillsSuccess,
     data: userSkillsData,
   } = useQuery({
@@ -42,7 +41,7 @@ export default function ProfilePage() {
 
   //Effect to handle userSkills success state
   useEffect(() => {
-    if (isUserSkillsSuccess) {
+    if (isUserSkillsSuccess && userSkillsData?.length > 0) {
       const formattedSkills = handleFormatSkills(userSkillsData);
       setUserSkills(formattedSkills);
     }
@@ -50,10 +49,9 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (isUserSkillsError) {
-      console.error("Error while fetching user skills:", userSkillsError);
       toast.error("An error occured while fetching user skills.");
     }
-  }, [userSkillsError, isUserSkillsError]);
+  }, [isUserSkillsError]);
 
   //Tan Stack Query Mutation to update userskills in database and refetch them
   const mutation = useMutation({
@@ -88,7 +86,6 @@ export default function ProfilePage() {
       toast.success("Skill edited successfully.");
     } catch (error) {
       toast.error("An error occurred while editing the skill.");
-      console.error("An error occurred while editing the skill:", error);
     }
   };
 
@@ -104,7 +101,6 @@ export default function ProfilePage() {
           toast.success("Skill added successfully.");
         } catch (error) {
           toast.error("An error occurred while adding the skill.");
-          console.error("An error occurred while adding the skill:", error);
         }
       } else {
         //handle input with numbers
@@ -128,7 +124,6 @@ export default function ProfilePage() {
       toast.success("Skill deleted successfully.");
     } catch (error) {
       toast.error("An error occurred while deleting the skill.");
-      console.error("An error occurred while deleting the skill:", error);
     }
   };
 
@@ -152,104 +147,102 @@ export default function ProfilePage() {
   }
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        <h1 className={styles.pageTitle}>Skills</h1>
-        <p className={styles.subText}>Enter your job related skills below!</p>
-        <ul className={styles.skillsList}>
-          {userSkills?.length > 0 ? (
-            userSkills.map((skill, index) => (
-              <li key={index} className={styles.skill}>
-                {editSkillIndex === index ? (
-                  <input
-                    type="text"
-                    value={userSkills[index]}
-                    onChange={(e) => handleEditSkill(index, e.target.value)}
-                    autoFocus
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleSaveEditedSkill();
-                      }
-                    }}
-                    className={styles.editSkill}
-                  />
-                ) : (
-                  <span>{skill}</span>
-                )}
-                <div className={styles.icons}>
-                  {!isEditMode ? (
-                    <>
-                      <button
-                        className={styles.pageButton}
-                        onClick={() => handleEditSkillClick(index)}
-                      >
-                        <FontAwesomeIcon
-                          className={styles.faEditIcon}
-                          icon={faPen}
-                        />
-                      </button>
-                      <button
-                        className={styles.pageButton}
-                        onClick={() => handleDeleteSkill(index)}
-                      >
-                        <FontAwesomeIcon
-                          className={styles.faXmarkIcon}
-                          icon={faXmark}
-                        />
-                      </button>
-                    </>
-                  ) : (
+    <div className={styles.wrapper}>
+      <h1 className={styles.pageTitle}>Skills</h1>
+      <p className={styles.subText}>Add your job related skills below!</p>
+      <ul className={styles.skillsList}>
+        {userSkills?.length > 0 ? (
+          userSkills.map((skill, index) => (
+            <li key={index} className={styles.skill}>
+              {editSkillIndex === index ? (
+                <input
+                  type="text"
+                  value={userSkills[index]}
+                  onChange={(e) => handleEditSkill(index, e.target.value)}
+                  autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSaveEditedSkill();
+                    }
+                  }}
+                  className={styles.editSkill}
+                />
+              ) : (
+                <span>{skill}</span>
+              )}
+              <div className={styles.icons}>
+                {!isEditMode ? (
+                  <>
                     <button
                       className={styles.pageButton}
-                      onClick={handleSaveEditedSkill}
+                      onClick={() => handleEditSkillClick(index)}
                     >
                       <FontAwesomeIcon
-                        className={styles.faCheckIcon}
-                        icon={faCheck}
+                        className={styles.faEditIcon}
+                        icon={faPen}
                       />
                     </button>
-                  )}
-                </div>
-              </li>
-            ))
-          ) : (
-            <p className={styles.noSkillsText}>No skills available</p>
-          )}
-          {!isEditMode && (
-            <li className={styles.addSkillField}>
-              <input
-                type="text"
-                value={newSkill}
-                placeholder="Enter a skill here"
-                onChange={(e) => {
-                  setNewSkill(e.target.value);
-                }}
-              />
-              <button
-                className={styles.pageButton}
-                onClick={() => {
-                  handleAddSkill(newSkill);
-                  setNewSkill("");
-                }}
-              >
-                <FontAwesomeIcon className={styles.faPlusIcon} icon={faPlus} />
-              </button>
+                    <button
+                      className={styles.pageButton}
+                      onClick={() => handleDeleteSkill(index)}
+                    >
+                      <FontAwesomeIcon
+                        className={styles.faXmarkIcon}
+                        icon={faXmark}
+                      />
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    className={styles.pageButton}
+                    onClick={handleSaveEditedSkill}
+                  >
+                    <FontAwesomeIcon
+                      className={styles.faCheckIcon}
+                      icon={faCheck}
+                    />
+                  </button>
+                )}
+              </div>
             </li>
-          )}
-        </ul>
-        {showEmptyInputAlert && (
-          <span className={styles.alert}>Search input cannot be empty</span>
+          ))
+        ) : (
+          <p className={styles.noSkillsText}>No skills added</p>
         )}
-        {showOnlyLettersAlert && (
-          <span className={styles.alert}>
-            Numbers and symbols are not allowed
-          </span>
+        {!isEditMode && (
+          <li className={styles.addSkillField}>
+            <input
+              type="text"
+              value={newSkill}
+              placeholder="Enter a skill here"
+              onChange={(e) => {
+                setNewSkill(e.target.value);
+              }}
+            />
+            <button
+              className={styles.pageButton}
+              onClick={() => {
+                handleAddSkill(newSkill);
+                setNewSkill("");
+              }}
+            >
+              <FontAwesomeIcon className={styles.faPlusIcon} icon={faPlus} />
+            </button>
+          </li>
         )}
-        {isUserSkillsLoading ||
-          (isUserSkillsFetching && (
-            <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
-          ))}
-      </div>
-    </>
+      </ul>
+      {showEmptyInputAlert && (
+        <span className={styles.alert}>Search input cannot be empty</span>
+      )}
+      {showOnlyLettersAlert && (
+        <span className={styles.alert}>
+          Numbers and symbols are not allowed
+        </span>
+      )}
+      {isUserSkillsLoading ||
+        (isUserSkillsFetching && (
+          <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
+        ))}
+    </div>
   );
 }

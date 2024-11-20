@@ -5,10 +5,12 @@ import { useLocation } from "react-router-dom";
 import dateFormatter from "../util/dateFormatter";
 import jobSkillsMatcher from "../util/jobSkillsMatcher";
 import BounceLoader from "react-spinners/BounceLoader";
+import { useIsMobile } from "../context/MobileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark, faCity } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingCard({
+  className, //classname prop is for toggling visiblity of this component on mobile
   userSkills,
   searchParamObject,
   jobListings,
@@ -18,18 +20,19 @@ export default function JobListingCard({
   handleFetchJobs,
   loading,
   noMoreJobListings,
+  selectedJob,
 }) {
   const [selectedJobId, setSelectedJobId] = useState(null);
-
   const { user } = useUser(); //Use Clerk hook to determine if a user is signed on
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   //Effect to set selectedJobId state variable to the job_id of the first job listing fetched
   useEffect(() => {
-    if (jobListings.length > 0) {
+    if (jobListings.length > 0 && !selectedJob) {
       setSelectedJobId(jobListings[0].job_id);
     }
-  }, [jobListings]);
+  }, [jobListings, selectedJob]);
 
   //Function that handles a job card click by applying styles and sending the corresponding job listing info back to the parent component
   function handleJobCardClick(jobListing) {
@@ -43,24 +46,29 @@ export default function JobListingCard({
       const jobListingCardWrapper = document.querySelector(
         `.${styles.jobListingCardWrapper}`
       );
-
       if (jobListingCardWrapper && !noMoreJobListings) {
+        let debounceTimer;
+
         const handleScroll = () => {
-          if (
-            jobListingCardWrapper.scrollHeight -
-              jobListingCardWrapper.scrollTop ===
-            jobListingCardWrapper.clientHeight
-          ) {
-            console.log("Bottom hit!");
-            //Increment the page property of searchParamObject and trigger a new fectch in parent component
-            const newPage = parseInt(searchParamObject.page) + 1;
+          const { scrollHeight, scrollTop, clientHeight } =
+            jobListingCardWrapper;
 
-            handleSearchParamObject({
-              ...searchParamObject,
-              page: newPage.toString(),
-            });
+          if (scrollHeight - scrollTop <= clientHeight + 1) {
+            if (debounceTimer) {
+              clearTimeout(debounceTimer);
+            }
 
-            handleFetchJobs(true, true);
+            debounceTimer = setTimeout(() => {
+              //Increment the page property of searchParamObject and trigger a new fectch in parent component
+              const newPage = parseInt(searchParamObject.page) + 1;
+
+              handleSearchParamObject({
+                ...searchParamObject,
+                page: newPage.toString(),
+              });
+
+              handleFetchJobs(true, true);
+            }, 300);
           }
         };
 
@@ -79,27 +87,44 @@ export default function JobListingCard({
     searchParamObject,
   ]);
 
+  function capitalizeFirstLetter(text) {
+    if (!text) return "";
+    return text
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
   return (
-    <div className={styles.jobListingsWrapper}>
-      <div className={styles.jobSearchQueryHeader}>
+    <div className={`${styles.jobListingsWrapper} ${className || ""}`}>
+      <div
+        className={`${styles.jobSearchQueryHeader} ${
+          location.pathname === "/saved-jobs" && isMobile ? styles.blueBg : ""
+        } `}
+      >
         <h4>
           {location.pathname === "/saved-jobs"
             ? "Saved jobs"
             : /* Conditionally render text in jobSearchQueryHeader element depending on 
           if jobSearchTerm and locationSearchTerm are provided by the user */
-            searchParamObject.jobSearchTerm &&
-              searchParamObject.locationSearchTerm
-            ? `${searchParamObject.jobSearchTerm} jobs in ${searchParamObject.locationSearchTerm}`
-            : searchParamObject.jobSearchTerm
-            ? `${searchParamObject.query} jobs`
-            : searchParamObject.locationSearchTerm
-            ? `Jobs in ${searchParamObject.query}`
-            : ""}
+              capitalizeFirstLetter(
+                searchParamObject.jobSearchTerm &&
+                  searchParamObject.locationSearchTerm
+                  ? `${searchParamObject.jobSearchTerm} Jobs In ${searchParamObject.locationSearchTerm}`
+                  : searchParamObject.jobSearchTerm
+                  ? `${searchParamObject.query} Jobs`
+                  : searchParamObject.locationSearchTerm
+                  ? `Jobs in ${searchParamObject.query}`
+                  : ""
+              )}
         </h4>
       </div>
       <div className={styles.jobListingCardWrapper}>
         {jobListings.map((jobListing, index) => {
-          jobListing.posted_date_formatted = dateFormatter(jobListing); //format the job posted date
+          if (jobListing.job_posted_at_timestamp) {
+            jobListing.posted_date_formatted = dateFormatter(jobListing); //format the job posted date
+          }
+
           let matchedSkills; //display if theres any user skills matching with the job description
 
           if (user && userSkills) {
@@ -135,7 +160,8 @@ export default function JobListingCard({
                 {location.pathname === "/saved-jobs" && (
                   <span className={styles.faXmarkWrapper}>
                     <button
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation(); //stops event from propagating up to article onclick event since they share the same "click"
                         handleDeleteJobId(jobListing.job_id);
                       }}
                     >
@@ -152,18 +178,19 @@ export default function JobListingCard({
                 <p className={styles.jobListingEmployerName}>
                   {jobListing.employer_name}
                 </p>
-                <p className={styles.jobListingLocation}>
-                  {`${
-                    jobListing.job_city && jobListing.job_state
-                      ? `${jobListing.job_city}, ${jobListing.job_state}`
-                      : jobListing.job_city
-                      ? `${jobListing.job_city}, ${jobListing.job_country}`
-                      : jobListing.job_state
-                      ? `${jobListing.job_state}, ${jobListing.job_country}`
-                      : jobListing.job_country
-                  }`}
-                </p>
-
+                {jobListing.job_city ||
+                  jobListing.job_state ||
+                  (jobListing.job_country && (
+                    <p className={styles.jobListingLocation}>
+                      {[
+                        jobListing.job_city,
+                        jobListing.job_state,
+                        jobListing.job_country,
+                      ]
+                        .filter(Boolean)
+                        .join(", ")}
+                    </p>
+                  ))}
                 <ul className={styles.jobListingKeywords}>
                   <li>
                     {jobListing.job_employment_type &&
@@ -218,9 +245,17 @@ export default function JobListingCard({
                     <li>{jobListing.job_description}</li>
                   )}
                 </ul>
-                <p className={styles.jobListingPostedDate}>
-                  {jobListing.posted_date_formatted}
-                </p>
+                {jobListing.job_posted_human_readable ? (
+                  <p className={styles.jobListingPostedDate}>
+                    {jobListing.job_posted_human_readable}
+                  </p>
+                ) : jobListing.posted_date_formatted ? (
+                  <p className={styles.jobListingPostedDate}>
+                    {jobListing.posted_date_formatted}
+                  </p>
+                ) : (
+                  <p className={styles.jobListingPostedDate}>N/A</p>
+                )}
               </div>
             </article>
           );

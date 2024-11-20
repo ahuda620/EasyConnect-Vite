@@ -68,6 +68,7 @@
 
 .addSkillField {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
   margin-top: 20px;
@@ -80,6 +81,8 @@
 
 .noSkillsText {
   text-align: center;
+  font-style: italic;
+  color: #555;
 }
 
 .alert {
@@ -104,5 +107,20 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 1092px) {
+  .wrapper {
+    max-width: unset;
+    width: 100%;
+  }
+
+  .skillsList {
+    width: 90%;
+  }
+
+  .addSkillField input {
+    width: 70%;
   }
 }

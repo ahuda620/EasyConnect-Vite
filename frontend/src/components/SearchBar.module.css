@@ -1,10 +1,9 @@
 .wrapper {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  margin: 16px 0;
 }
 
 .searchBarWrapper {
@@ -12,63 +11,41 @@
   justify-content: center;
   gap: 16px;
   position: relative;
+  font-size: clamp(1.1rem, 1.4vw, 1.2rem);
+  width: 95%;
 }
 
-.jobSearchBar {
-  font-size: 1.2rem;
+.jobSearchBarWrapper,
+.locationSearchBarWrapper {
+  display: flex;
+  align-items: center;
   border-radius: 24px;
   border: 1.92px solid rgb(224, 224, 224);
-  width: 45%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 3rem;
-  padding-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
 }
 
-.jobSearchBar::placeholder {
-  color: rgb(133, 133, 133);
+.jobSearchBarWrapper:focus-within,
+.locationSearchBarWrapper:focus-within {
+  outline: 2px solid #f43f7f;
 }
-
-.jobSearchBar:focus {
-  border-right: 1.92px solid rgb(224, 224, 224);
-  outline: 2px solid #ff82a1;
-}
-
-.searchIcon {
-  position: absolute;
-  top: 30%;
-  left: 5%;
-  font-size: 1.2rem;
-}
-
+.jobSearchBar,
 .locationSearchBar {
-  font-size: 1.2rem;
-  border-radius: 24px;
-  border: 1.92px solid rgb(224, 224, 224);
-  width: 35%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 3rem;
-  padding-right: 1rem;
+  width: 100%;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 0.5rem;
 }
 
+.jobSearchBar::placeholder,
 .locationSearchBar::placeholder {
   color: rgb(133, 133, 133);
 }
 
-.locationSearchBar:focus {
-  outline: 2px solid #ff82a1;
-}
-
-.locationIcon {
-  position: absolute;
-  top: 30%;
-  left: 52%;
-  font-size: 1.2rem;
-}
-
 .jobSearchBtn {
-  font-size: 1.2rem;
+  font-size: inherit;
   border-radius: 1.5rem;
   background-color: black;
   color: white;
@@ -80,9 +57,28 @@
   background: linear-gradient(to right, #ff6ec4, #f43f7f);
 }
 
+.searchIcon {
+  font-size: inherit;
+  transition: color 0.3s ease;
+}
+
+.locationIcon {
+  font-size: inherit;
+  transition: color 0.3s ease;
+}
+
+.jobSearchBarWrapper:focus-within .searchIcon {
+  color: #f43f7f;
+}
+
+.locationSearchBarWrapper:focus-within .locationIcon {
+  color: #f43f7f;
+}
+
 .searchParamButtonsWrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -97,7 +93,7 @@
   white-space: nowrap;
   display: flex;
   gap: 8px;
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
   font-weight: 450;
   color: rgb(48, 48, 48);
 }
@@ -120,6 +116,7 @@
 .menu.visible {
   display: flex;
   background-color: white;
+  z-index: 1;
 }
 
 .menu label {
@@ -202,5 +199,9 @@ input#radiusAny:checked + label {
 @media (max-width: 1092px) {
   .wrapper {
     flex-wrap: wrap;
+  }
+
+  .searchBarWrapper {
+    flex-direction: column;
   }
 }

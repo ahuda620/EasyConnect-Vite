@@ -1,5 +1,5 @@
 .pageWrapper {
-  height: 93svh; /*change for mobile*/
+  height: 90svh; /*change for mobile*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,6 @@
   position: relative;
   width: 100%;
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.178);
-  padding: 16px 0;
 }
 
 .jobSectionWrapper {
@@ -28,6 +27,7 @@
   font-weight: bold;
   color: #ec568a;
   margin-top: 30px;
+  text-align: center;
 }
 
 .initialSearchText svg {
@@ -46,21 +46,39 @@
   text-align: center;
 }
 
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.searchBarToggleButton {
+  all: unset;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0 5px 0;
+  background-color: black;
+}
+
+.searchBarToggleButton svg {
+  font-size: 2rem;
+  color: white;
+}
+
 @media (max-width: 1092px) {
-  .pageWrapper {
+  .searchSectionWrapper {
+    box-shadow: revert;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
   }
 
-  .searchBarWrapper input[type="search"],
-  .searchBarWrapper input[type="submit"] {
-    width: 100%;
-    margin-inline: 0.1rem;
-  }
-
-  .sortButtonsWrapper {
-    max-width: unset;
-  }
-
-  .sortButtonsWrapper button {
-    font-size: 0.77rem;
+  .jobSectionWrapper {
+    max-width: 100%;
+    overflow: hidden;
   }
 }

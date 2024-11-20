@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({
+  className,
   isInitialSearch,
   initialSearchParamObject,
   handleSearchParamObject,
@@ -32,12 +33,9 @@ export default function SearchBar({
     experienceMenu: false,
     distanceMenu: false,
   });
-  const [showDuplicateSearchAlert, setShowDuplicateSearchAlert] =
-    useState(false);
   const [showEmptyInputAlert, setShowEmptyInputAlert] = useState(false);
   const [showOnlyLettersAlert, setShowOnlyLettersAlert] = useState(false);
 
-  const prevSearchParamObject = useRef(searchParamObject);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -68,31 +66,11 @@ export default function SearchBar({
     searchParamObject.locationSearchTerm,
   ]);
 
-  //Helper function that takes in an object and removes the initialSearch property so that we can compare it to other objects
-  function filterObject(obj) {
-    if (obj) {
-      const { initialSearch, ...filteredObj } = obj; //Filter out initialSearch property
-      return filteredObj;
-    }
-  }
-
   //Send updated searchParamObject back to parent component
   useEffect(() => {
     if (fetchJobs) {
-      //Check if the searchParamObject has changed, if so initiate a fetch request to parent component
-      if (
-        JSON.stringify(filterObject(searchParamObject)) !==
-          JSON.stringify(filterObject(prevSearchParamObject.current)) &&
-        JSON.stringify(filterObject(searchParamObject)) !==
-          JSON.stringify(filterObject(initialSearchParamObject))
-      ) {
-        prevSearchParamObject.current = searchParamObject; //Save a reference of the current searchParamObject to compare to
-        handleSearchParamObject(searchParamObject); //Send seachParamObject back to parent
-        handleFetchJobs(true); //Initiate fetch request
-      } else {
-        setShowDuplicateSearchAlert(true);
-        setTimeout(() => setShowDuplicateSearchAlert(false), 2000); //Hide alert after 2 seconds
-      }
+      handleSearchParamObject(searchParamObject); //Send seachParamObject back to parent
+      handleFetchJobs(true); //Initiate fetch request
     }
     setFetchJobs(false); //Reset state
   }, [
@@ -105,11 +83,11 @@ export default function SearchBar({
 
   //effect that tracks if the user click outside the searchParamButtonsWrapper, if so then close all dropdown menus
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handleClickOutside);
 
     //cleanup
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("pointerdown", handleClickOutside);
     };
   }, []);
 
@@ -192,7 +170,7 @@ export default function SearchBar({
   }
 
   function validateSearchInput(searchInput) {
-    return /^[a-zA-Z\s]*$/.test(searchInput);
+    return /^[a-zA-Z\s,]*$/.test(searchInput);
   }
 
   function initiateFetch() {
@@ -202,12 +180,12 @@ export default function SearchBar({
           setFetchJobs(true);
         } else {
           //Convert searchParamObject into URL params to pass to JobSearchPage
-          const serializedParams = encodeURIComponent(
+          const serializedSearchQuery = encodeURIComponent(
             JSON.stringify(searchParamObject)
           );
 
           //Navigate to the job search page with params
-          navigate(`/jobs?data=${serializedParams}`, { replace: true });
+          navigate(`/jobs?data=${serializedSearchQuery}`, { replace: true });
         }
       } else {
         setShowOnlyLettersAlert(true);
@@ -220,49 +198,49 @@ export default function SearchBar({
   }
 
   return (
-    <>
+    <div className={`${styles.wrapper} ${className || ""}`}>
       <div className={styles.searchBarWrapper}>
-        <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
-        <input
-          type="search"
-          placeholder="Search for a Job..."
-          className={styles.jobSearchBar}
-          value={searchParamObject.jobSearchTerm || ""}
-          onChange={(e) => {
-            setSearchParamObject((prevState) => ({
-              ...prevState,
-              jobSearchTerm: e.target.value,
-            }));
-          }}
-        ></input>
-        <FontAwesomeIcon icon={faLocationDot} className={styles.locationIcon} />
-        <input
-          type="search"
-          placeholder="Location..."
-          className={styles.locationSearchBar}
-          value={searchParamObject.locationSearchTerm || ""}
-          onChange={(e) => {
-            setSearchParamObject((prevState) => ({
-              ...prevState,
-              locationSearchTerm: e.target.value,
-            }));
-          }}
-        ></input>
+        <div className={styles.jobSearchBarWrapper}>
+          <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
+          <input
+            type="search"
+            placeholder="Web Developer"
+            className={styles.jobSearchBar}
+            value={searchParamObject.jobSearchTerm || ""}
+            onChange={(e) => {
+              setSearchParamObject((prevState) => ({
+                ...prevState,
+                jobSearchTerm: e.target.value,
+              }));
+            }}
+          ></input>
+        </div>
+        <div className={styles.locationSearchBarWrapper}>
+          <FontAwesomeIcon
+            icon={faLocationDot}
+            className={styles.locationIcon}
+          />
+          <input
+            type="search"
+            placeholder="San Francisco, CA"
+            className={styles.locationSearchBar}
+            value={searchParamObject.locationSearchTerm || ""}
+            onChange={(e) => {
+              setSearchParamObject((prevState) => ({
+                ...prevState,
+                locationSearchTerm: e.target.value,
+              }));
+            }}
+          ></input>
+        </div>
         <button className={styles.jobSearchBtn} onClick={initiateFetch}>
           Search
         </button>
         {showEmptyInputAlert && (
           <div className={styles.alert}>Search input cannot be empty</div>
         )}
-        {showDuplicateSearchAlert && (
-          <div className={styles.alert}>
-            Your search query is identical to the previous one
-          </div>
-        )}
         {showOnlyLettersAlert && (
-          <div className={styles.alert}>
-            Numbers and symbols are not allowed
-          </div>
+          <div className={styles.alert}>Numbers are not allowed</div>
         )}
       </div>
       <div
@@ -607,6 +585,6 @@ export default function SearchBar({
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

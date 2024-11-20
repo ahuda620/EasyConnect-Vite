@@ -10,8 +10,14 @@ import fetchUserSkills from "../util/fetchUserSkills";
 import { useLocation, useNavigate } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 import { toast } from "react-toastify";
+import normalizeDate from "../util/normalizeDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faChevronUp,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
+import { useIsMobile } from "../context/MobileContext";
 
 export default function JobSearchPage() {
   const [isInitialSearch, setIsInitialSearch] = useState(true); //determines if its first search on the page
@@ -25,35 +31,37 @@ export default function JobSearchPage() {
   const [userSkills, setUserSkills] = useState(null);
   const [loading, setLoading] = useState(false); //Determines if loading circle animation is displayed
   const [noMoreJobListings, setNoMoreJobListings] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [hideSearchBar, setShowSearchBar] = useState(true);
 
   const { user } = useUser(); //Use Clerk hook to get current user
   const location = useLocation();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   //Fetch user skills
   const {
     isError: isUserSkillsError,
-    error: userSkillsError,
     isSuccess: isUserSkillsSuccess,
     data: userSkillsData,
   } = useQuery({
     queryKey: ["userSkills", user?.id],
     queryFn: () => fetchUserSkills(user?.id),
     enabled: !!user?.id,
+    retry: false,
   });
 
   //Fetch job listings
   const {
     isLoading: isJobListingLoading,
     isError: isJobListingError,
-    error: jobListingError,
     isSuccess: isJobListingSuccess,
     isFetching: isJobListingFetching,
     data: jobListingData,
   } = useQuery({
     queryKey: ["jobListings", searchParamObject],
     queryFn: () => fetchJobListings(searchParamObject),
-    enabled: fetchJobs && searchParamObject !== null,
+    enabled: fetchJobs || searchParamObject !== null,
     staleTime: 60 * 60 * 1000, //1 hour
     cacheTime: 60 * 60 * 1000, //1 hour
     refetchOnWindowFocus: false,
@@ -64,10 +72,12 @@ export default function JobSearchPage() {
 
   const handleJobListings = useCallback(
     (newJobListings) => {
+      sortJobListings(newJobListings); //sort by date
       if (appending) {
         // console.log("Appending jobs:", newJobListings.length);
         setJobListings((prevJobListings) => {
           const updatedListings = [...prevJobListings, ...newJobListings];
+          sortJobListings(updatedListings); //sort by date
           // console.log("Previous length:", prevJobListings.length);
           // console.log("New total length:", updatedListings.length);
           return updatedListings;
@@ -90,10 +100,9 @@ export default function JobSearchPage() {
   //Effect to handle userSkills query error state
   useEffect(() => {
     if (isUserSkillsError) {
-      console.error("Error while fetching user skills:", userSkillsError);
       toast.error("An error occured while fetching user skills.");
     }
-  }, [isUserSkillsError, userSkillsError]);
+  }, [isUserSkillsError]);
 
   //Effect to handle jobListings success state
   useEffect(() => {
@@ -114,33 +123,30 @@ export default function JobSearchPage() {
   //Effect to handle jobListings error state
   useEffect(() => {
     if (isJobListingError) {
-      console.log(jobListingError);
       toast.error("An error occured while fetching jobs.");
       setFetchJobs(false);
       setLoading(false);
     }
-  }, [isJobListingError, jobListingError]);
+  }, [isJobListingError]);
 
   //Effect to determine if its the initial search for the page, if so use search params to fetch jobs on page load
   //i.e. when the user initiates a search from the HomePage and is navigated here
   useEffect(() => {
-    if (isInitialSearch) {
-      const params = new URLSearchParams(location.search);
-      const dataParam = params.get("data");
+    const params = new URLSearchParams(location.search);
+    const data = params.get("data");
 
-      if (dataParam) {
-        const parsedSearchObject = JSON.parse(decodeURIComponent(dataParam));
-        setInitialSearchParamObject(parsedSearchObject);
-        setSearchParamObject(parsedSearchObject);
-        setFetchJobs(true);
-      }
-
-      // setIsInitialSearch(false); //ensure this effect only runs once
-      setTimeout(() => {
-        setIsInitialSearch(false); //ensure this effect only runs once
-      }, 0);
+    if (data) {
+      const parsedSearchObject = JSON.parse(decodeURIComponent(data));
+      setInitialSearchParamObject(parsedSearchObject);
+      setSearchParamObject(parsedSearchObject);
+      setFetchJobs(true);
     }
-  }, [isInitialSearch]);
+
+    // setIsInitialSearch(false); //ensure this effect only runs once
+    setTimeout(() => {
+      setIsInitialSearch(false); //ensure this effect only runs once
+    }, 0);
+  }, [location.search]);
 
   //Effect to display the first job listing in jobListingDetails component on initial page load
   useEffect(() => {
@@ -184,24 +190,69 @@ export default function JobSearchPage() {
   //Prop function that handles which jobListing is displayed on in the jobListingDetails component
   function handleJobSelect(job) {
     setSelectedJob(job);
+    if (isMobile) {
+      setShowDetails(true);
+      window.scrollTo(0, 0);
+    }
+  }
+
+  function handleBacktoJobListings() {
+    setShowDetails(false);
+  }
+
+  function toggleSearchBar() {
+    setShowSearchBar(!hideSearchBar);
+  }
+
+  // Sorting job listings
+  function sortJobListings(jobListings) {
+    return jobListings.sort((a, b) => {
+      const dateA = normalizeDate(
+        a.job_posted_human_readable || a.job_posted_at_timestamp
+      );
+      const dateB = normalizeDate(
+        b.job_posted_human_readable || b.job_posted_at_timestamp
+      );
+
+      return dateB - dateA; // Sort descending (newest first)
+    });
   }
 
   return (
     <div className={styles.pageWrapper}>
       <section className={styles.searchSectionWrapper}>
         <SearchBar
+          className={`${
+            (isMobile && showDetails) || (isMobile && !hideSearchBar)
+              ? styles.hidden
+              : ""
+          }`}
           isInitialSearch={isInitialSearch}
           initialSearchParamObject={initialSearchParamObject}
           handleSearchParamObject={handleSearchParamObject}
           handleFetchJobs={handleFetchJobs}
         ></SearchBar>
+        {isMobile && !showDetails && (
+          <button
+            className={styles.searchBarToggleButton}
+            onClick={toggleSearchBar}
+          >
+            {hideSearchBar ? (
+              <FontAwesomeIcon icon={faChevronUp} />
+            ) : (
+              <FontAwesomeIcon icon={faChevronDown} />
+            )}
+          </button>
+        )}
       </section>
       {searchParamObject && jobListings?.length > 0 ? (
         <section className={styles.jobSectionWrapper}>
           <JobListingCard
+            className={`${isMobile && showDetails ? styles.hidden : ""}`} //passing className prop to control toggle visiblity of this component on mobile
             userSkills={userSkills}
             searchParamObject={searchParamObject}
             jobListings={jobListings}
+            selectedJob={selectedJob}
             handleJobSelect={handleJobSelect}
             handleSearchParamObject={handleSearchParamObject}
             handleFetchJobs={handleFetchJobs}
@@ -209,11 +260,16 @@ export default function JobSearchPage() {
             noMoreJobListings={noMoreJobListings}
           ></JobListingCard>
           <JobListingDetail
+            className={`${isMobile && !showDetails ? styles.hidden : ""}`} //passing className prop to control toggle visiblity of this component on mobile
             userSkills={userSkills}
             selectedJob={selectedJob}
+            handleBacktoJobListings={handleBacktoJobListings}
           ></JobListingDetail>
         </section>
+      ) : isJobListingFetching && jobListings?.length === 0 ? (
+        <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
       ) : searchParamObject &&
+        !isJobListingLoading &&
         !isJobListingFetching &&
         jobListings?.length === 0 &&
         jobListingData?.length === 0 ? (
@@ -224,16 +280,10 @@ export default function JobSearchPage() {
       ) : (
         !isJobListingFetching && (
           <h2 className={styles.initialSearchText}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-            Begin your search here
+            <FontAwesomeIcon icon={faMagnifyingGlass} /> Begin your search
           </h2>
         )
       )}
-      {isJobListingLoading &&
-        isJobListingFetching &&
-        jobListings.length === 0 && (
-          <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
-        )}
     </div>
   );
 }

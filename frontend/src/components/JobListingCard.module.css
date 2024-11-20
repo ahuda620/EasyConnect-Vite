@@ -19,6 +19,10 @@
   background-color: #f43f7f;
 }
 
+.blueBg h4 {
+  background-color: #007bff; /* change bg color to blue if on SavedJobsPage */
+}
+
 .jobListingCard {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -42,16 +46,9 @@
   background-color: #fff4f8;
 }
 
-.employerLogo {
-  width: 70px;
-  height: auto;
-  object-fit: contain;
-  justify-self: center;
-  align-self: center;
-}
-
+.employerLogo,
 .employerLogoPlaceholder {
-  width: 90px;
+  width: 70px;
   height: auto;
   object-fit: contain;
   justify-self: center;
@@ -165,4 +162,24 @@ li.additionalSkills {
   text-align: center;
   font-size: 1.3rem;
   color: #ec568a;
+}
+
+@media (max-width: 1092px) {
+  .jobListingsWrapper {
+    max-width: 100%;
+  }
+
+  .jobListingCardWrapper {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .jobSearchQueryHeader h4 {
+    text-align: center;
+  }
+
+  .jobListingCard.clicked {
+    border-left: revert;
+    background-color: revert;
+  }
 }

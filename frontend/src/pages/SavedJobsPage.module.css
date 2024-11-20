@@ -1,5 +1,5 @@
 .pageWrapper {
-  height: 93svh;
+  height: 90svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +7,7 @@
 
 .jobSectionWrapper {
   max-width: 55%;
+  height: 100%;
   margin-inline: auto;
   display: flex;
   overflow: hidden;
@@ -49,4 +50,27 @@
 
 .loadingAnimation {
   margin-top: 2%;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+@media (max-width: 1092px) {
+  .searchSectionWrapper {
+    box-shadow: revert;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-color: white;
+  }
+
+  .jobSectionWrapper {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
 }

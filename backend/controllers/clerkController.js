@@ -2,23 +2,6 @@ import { Webhook } from "svix";
 import { clerkClient } from "@clerk/express";
 import db from "../database/db.js";
 
-async function deleteUser(req, res, userId) {
-  try {
-    const [result] = await db.query("DELETE FROM users WHERE id = ?", [userId]);
-
-    if (result.affectedRows > 0) {
-      console.log(`User with ID ${userId} deleted from database`);
-      return res.sendStatus(200);
-    } else {
-      console.error(`User with ID ${userId} not found in database`);
-      return res.status(404).send("User not found in database");
-    }
-  } catch (error) {
-    console.error("Error deleting user from database:", error);
-    return res.status(500).json({ error: error.message });
-  }
-}
-
 export const handleClerkWebHook = async (req, res) => {
   const payload = req.body;
   const headers = req.headers;

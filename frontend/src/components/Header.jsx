@@ -1,11 +1,10 @@
 import styles from "./Header.module.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "../context/MobileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
-  faFileLines,
   faBookmark,
   faRightFromBracket,
   faMagnifyingGlass,
@@ -13,6 +12,7 @@ import {
   faPenToSquare,
   faCircleCheck,
   faSortDown,
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import companyLogo from "../assets/pinkLogo.png";
 
@@ -20,14 +20,33 @@ import companyLogo from "../assets/pinkLogo.png";
 import { useUser, useClerk } from "@clerk/clerk-react";
 
 export default function Header() {
+  const [menuVisible, setMenuVisible] = useState(false);
+
   const { user } = useUser(); //Use Clerk hook to get current user
   const { openSignIn, openSignUp, signOut, openUserProfile } = useClerk(); //Clerk methods for login, signup and signout
   const isMobile = useIsMobile();
-  const [menuVisible, setMenuVisible] = useState(false);
 
-  const handleMenuVisible = () => {
+  //refs used for handling user clicks related to the header mobile menu
+  const mobileMenuRef = useRef(null);
+  const mobileMenuBtnRef = useRef(null);
+
+  function toggleMobileMenu() {
     setMenuVisible(!menuVisible);
-  };
+  }
+
+  function handleClickOutside(e) {
+    //Ignore clicks on mobile menu toggle button
+    if (
+      mobileMenuBtnRef.current &&
+      mobileMenuBtnRef.current.contains(e.target)
+    ) {
+      return;
+    }
+
+    if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+      setMenuVisible(false);
+    }
+  }
 
   return (
     <nav className={styles.wrapper}>
@@ -46,7 +65,7 @@ export default function Header() {
         </li>
       </ul>
 
-      {user ? (
+      {user && !isMobile ? (
         <div className={styles.userProfileContainer}>
           {user.username || user.firstName || user.fullName ? (
             <>
@@ -55,7 +74,9 @@ export default function Header() {
                 className={styles.faSortDown}
               />
               <p>
-                Welcome, {user.username || user.firstName || user.fullName}!
+                {user.username || user.firstName
+                  ? `Welcome, ${user.username || user.firstName}!`
+                  : `Welcome!`}
               </p>
             </>
           ) : (
@@ -94,33 +115,51 @@ export default function Header() {
           </div>
         </div>
       ) : (
-        <ul className={styles.userNotLoggedIn}>
-          <li>
-            <button onClick={() => openSignIn()}>Login</button>
-          </li>
-          <li>
-            <button onClick={() => openSignUp()}>Sign Up</button>
-          </li>
-        </ul>
+        !isMobile && (
+          <ul className={styles.userNotLoggedIn}>
+            <li>
+              <button onClick={() => openSignIn()}>Login</button>
+            </li>
+            <li>
+              <button onClick={() => openSignUp()}>Sign Up</button>
+            </li>
+          </ul>
+        )
       )}
       {/* Mobile UI */}
       {isMobile && (
-        <button className={styles.mobileMenuToggle} onClick={handleMenuVisible}>
+        <button
+          ref={mobileMenuBtnRef}
+          className={styles.mobileMenuToggle}
+          onBlur={(e) => {
+            //Close mobile menu if user clicks outside of the mobile menu button and mobile menu
+            if (
+              !mobileMenuBtnRef.current.contains(e.relatedTarget) &&
+              !mobileMenuRef.current.contains(e.relatedTarget)
+            ) {
+              setMenuVisible(false);
+            }
+          }}
+          onClick={toggleMobileMenu}
+        >
           <FontAwesomeIcon icon={faBars} />
         </button>
       )}
 
       {isMobile && (
         <nav
+          ref={mobileMenuRef}
           className={`${styles.mobileMenu}
         ${menuVisible ? styles.visible : ""}`}
         >
           <ul>
             {user ? (
               <>
-                <li>
-                  <img src={user.picture}></img>
-                </li>
+                {user.picture && (
+                  <li>
+                    <img src={user.picture}></img>
+                  </li>
+                )}
                 <li>
                   <button onClick={() => signOut()}>
                     <FontAwesomeIcon icon={faRightFromBracket} />
@@ -131,61 +170,53 @@ export default function Header() {
             ) : (
               <>
                 <li>
-                  <a href="/api/auth/login">
+                  <button onClick={() => openSignIn()}>
                     <FontAwesomeIcon icon={faRightFromBracket} />
                     Login
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#">
+                  <button onClick={() => openSignUp()}>
                     <FontAwesomeIcon icon={faPenToSquare} />
-                    Signup
-                  </a>
+                    Sign Up
+                  </button>
                 </li>
               </>
             )}
             <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                Profile
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faFileLines} />
-                Applications
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faBookmark} />
-                Saved Jobs
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <a href="/jobs">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
-                Placeholder
+                Search
               </a>
             </li>
             <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                Placeholder
+              <a href="/">
+                <FontAwesomeIcon icon={faHome} />
+                Home
               </a>
             </li>
-            <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                Placeholder
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                Placeholder
-              </a>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <button onClick={() => openUserProfile()}>
+                    <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                    Profile
+                  </button>
+                </li>
+                <li>
+                  <a href="/saved-jobs">
+                    <FontAwesomeIcon icon={faBookmark} />
+                    Saved Jobs
+                  </a>
+                </li>
+                <li>
+                  <a href="/skills">
+                    <FontAwesomeIcon icon={faCircleCheck} />
+                    Skills
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       )}

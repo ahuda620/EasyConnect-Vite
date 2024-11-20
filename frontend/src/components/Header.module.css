@@ -1,12 +1,13 @@
 .wrapper {
-  height: 7svh;
+  height: 10svh;
   position: relative;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   grid-template-columns: auto 1fr auto;
-  padding-inline: 1rem;
   font-size: 1.2rem;
   border-bottom: 1px solid #dbdbdb;
+  padding-inline: 1rem;
 }
 
 .wrapper a {
@@ -15,17 +16,15 @@
 }
 
 .companyLogo {
-  grid-column: 1;
   justify-self: start;
-  height: auto;
+  max-height: 80%;
   width: 100%;
-  max-width: 15rem;
+  max-width: 240px;
+  object-fit: contain;
 }
 
 .centerNavLinks {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   list-style: none;
   display: flex;
   padding: 0;
@@ -38,8 +37,8 @@
 }
 
 .userProfileContainer {
-  grid-column: 3;
-  justify-self: end;
+  max-width: 240px;
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -52,11 +51,13 @@
 
 .userProfileContainer .faSortDown {
   margin-bottom: 3%;
+  margin-left: 3%;
 }
 
 .userProfileContainer p {
   margin: 0;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .userProfileContainer img {
@@ -76,8 +77,7 @@
 .profileDropDownMenu {
   display: none;
   position: absolute;
-  top: 85%;
-
+  top: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 0.5rem;
@@ -129,7 +129,6 @@
 }
 
 .userNotLoggedIn {
-  grid-column: 3;
   justify-self: end;
   display: flex;
   justify-content: flex-end;
@@ -137,8 +136,7 @@
   gap: 0.5rem;
   list-style: none;
   padding: 0;
-  width: 100%;
-  max-width: 15rem;
+  padding-left: 28px;
 }
 
 .userNotLoggedIn li button {
@@ -175,15 +173,15 @@
 
 .mobileMenuToggle {
   display: none;
-  background: none;
-  border: none;
-  padding: 0;
+  all: unset;
+  justify-self: end;
   cursor: pointer;
+  padding: 15px;
+  padding-left: 25px;
 }
 
 .mobileMenuToggle svg {
-  width: 1.8rem;
-  height: auto;
+  font-size: 2rem;
 }
 
 .mobileMenu {
@@ -191,7 +189,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .mobileMenu ul {
@@ -220,6 +218,15 @@
   width: 2.5rem;
 }
 
+.mobileMenu ul li button {
+  all: unset;
+  color: white;
+  font-size: 1.3rem;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
 .mobileMenu ul li:first-child {
   display: flex;
   align-items: center;
@@ -236,6 +243,12 @@
 }
 
 @media (max-width: 1092px) {
+  .wrapper {
+    height: unset;
+    min-height: 10svh;
+    padding-inline: revert;
+  }
+
   .centerNavLinks,
   .userNotLoggedIn,
   .userLoggedIn {

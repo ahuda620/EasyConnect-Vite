@@ -1,5 +1,4 @@
 import { Webhook } from "svix";
-import { clerkClient } from "@clerk/express";
 import db from "../database/db.js";
 
 export const handleClerkWebHook = async (req, res) => {

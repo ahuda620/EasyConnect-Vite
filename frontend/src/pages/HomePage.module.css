@@ -1,5 +1,5 @@
 .pageWrapper {
-  min-height: calc(100svh - 7svh);
+  min-height: 90svh;
   background-image: url("../assets/rootBackgroundv2.svg");
   background-repeat: no-repeat;
   background-position: 50% 60%;
@@ -16,21 +16,13 @@
 }
 
 .heroTitle {
-  font-size: clamp(2rem, 2vw, 5rem);
+  font-size: clamp(1.4rem, 2vw, 5rem);
   margin: 0;
   font-weight: 400;
 }
 
 .heroText {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 400;
   margin-bottom: 4%;
-}
-
-@media (max-width: 1092px) {
-  .searchBarWrapper input[type="search"],
-  .searchBarWrapper input[type="submit"] {
-    width: 100%;
-    margin-inline: 0.1rem;
-  }
 }

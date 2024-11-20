@@ -2,8 +2,13 @@ import styles from "./SavedJobsPage.module.css";
 import JobListingCard from "../components/JobListingCard";
 import JobListingDetail from "../components/JobListingDetail";
 import { useUser } from "@clerk/clerk-react";
-import { useState, useEffect } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import {
+  useMutation,
+  useQueries,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import BounceLoader from "react-spinners/BounceLoader";
 import { toast } from "react-toastify";
@@ -11,20 +16,18 @@ import fetchSavedJobIds from "../util/fetchSavedJobIds";
 import fetchJobDetails from "../util/fetchJobDetails";
 import fetchUserSkills from "../util/fetchUserSkills";
 import deleteSavedJobId from "../util/deleteSavedJobId";
+import { useIsMobile } from "../context/MobileContext";
 
 export default function SavedJobsPage() {
-  const [jobListings, setJobListings] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
 
   const { user } = useUser(); //Use Clerk hook to get current user
   const queryClient = useQueryClient();
+  const isMobile = useIsMobile();
 
   //Fetch user skills
-  const {
-    isError: isUserSkillsError,
-    error: userSkillsError,
-    data: userSkillsData,
-  } = useQuery({
+  const { isError: isUserSkillsError, data: userSkillsData } = useQuery({
     queryKey: ["userSkills", user?.id],
     queryFn: () => fetchUserSkills(user?.id),
     enabled: !!user?.id,
@@ -33,8 +36,6 @@ export default function SavedJobsPage() {
   //Fetch saved job listing ids
   const {
     isError: isSavedJobIdsError,
-    error: savedJobIdsError,
-    isLoading: isSavedJobIdsLoading,
     isFetching: isSavedJobIdsFetching,
     isSuccess: isSavedJobIdsSuccess,
     data: savedJobIdsData,
@@ -44,38 +45,49 @@ export default function SavedJobsPage() {
     enabled: !!user?.id,
   });
 
-  //Fetch job details
-  const {
-    isError: isJobDetailsError,
-    error: jobDetailsError,
-    isSuccess: isJobDetailsSuccess,
-    isFetching: isJobDetailsFetching,
-    isLoading: isJobDetailsLoading,
-    data: jobDetailsdata,
-    refetch: refetchJobDetails,
-  } = useQuery({
-    queryKey: ["jobs", user?.id, savedJobIdsData],
-    queryFn: () => fetchJobDetails(savedJobIdsData),
-    enabled: false,
-    staleTime: Infinity, //1 hour
-    cacheTime: 60 * 60 * 1000, //1 hour
-    refetchOnWindowFocus: false,
-    refetchOnReconnect: false,
-    refetchOnMount: false,
-    retry: false,
+  const jobDetailQueries = useQueries({
+    queries:
+      savedJobIdsData?.map((jobId) => {
+        return {
+          queryKey: ["jobDetails", jobId],
+          queryFn: () => fetchJobDetails(jobId),
+          enabled: !!jobId,
+          staleTime: Infinity,
+          cacheTime: 60 * 60 * 1000, //1 hour
+          refetchOnWindowFocus: false,
+          refetchOnReconnect: false,
+          refetchOnMount: false,
+          retry: false,
+        };
+      }) || [],
   });
+
+  const jobDetailsDataArray = jobDetailQueries.map((query) => query.data);
+
+  const jobDetailsData = useMemo(() => {
+    return jobDetailQueries
+      .map((query) => query.data)
+      .filter(Boolean)
+      .flat();
+  }, [jobDetailsDataArray]);
+
+  const isJobDetailsFetching = jobDetailQueries.some(
+    (query) => query.isFetching
+  );
+  const isJobDetailsError = jobDetailQueries.some((query) => query.isError);
+  const isJobDetailsFinished = jobDetailQueries.every(
+    (query) => query.isSuccess || query.isError
+  );
 
   //Delete user's saved job id in database
   const mutation = useMutation({
     mutationFn: (jobId) => deleteSavedJobId(user?.id, jobId),
-    onSuccess: (data, jobId) => {
+    onSuccess: () => {
       toast.success("Job successfuly deleted.");
-      setJobListings((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
       queryClient.refetchQueries({ queryKey: ["savedJobIds", user?.id] });
     },
-    onError: (error) => {
+    onError: () => {
       toast.error("Failed to delete job.");
-      console.error("Failed to delete job:", error);
     },
   });
 
@@ -87,77 +99,93 @@ export default function SavedJobsPage() {
   //Effect to handle userSkills query error state
   useEffect(() => {
     if (isUserSkillsError) {
-      console.error("Error while fetching user skills:", userSkillsError);
       toast.error("An error occured while fetching user skills.");
     }
-  }, [isUserSkillsError, userSkillsError]);
+  }, [isUserSkillsError]);
 
-  //Effect to handle savedJobIds query success state
   useEffect(() => {
     if (isSavedJobIdsSuccess && savedJobIdsData?.length > 0) {
-      refetchJobDetails(); //trigger job details fetch once the saved job ids are loaded by the first query
+      setSelectedJob(null);
+      // console.log(savedJobIdsData);
+      // jobDetailQueries.forEach((query) => {
+      //   console.log("Query Key:", query.queryKey);
+      //   const cachedData = queryClient.getQueryData(query.queryKey);
+      //   console.log(cachedData);
+
+      //   if (!cachedData) {
+      //     console.log("refetching");
+      //     query.refetch();
+      //   }
+      // });
     }
-  }, [isSavedJobIdsSuccess, refetchJobDetails, savedJobIdsData]);
+  }, [isSavedJobIdsSuccess, savedJobIdsData]);
 
   //Effect to handle savedJobIds query error state
   useEffect(() => {
     if (isSavedJobIdsError) {
-      console.log("Error fetching saved job ids:", savedJobIdsError);
-      toast.error("An error occured while fetching saved jobs from datbase.");
+      toast.error("An error occured while fetching saved jobs.");
     }
-  }, [isSavedJobIdsError, savedJobIdsError]);
+  }, [isSavedJobIdsError]);
 
-  //Effect to handle jobDetails query error state
+  useEffect(() => {
+    if (!selectedJob && isJobDetailsFinished && jobDetailsData.length > 0) {
+      setSelectedJob(jobDetailsData[0]);
+    }
+  }, [isJobDetailsFinished, jobDetailsData, selectedJob]);
+
   useEffect(() => {
     if (isJobDetailsError) {
-      console.log("Error fetching jobs:", jobDetailsError); //TODO: add ui feedback
-      toast.error("An error occured while fetching jobs.");
+      toast.error("An error occured while fetching saved jobs.");
     }
-  }, [isJobDetailsError, jobDetailsError]);
-
-  //Effect to display the first job listing in JobListingDetails component on initial page load
-  useEffect(() => {
-    if (isJobDetailsSuccess && jobDetailsdata?.length > 0) {
-      setJobListings(jobDetailsdata);
-      setSelectedJob(jobDetailsdata[0]);
-    }
-  }, [isJobDetailsSuccess, jobDetailsdata]);
+  }, [isJobDetailsError]);
 
   //Prop function to pass down to JobListingCard to update the ui whenever the user selects a job
-  function handleJobSelect(job) {
-    setSelectedJob(job);
+  const handleJobSelect = useCallback(
+    (job) => {
+      setSelectedJob(job);
+      if (isMobile) {
+        setShowDetails(true);
+        window.scrollTo(0, 0);
+      }
+    },
+    [isMobile]
+  );
+
+  function handleBacktoJobListings() {
+    setShowDetails(false);
   }
 
   return (
     <div className={styles.pageWrapper}>
-      {jobDetailsdata?.length > 0 ? (
+      {isJobDetailsFinished && jobDetailsData?.length > 0 ? (
         <section className={styles.jobSectionWrapper}>
           <JobListingCard
+            className={`${isMobile && showDetails ? styles.hidden : ""}`} //passing className prop to control toggle visiblity of this component on mobile
             userSkills={userSkillsData}
-            jobListings={jobListings}
+            jobListings={jobDetailsData}
+            selectedJob={selectedJob}
             handleJobSelect={handleJobSelect}
             handleDeleteJobId={handleDeleteJobId}
           ></JobListingCard>
           <JobListingDetail
+            className={`${isMobile && !showDetails ? styles.hidden : ""}`} //passing className prop to control toggle visiblity of this component on mobile
             userSkills={userSkillsData}
             selectedJob={selectedJob}
+            handleBacktoJobListings={handleBacktoJobListings}
           ></JobListingDetail>
         </section>
       ) : isJobDetailsFetching || isSavedJobIdsFetching ? (
         <BounceLoader color="#f43f7f" className={styles.loadingAnimation} />
       ) : (
-        !isJobDetailsLoading ||
-        (!isSavedJobIdsLoading && (
-          <div className={styles.notFoundWrapper}>
-            <h4 className={styles.notFoundHeaderText}>No saved jobs found.</h4>
-            <p className={styles.notFoundSubText}>
-              Add some from the{" "}
-              <Link to="/jobs" className={styles.link}>
-                Job Search Page!
-              </Link>
-            </p>
-          </div>
-        ))
+        <div className={styles.notFoundWrapper}>
+          <h4 className={styles.notFoundHeaderText}>No saved jobs found.</h4>
+          <p className={styles.notFoundSubText}>
+            Add some from the{" "}
+            <Link to="/jobs" className={styles.link}>
+              Job Search Page!
+            </Link>
+          </p>
+        </div>
       )}
     </div>
   );

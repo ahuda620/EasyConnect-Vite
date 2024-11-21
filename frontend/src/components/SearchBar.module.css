@@ -196,6 +196,15 @@ input#radiusAny:checked + label {
   }
 }
 
+.reversed {
+  flex-direction: column-reverse;
+}
+
+.reversed .searchParamButtonsWrapper {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 1092px) {
   .wrapper {
     flex-wrap: wrap;

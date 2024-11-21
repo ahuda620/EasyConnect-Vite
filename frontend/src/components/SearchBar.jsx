@@ -1,6 +1,7 @@
 import styles from "./SearchBar.module.css";
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useIsMobile } from "../context/MobileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortDown,
@@ -9,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({
-  className,
+  className, //classname prop is for toggling visiblity of this component on mobile
   isInitialSearch,
   initialSearchParamObject,
   handleSearchParamObject,
@@ -38,6 +39,7 @@ export default function SearchBar({
 
   const location = useLocation();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInitialSearch && initialSearchParamObject) {
@@ -198,7 +200,11 @@ export default function SearchBar({
   }
 
   return (
-    <div className={`${styles.wrapper} ${className || ""}`}>
+    <div
+      className={`${styles.wrapper} ${className || ""} ${
+        isMobile && location.pathname === "/" ? styles.reversed : ""
+      }`}
+    >
       <div className={styles.searchBarWrapper}>
         <div className={styles.jobSearchBarWrapper}>
           <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />

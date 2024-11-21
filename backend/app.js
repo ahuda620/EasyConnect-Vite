@@ -6,7 +6,7 @@ import { router as clerkRoutes } from "./routes/clerkRoutes.js";
 
 export const app = express();
 
-app.use(cors({ origin: "https://easy-connect-vite.vercel.app/" }));
+app.use(cors({ origin: "https://easy-connect-vite.vercel.app" }));
 
 //Webhook route placed before express.json() for raw body to send to Svix for verification
 app.use("/webhook", clerkRoutes);

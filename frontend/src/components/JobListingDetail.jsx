@@ -1,5 +1,6 @@
 import styles from "./JobListingDetail.module.css";
 import { useUser } from "@clerk/clerk-react";
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,6 +14,8 @@ import {
   faBookmark,
   faCheck,
   faArrowLeft,
+  faChevronUp,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobListingDetail({
@@ -21,6 +24,8 @@ export default function JobListingDetail({
   selectedJob,
   handleBacktoJobListings,
 }) {
+  const [showJobHeader, setShowJobHeader] = useState(true);
+
   const { user } = useUser();
   const location = useLocation();
   const isMobile = useIsMobile();
@@ -63,6 +68,10 @@ export default function JobListingDetail({
     matchedSkills = jobSkillsMatcher(userSkills, jobListing.job_description);
   }
 
+  function toggleJobHeader() {
+    setShowJobHeader(!showJobHeader);
+  }
+
   return (
     jobListing && (
       <article
@@ -74,7 +83,11 @@ export default function JobListingDetail({
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
         )}
-        <div className={styles.jobDetailsHeader}>
+        <div
+          className={`${styles.jobDetailsHeader} ${
+            isMobile && !showJobHeader ? styles.hidden : ""
+          }`}
+        >
           <div className={styles.companyInfo}>
             {jobListing.employer_logo && (
               <img src={jobListing.employer_logo}></img>
@@ -159,6 +172,19 @@ export default function JobListingDetail({
             )}
           </div>
         </div>
+        {isMobile && (
+          <button
+            className={styles.jobHeaderToggleBtn}
+            onClick={toggleJobHeader}
+          >
+            {showJobHeader ? (
+              <FontAwesomeIcon icon={faChevronUp} />
+            ) : (
+              <FontAwesomeIcon icon={faChevronDown} />
+            )}
+          </button>
+        )}
+
         <div className={styles.jobDetailsBody}>
           {jobListing.job_highlights &&
             jobListing.job_highlights.Responsibilities &&

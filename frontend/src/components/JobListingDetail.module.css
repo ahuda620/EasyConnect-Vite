@@ -179,6 +179,32 @@
   padding-inline: 9px;
 }
 
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.jobHeaderToggleBtn {
+  all: unset;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0 5px 0;
+  background: none;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.226);
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.jobHeaderToggleBtn svg {
+  font-size: 2rem;
+  color: black;
+}
+
 .lineBreak {
   border: none;
   height: 2px;
@@ -223,5 +249,10 @@
   .wrapper {
     max-width: 100%;
     border: none;
+  }
+
+  .jobDetailsHeader {
+    box-shadow: none;
+    padding-bottom: 0;
   }
 }

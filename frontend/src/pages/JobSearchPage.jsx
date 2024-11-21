@@ -32,7 +32,7 @@ export default function JobSearchPage() {
   const [loading, setLoading] = useState(false); //Determines if loading circle animation is displayed
   const [noMoreJobListings, setNoMoreJobListings] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [hideSearchBar, setShowSearchBar] = useState(true);
+  const [showSearchBar, setShowSearchBar] = useState(true);
 
   const { user } = useUser(); //Use Clerk hook to get current user
   const location = useLocation();
@@ -201,7 +201,7 @@ export default function JobSearchPage() {
   }
 
   function toggleSearchBar() {
-    setShowSearchBar(!hideSearchBar);
+    setShowSearchBar(!showSearchBar);
   }
 
   // Sorting job listings
@@ -223,7 +223,7 @@ export default function JobSearchPage() {
       <section className={styles.searchSectionWrapper}>
         <SearchBar
           className={`${
-            (isMobile && showDetails) || (isMobile && !hideSearchBar)
+            (isMobile && showDetails) || (isMobile && !showSearchBar)
               ? styles.hidden
               : ""
           }`}
@@ -237,7 +237,7 @@ export default function JobSearchPage() {
             className={styles.searchBarToggleButton}
             onClick={toggleSearchBar}
           >
-            {hideSearchBar ? (
+            {showSearchBar ? (
               <FontAwesomeIcon icon={faChevronUp} />
             ) : (
               <FontAwesomeIcon icon={faChevronDown} />

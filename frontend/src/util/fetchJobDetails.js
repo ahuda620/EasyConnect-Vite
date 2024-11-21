@@ -7,7 +7,6 @@ export default async function (jobId) {
     console.log("No job id to fetch. Returning early");
     return [];
   }
-  console.log("Fetching job with id: ", jobId);
 
   try {
     const response = await axios.get(`${BACKEND_URL}/jobs/fetchJobDetails`, {
@@ -15,7 +14,7 @@ export default async function (jobId) {
         jobId,
       },
     });
-    console.log("Job details fetch response in frontend:", response);
+
     return response.data;
   } catch (error) {
     console.error(error);

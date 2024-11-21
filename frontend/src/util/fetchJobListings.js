@@ -13,8 +13,6 @@ export default async function (searchParamObject) {
       },
     });
 
-    console.log("Job fetch response in frontend", response);
-
     return response.data;
   } catch (error) {
     console.error(error);

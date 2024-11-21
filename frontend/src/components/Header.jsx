@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "../context/MobileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,20 +32,6 @@ export default function Header() {
 
   function toggleMobileMenu() {
     setMenuVisible(!menuVisible);
-  }
-
-  function handleClickOutside(e) {
-    //Ignore clicks on mobile menu toggle button
-    if (
-      mobileMenuBtnRef.current &&
-      mobileMenuBtnRef.current.contains(e.target)
-    ) {
-      return;
-    }
-
-    if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
-      setMenuVisible(false);
-    }
   }
 
   return (

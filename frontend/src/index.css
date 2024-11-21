@@ -14,3 +14,9 @@ body {
   font-family: inherit;
   box-sizing: inherit;
 }
+
+/*class to fix homepage background not taking up full height on mobile*/
+/*is applied using javascript in homepage*/
+.overflow-visible {
+  overflow: visible !important; /* Force override with higher specificity */
+}

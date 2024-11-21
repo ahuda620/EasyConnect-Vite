@@ -26,3 +26,15 @@
   font-weight: 400;
   margin-bottom: 4%;
 }
+
+@media (max-width: 1092px) {
+  .heroTitle {
+    font-size: clamp(1.2rem, 2vw, 5rem);
+  }
+
+  .heroText {
+    margin-bottom: 0;
+    margin-inline: auto;
+    width: 90%;
+  }
+}

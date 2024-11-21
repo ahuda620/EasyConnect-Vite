@@ -5,7 +5,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default async function (userId) {
   const response = await axios.get(
-    `http://${BACKEND_URL}/api/user/${userId}/getSkills`
+    `https://${BACKEND_URL}/api/user/${userId}/getSkills`
   );
 
   return response.data;

@@ -9,7 +9,7 @@ export default async function (searchParamObject) {
     searchParamObject;
 
   try {
-    const response = await axios.get(`http://${BACKEND_URL}/api/jobs/`, {
+    const response = await axios.get(`https://${BACKEND_URL}/api/jobs/`, {
       params: {
         searchQuery,
       },

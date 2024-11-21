@@ -5,7 +5,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default async function (userId, jobId) {
   const response = await axios.patch(
-    `http://${BACKEND_URL}/api/user/${userId}/deleteSavedJobId`,
+    `https://${BACKEND_URL}/api/user/${userId}/deleteSavedJobId`,
     {
       jobId,
     }

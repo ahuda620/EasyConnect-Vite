@@ -5,7 +5,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default async function (userId, jobId) {
   const response = await axios.post(
-    `http://${BACKEND_URL}/api/user/${userId}/saveJobListing`,
+    `https://${BACKEND_URL}/api/user/${userId}/saveJobListing`,
     { jobId }
   );
   return response.data;

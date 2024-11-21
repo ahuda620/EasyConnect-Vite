@@ -23,7 +23,7 @@ export default async function (jobId) {
 
   try {
     const response = await axios.get(
-      `http://${BACKEND_URL}/api/jobs/fetchJobDetails`,
+      `https://${BACKEND_URL}/api/jobs/fetchJobDetails`,
       {
         params: {
           jobId,

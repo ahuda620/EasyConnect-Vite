@@ -30,6 +30,7 @@
 @media (max-width: 1092px) {
   .pageWrapper {
     min-height: calc(var(--vh, 1vh) * 100);
+    background-position: center;
   }
 
   .heroTitle {

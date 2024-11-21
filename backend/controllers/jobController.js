@@ -5,8 +5,8 @@ import axios from "axios";
 export const getJobListings = async (req, res) => {
   /*MOCK DATA*/
   // res.status(200).send(jobListings);
+
   const searchQuery = req.query.searchQuery;
-  console.log("Key is: ", `${process.env.RAPID_API_KEY}`);
 
   const options = {
     method: "GET",

@@ -12,7 +12,7 @@ export const getJobListings = async (req, res) => {
     url: "https://jsearch.p.rapidapi.com/search",
     params: searchQuery,
     headers: {
-      "x-rapidapi-key": `${process.env.RAPID_API_KEY}`,
+      "x-rapidapi-key": process.env.RAPID_API_KEY,
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };
@@ -58,7 +58,7 @@ export const getJobDetails = async (req, res) => {
       markup_job_description: "true",
     },
     headers: {
-      "x-rapidapi-key": `${rapidApiKey}`,
+      "x-rapidapi-key": process.env.RAPID_API_KEY,
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };

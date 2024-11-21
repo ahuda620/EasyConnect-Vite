@@ -53,21 +53,23 @@ export default function Header() {
 
       {user && !isMobile ? (
         <div className={styles.userProfileContainer}>
-          {user.username || user.firstName || user.fullName ? (
-            <>
-              <FontAwesomeIcon
-                icon={faSortDown}
-                className={styles.faSortDown}
-              />
-              <p>
-                {user.username || user.firstName
-                  ? `Welcome, ${user.username || user.firstName}!`
-                  : `Welcome!`}
-              </p>
-            </>
-          ) : (
-            <p>{user.primaryEmailAddress}</p>
-          )}
+          {user.username ||
+            user.firstName ||
+            (user.fullName && (
+              <>
+                <FontAwesomeIcon
+                  icon={faSortDown}
+                  className={styles.faSortDown}
+                />
+                <p>
+                  {user.firstName
+                    ? user.firstName
+                    : user.username
+                    ? user.username
+                    : user.fullName && user.fullName}
+                </p>
+              </>
+            ))}
           <img src={user.imageUrl}></img>
           <div className={styles.profileDropDownMenu}>
             <nav>

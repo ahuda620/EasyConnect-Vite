@@ -31,7 +31,5 @@ dist-ssr
 *.sw?
 
 # Environment files
-frontend/.env
-frontend/.env.local
-backend/.env
-backend/.env.local
+frontend/.env*
+backend/.env*

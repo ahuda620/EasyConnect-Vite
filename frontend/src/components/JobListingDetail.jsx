@@ -150,7 +150,15 @@ export default function JobListingDetail({
           </ul>
 
           <div className={styles.jobListingLinks}>
-            <a href="#" className={styles.jobListingApplyLink}>
+            <a
+              href={
+                jobListing.job_apply_link ||
+                jobListing.apply_options[0].apply_link ||
+                jobListing.apply_options[1].apply_link ||
+                jobListing.job_google_link
+              }
+              className={styles.jobListingApplyLink}
+            >
               Apply
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}

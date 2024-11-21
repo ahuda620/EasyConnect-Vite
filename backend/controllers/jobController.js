@@ -20,7 +20,7 @@ export const getJobListings = async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    console.log("Job fetch response in backend:", response);
+    console.log("Job fetch response in backend:", response.data.data);
     return res.status(200).send(response.data.data);
   } catch (error) {
     console.error("Error fetching job listings:", error);
@@ -66,7 +66,7 @@ export const getJobDetails = async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    console.log("Job details fetch response in backend:", response);
+    console.log("Job details fetch response in backend:", response.data.data);
     return res.status(200).send(response.data.data);
   } catch (error) {
     console.error("Error fetching job details:", error);

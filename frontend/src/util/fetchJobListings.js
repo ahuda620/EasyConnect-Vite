@@ -3,7 +3,6 @@ import axios from "axios";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default async function (searchParamObject) {
-  // console.log(searchParamObject);
   const { initialSearch, jobSearchTerm, locationSearchTerm, ...searchQuery } =
     searchParamObject;
 
@@ -14,7 +13,9 @@ export default async function (searchParamObject) {
       },
     });
 
-    return response.data.data;
+    console.log("Job fetch response in frontend", response);
+
+    return response.data;
   } catch (error) {
     console.error(error);
     return;

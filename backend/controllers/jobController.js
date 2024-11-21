@@ -6,14 +6,14 @@ export const getJobListings = async (req, res) => {
   /*MOCK DATA*/
   // res.status(200).send(jobListings);
   const searchQuery = req.query.searchQuery;
-  console.log("Key is: ", process.env.RAPID_API_KEY);
+  console.log("Key is: ", `${process.env.RAPID_API_KEY}`);
 
   const options = {
     method: "GET",
     url: "https://jsearch.p.rapidapi.com/search",
     params: searchQuery,
     headers: {
-      "x-rapidapi-key": process.env.RAPID_API_KEY,
+      "x-rapidapi-key": `${process.env.RAPID_API_KEY}`,
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };
@@ -59,7 +59,7 @@ export const getJobDetails = async (req, res) => {
       markup_job_description: "true",
     },
     headers: {
-      "x-rapidapi-key": process.env.RAPID_API_KEY,
+      "x-rapidapi-key": `${process.env.RAPID_API_KEY}`,
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };

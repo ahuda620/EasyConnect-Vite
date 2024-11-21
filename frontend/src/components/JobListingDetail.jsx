@@ -155,8 +155,10 @@ export default function JobListingDetail({
                 jobListing.job_apply_link ||
                 jobListing.apply_options[0].apply_link ||
                 jobListing.apply_options[1].apply_link ||
-                jobListing.job_google_link
+                jobListing.job_google_link ||
+                "#"
               }
+              target="_blank"
               className={styles.jobListingApplyLink}
             >
               Apply

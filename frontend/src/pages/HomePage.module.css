@@ -28,6 +28,10 @@
 }
 
 @media (max-width: 1092px) {
+  .pageWrapper {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
   .heroTitle {
     font-size: clamp(1.2rem, 4vw, 5rem);
   }

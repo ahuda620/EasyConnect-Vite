@@ -69,6 +69,10 @@
 }
 
 @media (max-width: 1092px) {
+  .pageWrapper {
+    min-height: 90svh;
+  }
+
   .searchSectionWrapper {
     box-shadow: revert;
     position: sticky;

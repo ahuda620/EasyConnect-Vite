@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useUser } from "@clerk/clerk-react";
 import BounceLoader from "react-spinners/BounceLoader";
+import { useIsMobile } from "../context/MobileContext";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
@@ -25,6 +27,8 @@ export default function ProfilePage() {
 
   const { user } = useUser();
   const queryClient = useQueryClient();
+  const isMobile = useIsMobile();
+  const location = useLocation();
 
   //Fetch user skills using Tan Stack Query
   const {
@@ -145,6 +149,17 @@ export default function ProfilePage() {
 
     return DOMPurify.sanitize(userInput);
   }
+
+  /*effect to fix page not taking up full height on mobile*/
+  useEffect(() => {
+    if (isMobile && location.pathname === "/skills") {
+      document.documentElement.classList.add("overflow-visible"); //make overflow visible on root element
+      document.body.classList.add("overflow-visible");
+    } else {
+      document.documentElement.classList.remove("overflow-visible"); //make overflow visible on root element
+      document.body.classList.remove("overflow-visible");
+    }
+  }, [isMobile, location.pathname]);
 
   return (
     <div className={styles.wrapper}>

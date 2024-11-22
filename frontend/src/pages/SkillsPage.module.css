@@ -112,12 +112,17 @@
 
 @media (max-width: 1092px) {
   .wrapper {
+    min-height: 90svh;
     max-width: unset;
     width: 100%;
   }
 
   .skillsList {
     width: 90%;
+  }
+
+  .addSkillField {
+    margin-bottom: 10%;
   }
 
   .addSkillField input {

@@ -1,10 +1,12 @@
-// import jobListings from '../data/jobListings.json' with { type: 'json' };
+import jobListings from '../data/jobListings.json' with { type: 'json' };
 // import jobDetail from '../data/jobDetail.json' with { type: 'json' };
 import axios from "axios";
 
 export const getJobListings = async (req, res) => {
   /*MOCK DATA*/
-  // res.status(200).send(jobListings);
+  if(process.env.NODE_ENV === "development"){
+    return res.status(200).send(jobListings);
+  }
 
   const searchQuery = req.query.searchQuery;
 
@@ -29,19 +31,22 @@ export const getJobListings = async (req, res) => {
 };
 
 export const getJobDetails = async (req, res) => {
-  //   const jobIds = req.query.jobIds;
-  //   if (!jobIds) {
-  //     console.log("Missing jobIds parameter");
-  //     return res.status(400).send("jobIds parameter is required");
-  //   }
-  //   const matchingJobs = jobListings.data.filter((job) =>
-  //     jobIds.includes(job.job_id)
-  //   );
-  //   if (matchingJobs) {
-  //     return res.status(200).send(matchingJobs);
-  //   } else {
-  //     return res.status(400).send("No matching jobs found");
-  //   }
+  /*MOCK DATA*/
+  if(process.env.NODE_ENV === "development"){
+    const jobId = req.query.jobId;
+    if (!jobId) {
+      console.log("Missing jobIds parameter");
+      return res.status(400).send("jobIds parameter is required");
+    }
+    const matchingJobs = jobListings.data.filter((job) =>
+      jobId.includes(job.job_id)
+    );
+    if (matchingJobs) {
+      return res.status(200).send(matchingJobs);
+    } else {
+      return res.status(400).send("No matching jobs found");
+    }
+  }
 
   const jobId = req.query.jobId;
 

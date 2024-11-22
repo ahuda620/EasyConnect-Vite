@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const NODE_ENV = import.meta.env.VITE_NODE_ENV;
 
 export default async function (jobId) {
   if (!jobId) {
@@ -14,6 +15,10 @@ export default async function (jobId) {
         jobId,
       },
     });
+
+    if (NODE_ENV === "development") {
+      return response.data.data;
+    }
 
     return response.data;
   } catch (error) {

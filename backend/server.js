@@ -1,10 +1,13 @@
 import dotenv from "dotenv";
-import { app } from "./app.js";
-
 dotenv.config();
+import { app } from "./app.js";
 
 console.log(`Running in ${process.env.NODE_ENV} mode`);
 
-dotenv.config();
-
-app.listen(4000, () => console.log("Server is running on port 4000"));
+if (process.env.NODE_ENV === "development") {
+  app.listen(4000, "0.0.0.0", () =>
+    console.log("Server is running on port 4000")
+  );
+} else {
+  app.listen(4000, () => console.log("Server is running on port 4000"));
+}

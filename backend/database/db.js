@@ -1,4 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
 import mysql from "mysql2/promise";
+
+console.log("MYSQLHOST:", process.env.MYSQLHOST);
+console.log("MYSQLUSER:", process.env.MYSQLUSER);
+console.log("MYSQLPASSWORD:", process.env.MYSQLPASSWORD);
+console.log("MYSQL_DATABASE:", process.env.MYSQL_DATABASE);
+console.log("MYSQLPORT:", process.env.MYSQLPORT);
 
 let db;
 

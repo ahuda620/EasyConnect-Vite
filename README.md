@@ -1,6 +1,6 @@
 # [Easy Connect](https://easy-connect-vite.vercel.app/)
 
-<img src="/images/image-1.png" alt="Homepage Screenshot" width="450"> <img src="/images/image-2.png" alt="Jobsearch Screenshot" width="450">
+<img src="/images/image-1.png" alt="Homepage Screenshot" width="400"> <img src="/images/image-2.png" alt="Jobsearch Screenshot" width="400">  
 <img src="/images/image-3.png" alt="Jobsearch mobile Screenshot" width="175">
 
 ## Description 

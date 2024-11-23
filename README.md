@@ -23,6 +23,7 @@ Easy Connect is a full-stack job board website that I developed to gain experien
 * Deployment:
     * Vercel (Frontend hosting)
     * Railway (Backend hosting)
-
 ## APIs Used
 * [JSearch](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
+## User Data
+The only personal user information stored in the MySQL database is the user's first name or username, along with their unique Clerk user ID. The other user related data consists of job-related skills and saved job listings. This information is automatically deleted from the MySQL database when the user deletes their account through Clerk's profile panel.

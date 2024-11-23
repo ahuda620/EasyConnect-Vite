@@ -36,12 +36,13 @@ export default function Header() {
 
   return (
     <nav className={styles.wrapper}>
-      <img
-        src={companyLogo}
-        alt="Company Logo"
-        className={styles.companyLogo}
-      ></img>
-
+      <Link to="/">
+        <img
+          src={companyLogo}
+          alt="Company Logo"
+          className={styles.companyLogo}
+        ></img>
+      </Link>
       <ul className={styles.centerNavLinks}>
         <li>
           <Link to="/">Home</Link>

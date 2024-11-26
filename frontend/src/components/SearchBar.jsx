@@ -338,22 +338,22 @@ export default function SearchBar({
           >
             <input
               type="radio"
-              name="remote_jobs_only"
-              id="remote_jobs_only1"
+              name="work_from_home"
+              id="work_from_home1"
               value="true"
               onChange={handleRadioBtnChange}
               checked={searchParamObject.work_from_home === "true"}
             />
-            <label htmlFor="remote_jobs_only1">Remote Only</label>
+            <label htmlFor="work_from_home1">Remote Only</label>
             <input
               type="radio"
-              name="remote_jobs_only"
-              id="remote_jobs_only2"
+              name="work_from_home"
+              id="work_from_home2"
               value="false"
               onChange={handleRadioBtnChange}
               checked={searchParamObject.work_from_home === "false"}
             />
-            <label htmlFor="remote_jobs_only2">All</label>
+            <label htmlFor="work_from_home2">All</label>
           </div>
         </div>
         <div className={styles.searchParamBtn}>

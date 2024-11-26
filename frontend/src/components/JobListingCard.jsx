@@ -192,17 +192,18 @@ export default function JobListingCard({
                   </p>
                 )}
                 <ul className={styles.jobListingKeywords}>
-                  <li>
-                    {jobListing.job_employment_type &&
-                    jobListing.job_employment_type === "FULLTIME"
-                      ? "Full-time"
-                      : jobListing.job_employment_type === "PARTTIME"
-                      ? "Part-time"
-                      : jobListing.job_employment_type === "CONTRACTOR"
-                      ? "Contractor"
-                      : jobListing.job_employment_type === "INTERN" &&
-                        "Internship"}
-                  </li>
+                  {jobListing.job_employment_type && (
+                    <li>
+                      {jobListing.job_employment_type === "Full-time"
+                        ? "Full-time"
+                        : jobListing.job_employment_type === "Part-time"
+                        ? "Part-time"
+                        : jobListing.job_employment_type === "Contractor"
+                        ? "Contractor"
+                        : jobListing.job_employment_type === "Internship" &&
+                          "Internship"}
+                    </li>
+                  )}
                   {jobListing.job_is_remote && <li>Remote</li>}
                   {matchedSkills &&
                     matchedSkills.slice(0, 4).map((skill) => (

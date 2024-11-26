@@ -97,20 +97,19 @@ export default function JobListingDetail({
             </span>
           </div>
           <h3 className={styles.jobListingTitle}>{jobListing.job_title}</h3>
-          {jobListing.job_city ||
+          {(jobListing.job_city ||
             jobListing.job_state ||
-            (jobListing.job_country && (
-              <p className={styles.jobListingLocation}>
-                {[
-                  jobListing.job_city,
-                  jobListing.job_state,
-                  jobListing.job_country,
-                ]
-                  .filter(Boolean)
-                  .join(", ")}
-                {jobListing.job_is_remote && " (Remote)"}
-              </p>
-            ))}
+            jobListing.job_country) && (
+            <p className={styles.jobListingLocation}>
+              {[
+                jobListing.job_city,
+                jobListing.job_state,
+                jobListing.job_country,
+              ]
+                .filter(Boolean)
+                .join(", ")}
+            </p>
+          )}
           {jobListing.job_posted_human_readable ? (
             <p className={styles.jobListingPostedDate}>
               {jobListing.job_posted_human_readable}
@@ -123,18 +122,18 @@ export default function JobListingDetail({
             <p className={styles.jobListingPostedDate}>N/A</p>
           )}
           <ul className={styles.jobListingKeywords}>
-            <li>
-              {jobListing.job_employment_type &&
-              jobListing.job_employment_type === "FULLTIME"
-                ? "Full-time"
-                : jobListing.job_employment_type === "PARTTIME"
-                ? "Part-time"
-                : jobListing.job_employment_type === "CONTRACTOR"
-                ? "Contractor"
-                : jobListing.job_employment_type === "INTERN"
-                ? "Internship"
-                : ""}
-            </li>
+            {jobListing.job_employment_type && (
+              <li>
+                {jobListing.job_employment_type === "Full-time"
+                  ? "Full-time"
+                  : jobListing.job_employment_type === "Part-time"
+                  ? "Part-time"
+                  : jobListing.job_employment_type === "Contractor"
+                  ? "Contractor"
+                  : jobListing.job_employment_type === "Internship" &&
+                    "Internship"}
+              </li>
+            )}
             {jobListing.job_is_remote && <li>Remote</li>}
             {matchedSkills &&
               matchedSkills.map((skill) => (

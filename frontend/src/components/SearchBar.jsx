@@ -321,8 +321,8 @@ export default function SearchBar({
         <div className={styles.searchParamBtn}>
           <button
             className={
-              searchParamObject.remote_jobs_only &&
-              searchParamObject.remote_jobs_only !== "false"
+              searchParamObject.work_from_home &&
+              searchParamObject.work_from_home !== "false"
                 ? `${styles.searchParamBtn} ${styles.active}`
                 : ""
             }
@@ -342,7 +342,7 @@ export default function SearchBar({
               id="remote_jobs_only1"
               value="true"
               onChange={handleRadioBtnChange}
-              checked={searchParamObject.remote_jobs_only === "true"}
+              checked={searchParamObject.work_from_home === "true"}
             />
             <label htmlFor="remote_jobs_only1">Remote Only</label>
             <input
@@ -351,7 +351,7 @@ export default function SearchBar({
               id="remote_jobs_only2"
               value="false"
               onChange={handleRadioBtnChange}
-              checked={searchParamObject.remote_jobs_only === "false"}
+              checked={searchParamObject.work_from_home === "false"}
             />
             <label htmlFor="remote_jobs_only2">All</label>
           </div>

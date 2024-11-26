@@ -10,7 +10,8 @@ export default function jobSkillsMatcher(userSkills, jobDescription) {
   });
 
   const matchingSkills = userSkills.filter(
-    (skill) => fuse.search(skill.toLowerCase()).length > 0
+    (skill) =>
+      skill.trim() !== "" && fuse.search(skill.toLowerCase()).length > 0
   );
 
   return matchingSkills;

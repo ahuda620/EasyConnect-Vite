@@ -178,19 +178,19 @@ export default function JobListingCard({
                 <p className={styles.jobListingEmployerName}>
                   {jobListing.employer_name}
                 </p>
-                {jobListing.job_city ||
+                {(jobListing.job_city ||
                   jobListing.job_state ||
-                  (jobListing.job_country && (
-                    <p className={styles.jobListingLocation}>
-                      {[
-                        jobListing.job_city,
-                        jobListing.job_state,
-                        jobListing.job_country,
-                      ]
-                        .filter(Boolean)
-                        .join(", ")}
-                    </p>
-                  ))}
+                  jobListing.job_country) && (
+                  <p className={styles.jobListingLocation}>
+                    {[
+                      jobListing.job_city,
+                      jobListing.job_state,
+                      jobListing.job_country,
+                    ]
+                      .filter(Boolean)
+                      .join(", ")}
+                  </p>
+                )}
                 <ul className={styles.jobListingKeywords}>
                   <li>
                     {jobListing.job_employment_type &&
@@ -200,9 +200,8 @@ export default function JobListingCard({
                       ? "Part-time"
                       : jobListing.job_employment_type === "CONTRACTOR"
                       ? "Contractor"
-                      : jobListing.job_employment_type === "INTERN"
-                      ? "Internship"
-                      : ""}
+                      : jobListing.job_employment_type === "INTERN" &&
+                        "Internship"}
                   </li>
                   {jobListing.job_is_remote && <li>Remote</li>}
                   {matchedSkills &&
